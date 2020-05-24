@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UsersRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\User;
@@ -20,7 +21,7 @@ class UserController extends Controller
         return response()->json($data, 200);
     }
 
-    public function update($id, Request $request){
+    public function update($id, UsersRequest $request){
 
         $data = User::where('id', $id)->firstOrFail();
         $data->name = $request->get('name');
@@ -32,7 +33,7 @@ class UserController extends Controller
         return response()->json($data, 200);
     }
 
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
         $data = User::create([
             'name' => $request->input('name'),
