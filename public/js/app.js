@@ -97203,7 +97203,7 @@ var cambioUsuarioPassword = function cambioUsuarioPassword(valor) {
     });
   };
 };
-var agregar = function agregar(nuevo_usuario) {
+var agregar = function agregar(data) {
   return /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(dispatch) {
       var errors;
@@ -97216,7 +97216,7 @@ var agregar = function agregar(nuevo_usuario) {
               });
               _context3.prev = 1;
               _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'user', nuevo_usuario);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'user', data);
 
             case 4:
               dispatch({
@@ -97247,7 +97247,7 @@ var agregar = function agregar(nuevo_usuario) {
     };
   }();
 };
-var editar = function editar(nuevo_usuario, id) {
+var editar = function editar(data, id) {
   return /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(dispatch) {
       var errors;
@@ -97260,7 +97260,7 @@ var editar = function editar(nuevo_usuario, id) {
               });
               _context4.prev = 1;
               _context4.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(URL + 'user/' + id, nuevo_usuario);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(URL + 'user/' + id, data);
 
             case 4:
               dispatch({

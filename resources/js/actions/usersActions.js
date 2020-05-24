@@ -83,14 +83,14 @@ export const cambioUsuarioPassword = (valor) => (dispatch) => {
     })
 };
 
-export const agregar = (nuevo_usuario) => async (dispatch) => {
+export const agregar = (data) => async (dispatch) => {
 
     dispatch({
         type: LOADING
     });
 
     try {
-        await axios.post(URL + 'user', nuevo_usuario);
+        await axios.post(URL + 'user', data);
 
         dispatch({
             type: GUARDAR
@@ -107,14 +107,14 @@ export const agregar = (nuevo_usuario) => async (dispatch) => {
     }
 };
 
-export const editar = (nuevo_usuario, id) => async (dispatch) => {
+export const editar = (data, id) => async (dispatch) => {
 
     dispatch({
         type: LOADING
     })
 
     try {
-        await axios.put(URL + 'user/' + id, nuevo_usuario)
+        await axios.put(URL + 'user/' + id, data)
 
         dispatch({
             type: GUARDAR
