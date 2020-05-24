@@ -1,24 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom'
+import Layout from './Layout';
+import Users from './Users'
 
-function Example() {
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Esto es un ejemplo</div>
-
-                        <div className="card-body">I'm an asdadexample component!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+function App() {
+  return (
+    <BrowserRouter>
+      <Layout />
+      <Route exact path="/users" component={Users} />
+    </BrowserRouter>
+  );
 }
 
-export default Example;
-
-if (document.getElementById('app')) {
-    ReactDOM.render(<Example />, document.getElementById('app'));
-}
+export default App;
