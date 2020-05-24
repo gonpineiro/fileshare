@@ -4,26 +4,26 @@ import Table from './Table'
 import Formulario from './Formulario'
 import Spinner from '../General/Spinner';
 
-import * as usersActions from '../../actions/usersActions'
+import * as empresasActions from '../../actions/empresasActions'
 
 
-class Users extends Component {
+class Empresas extends Component {
 
 	async componentDidMount() {
-		const { traerTodos, users } = this.props
+		const { traerTodos, empresas } = this.props
 
-		if (!users.length) traerTodos()
+		if (!empresas.length) traerTodos()
 	}
 
 	ponerContenido = () => {
 		const { 
-			traerTodos, recargar_table, loading, users, error, 
+			traerTodos, recargar_table, loading, empresas, error, 
 			history: { goBack } 
 		} = this.props
 
 		if (recargar_table) traerTodos()
 
-		if (loading && !users.length) return <Spinner />
+		if (loading && !empresas.length) return <Spinner />
 
 		if (error) return 'Error'
 
@@ -49,7 +49,7 @@ class Users extends Component {
 }
 
 const mapStateToProps = (reducers) => {
-	return reducers.usersReducer
+	return reducers.empresasReducer
 }
 
-export default connect(mapStateToProps, usersActions)(Users);
+export default connect(mapStateToProps, empresasActions)(Empresas);

@@ -6,42 +6,46 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Spinner from '../General/Spinner';
 
-import * as usersActions from '../../actions/usersActions'
+import * as empresasActions from '../../actions/empresasActions'
 
 const Formulario = (props) => {
 
    const {
-      user: { id, name, email, password },
+      empresa: { id, rs, cuil, domicilio, telefono },
       agregar,
       editar,
       borrar,
       cancelar,
       state_form,
       error_form,
-      cambioUsuarioName,
-      cambioUsuarioEmail,
-      cambioUsuarioPassword,
+      cambioEmpresaRs,
+      cambioEmpresaCuil,
+      cambioEmpresaDomicilio,
+      cambioEmpresaTelefono,
       loading,
    } = props
 
-   const handleCambioUsuarioName = (event) => cambioUsuarioName(event.target.value);
+   const handleCambioEmpresaRs = (event) => cambioEmpresaRs(event.target.value);
 
-   const handleCambioUsuarioEmail = (event) => cambioUsuarioEmail(event.target.value);
+   const handleCambioEmpresaCuil = (event) => cambioEmpresaCuil(event.target.value);
 
-   const handleCambioUsuarioPassword = (event) => cambioUsuarioPassword(event.target.value);
+   const handleCambioEmpresaDomicilio = (event) => cambioEmpresaDomicilio(event.target.value);
+
+   const handleCambioEmpresaTelefono = (event) => cambioEmpresaTelefono(event.target.value);
 
    const guardar = () => {
 
-      const nuevo_usuario = {
+      const data = {
          id: id,
-         name: name,
-         email: email,
-         password: password
+         rs: rs,
+         cuil: cuil,
+         domicilio: domicilio,
+         telefono: telefono
       };
 
-      if (state_form === 'crear') agregar(nuevo_usuario);
+      if (state_form === 'crear') agregar(data);
 
-      if (state_form === 'editar') editar(nuevo_usuario, id)
+      if (state_form === 'editar') editar(data, id)
    };
 
    const useStyles = makeStyles((theme) => ({
@@ -63,9 +67,9 @@ const Formulario = (props) => {
          <div className="card-header">
             <div className="row mt-2">
                <div className="col col-md-6 card-agregar" >
-                  {state_form === 'crear' ? 'AGREGAR USUARIO' : ''}
-                  {state_form === 'editar' ? 'MODIFICAR USUARIO' : ''}
-                  {state_form === 'borrar' ? 'ELIMINAR USUARIO' : ''}
+                  {state_form === 'crear' ? 'AGREGAR EMPRESA' : ''}
+                  {state_form === 'editar' ? 'MODIFICAR EMPRESA' : ''}
+                  {state_form === 'borrar' ? 'ELIMINAR EMPRESA' : ''}
                </div>
             </div>
          </div>
@@ -74,46 +78,62 @@ const Formulario = (props) => {
                <div className={classes.root}>
 
                   <Grid container spacing={3}>
-                     {/* NAME */}
+                     {/* RAZÓN SOCIAL */}
                      <Grid item xs={12}>
                         <TextField
                            id="standard-basic"
-                           label="Nombre"
+                           label="Razón Social"
                            type="text"
                            className="form-control transparent"
-                           value={name || ''}
-                           onChange={handleCambioUsuarioName}
-                           helperText={error_form.name}
-                           error={!error_form.name ? false : true}
+                           value={rs || ''}
+                           onChange={handleCambioEmpresaRs}
+                           helperText={error_form.rs}
+                           error={!error_form.rs ? false : true}
                            disabled={state_form === 'borrar' ? true : false}
                         />
                      </Grid>
 
-                     {/* EMAIL */}
+                     {/* CUIL */}
                      <Grid item xs={12} sm={12}>
                         <TextField
-                           label="Email"
-                           type="email"
+                           label="CUIL/CUIT"
+                           type="number"
                            className="form-control transparent"
-                           value={email || ''}
-                           onChange={handleCambioUsuarioEmail}
-                           helperText={error_form.email}
-                           error={!error_form.email ? false : true}
+                           value={cuil || ''}
+                           onChange={handleCambioEmpresaCuil}
+                           helperText={error_form.cuil}
+                           error={!error_form.cuil ? false : true}
                            disabled={state_form === 'borrar' ? true : false}
                         />
                      </Grid>
 
-                     {/* PASSWORD */}
+                     {/* DOMICILIO */}
                      <Grid item xs={12} sm={12}>
                         <TextField
                            id="standard-basic"
-                           label="Password"
+                           label="Domicilio"
                            type="text"
                            className="form-control transparent"
-                           value={password || ''}
-                           onChange={handleCambioUsuarioPassword}
-                           helperText={error_form.password}
-                           error={!error_form.password ? false : true}
+                           value={domicilio || ''}
+                           onChange={handleCambioEmpresaDomicilio}
+                           helperText={error_form.domicilio}
+                           error={!error_form.domicilio ? false : true}
+                           disabled={state_form === 'borrar' ? true : false}
+                        />
+
+                     </Grid>
+
+                     {/* TELÉFONO */}
+                     <Grid item xs={12} sm={12}>
+                        <TextField
+                           id="standard-basic"
+                           label="Teléfono"
+                           type="text"
+                           className="form-control transparent"
+                           value={telefono || ''}
+                           onChange={handleCambioEmpresaTelefono}
+                           helperText={error_form.telefono}
+                           error={!error_form.telefono ? false : true}
                            disabled={state_form === 'borrar' ? true : false}
                         />
 
@@ -167,7 +187,7 @@ const Formulario = (props) => {
 }
 
 const mapStateToProps = (reducers) => {
-   return reducers.usersReducer
+   return reducers.empresasReducer
 }
 
-export default connect(mapStateToProps, usersActions)(Formulario);
+export default connect(mapStateToProps, empresasActions)(Formulario);

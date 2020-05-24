@@ -39,7 +39,7 @@ export default function MenuRow(props) {
   return (
     <div>
       <Button aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
-        {data.name}
+        {data.name || data.rs}
       </Button>
       <Menu
         id="fade-menu"

@@ -4,28 +4,28 @@ import {
     TRAER_UNO,
     LOADING,
     ERROR_FORM,
-
-    CAMBIO_USUARIO_ID,
-    CAMBIO_USUARIO_NAME,
-    CAMBIO_USUARIO_EMAIL,
-    CAMBIO_USUARIO_PASSWORD,
     CAMBIO_ESTADO_FORM,
-    
+
+    CAMBIO_EMPRESA_RS,
+    CAMBIO_EMPRESA_CUIL,
+    CAMBIO_EMPRESA_DOMICILIO,
+    CAMBIO_EMPRESA_TELEFONO,
+
     CANCELAR,
     RECARGA,
     GUARDAR
-} from '../types/userTypes'
+} from '../types/empresaTypes'
 
 const URL = 'http://192.168.0.146:950/api/'
 
 export const traerTodos = () => async (dispatch) => {
-    
+
     dispatch({
         type: RECARGA
     })
 
     try {
-        const response = await axios.get(URL + 'user')
+        const response = await axios.get(URL + 'empresa')
 
         dispatch({
             type: TRAER_TODOS,
@@ -46,10 +46,10 @@ export const traerUno = (id) => async (dispatch) => {
     dispatch({
         type: CAMBIO_ESTADO_FORM,
         payload: 'editar'
-    })    
+    })
 
     try {
-        const response = await axios.get(URL + 'user/' + id)
+        const response = await axios.get(URL + 'empresa/' + id)
 
         dispatch({
             type: TRAER_UNO,
@@ -61,35 +61,42 @@ export const traerUno = (id) => async (dispatch) => {
     }
 }
 
-export const cambioUsuarioName = (valor) => (dispatch) => {
+export const cambioEmpresaRs = (valor) => (dispatch) => {
     dispatch({
-        type: CAMBIO_USUARIO_NAME,
+        type: CAMBIO_EMPRESA_RS,
         payload: valor
     })
 };
 
-export const cambioUsuarioEmail = (valor) => (dispatch) => {
+export const cambioEmpresaCuil = (valor) => (dispatch) => {
     dispatch({
-        type: CAMBIO_USUARIO_EMAIL,
+        type: CAMBIO_EMPRESA_CUIL,
         payload: valor
     })
 };
 
-export const cambioUsuarioPassword = (valor) => (dispatch) => {
+export const cambioEmpresaDomicilio = (valor) => (dispatch) => {
     dispatch({
-        type: CAMBIO_USUARIO_PASSWORD,
+        type: CAMBIO_EMPRESA_DOMICILIO,
         payload: valor
     })
 };
 
-export const agregar = (nuevo_usuario) => async (dispatch) => {
+export const cambioEmpresaTelefono = (valor) => (dispatch) => {
+    dispatch({
+        type: CAMBIO_EMPRESA_TELEFONO,
+        payload: valor
+    })
+};
+
+export const agregar = (data) => async (dispatch) => {
 
     dispatch({
         type: LOADING
     });
 
     try {
-        await axios.post(URL + 'user', nuevo_usuario);
+        await axios.post(URL + 'empresa', data);
 
         dispatch({
             type: GUARDAR
@@ -98,7 +105,7 @@ export const agregar = (nuevo_usuario) => async (dispatch) => {
     }
     catch (error) {
         const errors = error.response.data.errors
-        
+
         dispatch({
             type: ERROR_FORM,
             payload: errors
@@ -106,14 +113,14 @@ export const agregar = (nuevo_usuario) => async (dispatch) => {
     }
 };
 
-export const editar = (nuevo_usuario, id) => async (dispatch) => {
+export const editar = (data, id) => async (dispatch) => {
 
     dispatch({
         type: LOADING
     })
 
     try {
-        await axios.put(URL + 'user/' + id, nuevo_usuario)
+        await axios.put(URL + 'empresa/' + id, data)
 
         dispatch({
             type: GUARDAR
@@ -141,7 +148,7 @@ export const traerUnoBorrar = (id) => async (dispatch) => {
 
 
     try {
-        const response = await axios.get(URL + 'user/' + id)
+        const response = await axios.get(URL + 'empresa/' + id)
 
         dispatch({
             type: TRAER_UNO,
@@ -160,7 +167,7 @@ export const borrar = (id) => async (dispatch) => {
     })
 
     try {
-        await axios.delete(URL + 'user/' + id)
+        await axios.delete(URL + 'empresa/' + id)
 
         dispatch({
             type: GUARDAR

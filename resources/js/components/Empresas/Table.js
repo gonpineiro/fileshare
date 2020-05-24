@@ -3,22 +3,24 @@ import { connect } from 'react-redux'
 import MenuRow from '../General/MenuRow';
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 
-import * as usersActions from '../../actions/usersActions'
+import * as empresasActions from '../../actions/empresasActions'
 
 const Table = (props) => {
-  const { users, goBack } = props
+  const { empresas, goBack } = props
 
-  const addRow = () => users.map((user, key) => (
+  const addRow = () => empresas.map((empresa, key) => (
     <tr key={key}>
-      <td>{user.id}</td>
+      <td>{empresa.id}</td>
       <td>{
         <MenuRow
           props={props}
-          data={user}
+          data={empresa}
         />
       }
       </td>
-      <td>{user.email}</td>
+      <td>{empresa.cuil}</td>
+      <td>{empresa.domicilio}</td>
+      <td>{empresa.telefono}</td>
     </tr>
   ))
 
@@ -27,7 +29,7 @@ const Table = (props) => {
       <div className="card-margin">
         <div className="row mt-2">
           <div className="col col-md-6">
-            <h4 className="title-table">Lista de usuarios</h4>
+            <h4 className="title-table">Lista de empresas</h4>
           </div>
           <div className="col col-md-6 text-derecha">
             <KeyboardReturnIcon fontSize="large" onClick={goBack} className="link" />
@@ -37,8 +39,10 @@ const Table = (props) => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Email</th>
+              <th>Razón Social</th>
+              <th>CUIL</th>
+              <th>Domicilio</th>
+              <th>Teléfono</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +55,7 @@ const Table = (props) => {
 }
 
 const mapStateToProps = (reducers) => {
-  return reducers.usersReducer
+  return reducers.empresasReducer
 }
 
-export default connect(mapStateToProps, usersActions)(Table);
+export default connect(mapStateToProps, empresasActions)(Table);

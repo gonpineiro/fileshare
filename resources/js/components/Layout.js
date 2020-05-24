@@ -14,8 +14,8 @@ function Layout(props) {
                 <Link className="Navbar__brand" to="/users">
                     <span className="font-weight-light">USUARIOS</span>
                 </Link>
-                <Link className="Navbar__brand" to="/marcas">
-                    <span className="font-weight-light">MARCAS</span>
+                <Link className="Navbar__brand" to="/empresas">
+                    <span className="font-weight-light">EMPRESAS</span>
                 </Link>
                 <Link className="Navbar__brand" to="/geneticas">
                     <span className="font-weight-light">GENÉTICAS</span>

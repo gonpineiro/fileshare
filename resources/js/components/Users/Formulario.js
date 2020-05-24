@@ -32,16 +32,16 @@ const Formulario = (props) => {
 
    const guardar = () => {
 
-      const nuevo_usuario = {
+      const data = {
          id: id,
          name: name,
          email: email,
          password: password
       };
 
-      if (state_form === 'crear') agregar(nuevo_usuario);
+      if (state_form === 'crear') agregar(data);
 
-      if (state_form === 'editar') editar(nuevo_usuario, id)
+      if (state_form === 'editar') editar(data, id)
    };
 
    const useStyles = makeStyles((theme) => ({

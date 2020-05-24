@@ -6,19 +6,20 @@ import {
   ERROR_FORM,
   CAMBIO_ESTADO_FORM,
 
-  CAMBIO_USUARIO_ID,
-  CAMBIO_USUARIO_NAME,
-  CAMBIO_USUARIO_EMAIL,
-  CAMBIO_USUARIO_PASSWORD,
+  CAMBIO_EMPRESA_ID,
+  CAMBIO_EMPRESA_RS,
+  CAMBIO_EMPRESA_CUIL,
+  CAMBIO_EMPRESA_DOMICILIO,
+  CAMBIO_EMPRESA_TELEFONO,
 
   RECARGA,
   CANCELAR,
   GUARDAR
-} from '../types/userTypes'
+} from '../types/empresaTypes'
 
 const INITIAL_STATE = {
-  users: [],
-  user: [],
+  empresas: [],
+  empresa: [],
   loading: false,
   error: '',
   error_form: '',
@@ -31,7 +32,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_TODOS:
       return {
         ...state,
-        users: action.payload,
+        empresas: action.payload,
         loading: false,
         recargar_table: false,
         error: ''
@@ -39,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_UNO:
       return {
         ...state,
-        user: action.payload,
+        empresa: action.payload,
         loading: false,
         error: ''
       }
@@ -50,39 +51,48 @@ export default (state = INITIAL_STATE, action) => {
     case ERROR_FORM:
       return { ...state, error_form: action.payload, loading: false }
 
-    case CAMBIO_USUARIO_ID:
+    case CAMBIO_EMPRESA_ID:
       return {
         ...state,
-        user: {
-          ...state.user,
+        empresa: {
+          ...state.empresa,
           id: action.payload
         }
       };
 
-    case CAMBIO_USUARIO_NAME:
+    case CAMBIO_EMPRESA_RS:
       return {
         ...state,
-        user: {
-          ...state.user,
-          name: action.payload
+        empresa: {
+          ...state.empresa,
+          rs: action.payload
         }
       };
 
-    case CAMBIO_USUARIO_EMAIL:
+    case CAMBIO_EMPRESA_CUIL:
       return {
         ...state,
-        user: {
-          ...state.user,
-          email: action.payload
+        empresa: {
+          ...state.empresa,
+          cuil: action.payload
         }
       };
 
-    case CAMBIO_USUARIO_PASSWORD:
+    case CAMBIO_EMPRESA_DOMICILIO:
       return {
         ...state,
-        user: {
-          ...state.user,
-          password: action.payload
+        empresa: {
+          ...state.empresa,
+          domicilio: action.payload
+        }
+      };
+
+    case CAMBIO_EMPRESA_TELEFONO:
+      return {
+        ...state,
+        empresa: {
+          ...state.empresa,
+          telefono: action.payload
         }
       };
 
@@ -95,11 +105,13 @@ export default (state = INITIAL_STATE, action) => {
     case GUARDAR:
       return {
         ...state,
-        user: {
+        empresa: {
           id: '',
-          name: '',
-          email: '',
-          password: ''
+          rs: '',
+          cuil: '',
+          domicilio: '',
+          telefono: '',
+          estado: '',
         },
         loading: false,
         error: '',
@@ -108,27 +120,29 @@ export default (state = INITIAL_STATE, action) => {
         state_form: 'crear'
       };
 
-      case CANCELAR:
-        return {
-          ...state,
-          loading: false,
-          error: '',
-          error_form: '',
-          user: {
-            id: '',
-            name: '',
-            email: '',
-            password: ''
-          },
-          state_form: 'crear'
-        };
-  
-      case RECARGA:
-        return {
-          ...state,
-          loading: true,
-          recargar_table: false,
-        };
+    case CANCELAR:
+      return {
+        ...state,
+        loading: false,
+        error: '',
+        error_form: '',
+        empresa: {
+          id: '',
+          rs: '',
+          cuil: '',
+          domicilio: '',
+          telefono: '',
+          estado: '',
+        },
+        state_form: 'crear'
+      };
+
+    case RECARGA:
+      return {
+        ...state,
+        loading: true,
+        recargar_table: false,
+      };
 
     default: return state
   }
