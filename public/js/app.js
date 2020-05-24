@@ -96670,7 +96670,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-var URL = 'http://192.168.0.146:901/api/';
+var URL = 'http://192.168.0.146:950/api/';
 var traerTodos = function traerTodos() {
   return /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch) {
