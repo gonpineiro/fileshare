@@ -16,13 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
-
-
-
 Route::group(['middleware' => 'auth'], function () {
+    
     Route::get('/home', function () {return view('home');});
+
     Route::get('/users', function () {return view('home');});
+
     Route::get('/empresas', function () {return view('home');});
+
+    Route::get('/clientes', function () {return view('home');});
+
     Route::get('/', function () {return view('home');});
 });

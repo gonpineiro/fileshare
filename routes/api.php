@@ -27,6 +27,12 @@ Route::middleware('auth:api')->put('/empresa/{id}', 'EmpresaController@update');
 Route::middleware('auth:api')->post('/empresa', 'EmpresaController@store');
 Route::middleware('auth:api')->delete('/empresa/{id}', 'EmpresaController@destroy');
 
+Route::middleware('auth:api')->get('/cliente', 'ClienteController@index');
+Route::middleware('auth:api')->get('/cliente/{id}', 'ClienteController@edit');
+Route::middleware('auth:api')->put('/cliente/{id}', 'ClienteController@update');
+Route::middleware('auth:api')->post('/cliente', 'ClienteController@store');
+Route::middleware('auth:api')->delete('/cliente/{id}', 'ClienteController@destroy');
+
 /* Route::get('/empresa', 'EmpresaController@index');
 Route::get('/empresa/{id}', 'EmpresaController@edit');
 Route::put('/empresa/{id}', 'EmpresaController@update');
