@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {return view('home');});
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/users', function () {return view('home');});
 
-Route::get('/empresas', function () {return view('home');});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', function () {return view('home');});
+    Route::get('/users', function () {return view('home');});
+    Route::get('/empresas', function () {return view('home');});
+    Route::get('/', function () {return view('home');});
+});

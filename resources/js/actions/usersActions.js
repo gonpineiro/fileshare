@@ -33,7 +33,8 @@ export const traerTodos = () => async (dispatch) => {
         })
 
     } catch (error) {
-        console.log(error)
+        const errors = error.response.data.errors
+        console.log(error.response)
     }
 }
 

@@ -26,7 +26,7 @@ export const traerTodos = () => async (dispatch) => {
 
     try {
         const response = await axios.get(URL + 'empresa')
-
+        
         dispatch({
             type: TRAER_TODOS,
             payload: response.data
@@ -186,6 +186,22 @@ export const borrar = (id) => async (dispatch) => {
 export const cancelar = () => (dispatch) => {
     dispatch({
         type: CANCELAR
+    })
+}
+
+export const traerTabla = () => (dispatch) => {
+
+    dispatch({
+        type: CAMBIO_ESTADO_FORM,
+        payload: 'tabla'
+    })
+}
+
+export const traerFormulario = () => (dispatch) => {
+
+    dispatch({
+        type: CAMBIO_ESTADO_FORM,
+        payload: 'crear'
     })
 }
 

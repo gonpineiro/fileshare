@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Spinner from '../General/Spinner';
+import TocIcon from '@material-ui/icons/Toc';
 
 import * as empresasActions from '../../actions/empresasActions'
 
@@ -16,6 +17,7 @@ const Formulario = (props) => {
       editar,
       borrar,
       cancelar,
+      traerTabla,
       state_form,
       error_form,
       cambioEmpresaRs,
@@ -70,6 +72,9 @@ const Formulario = (props) => {
                   {state_form === 'crear' ? 'AGREGAR EMPRESA' : ''}
                   {state_form === 'editar' ? 'MODIFICAR EMPRESA' : ''}
                   {state_form === 'borrar' ? 'ELIMINAR EMPRESA' : ''}
+               </div>
+               <div className="col col-md-6 text-derecha" >
+                  <TocIcon fontSize="large" className="link" onClick={traerTabla} />
                </div>
             </div>
          </div>
