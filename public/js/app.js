@@ -96846,19 +96846,20 @@ var editar = function editar(nuevo_usuario, id) {
               dispatch({
                 type: _types_userTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
               });
-              _context4.next = 11;
+              _context4.next = 12;
               break;
 
             case 7:
               _context4.prev = 7;
               _context4.t0 = _context4["catch"](1);
               errors = _context4.t0.response.data.errors;
+              console.log(_context4.t0.response);
               dispatch({
                 type: _types_userTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
                 payload: errors
               });
 
-            case 11:
+            case 12:
             case "end":
               return _context4.stop();
           }
@@ -97227,7 +97228,7 @@ function Layout(props) {
     className: "font-weight-light"
   }, "SIWRL")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "Navbar__brand",
-    to: "/ambientes"
+    to: "/users"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "font-weight-light"
   }, "USUARIOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {

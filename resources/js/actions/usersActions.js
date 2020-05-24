@@ -121,6 +121,7 @@ export const editar = (nuevo_usuario, id) => async (dispatch) => {
 
     } catch (error) {
         const errors = error.response.data.errors
+        console.log(error.response)
         dispatch({
             type: ERROR_FORM,
             payload: errors
