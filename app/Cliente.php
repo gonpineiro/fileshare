@@ -14,5 +14,13 @@ class Cliente extends Model
     protected $fillable = [
         'rs', 'cuil', 'domicilio', 'telefono', 'estado', 'user_id', 'empresa_id'
     ];
+
+    public function empresa(){
+        return $this->belongsTo('App\Empresa');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
     
 }

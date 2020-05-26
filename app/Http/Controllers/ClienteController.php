@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Cliente;
 use Illuminate\Http\Request;
+use App\Http\Requests\ClientesRequest;
 
 class ClienteController extends Controller
 {
     public function index()
     {
-        $data = Cliente::all();
+        $data = Cliente::with('user')
+        ->with('empresa')
+        ->get();
         return response()->json($data, 200);
     }
 
@@ -18,7 +21,7 @@ class ClienteController extends Controller
         return response()->json($data, 200);
     }
 
-    public function update($id, Request $request){
+    public function update($id, ClientesRequest $request){
 
         $data = Cliente::where('id', $id)->firstOrFail();
         $data->rs = $request->get('rs');
@@ -31,7 +34,7 @@ class ClienteController extends Controller
         return response()->json($data, 200);
     }
 
-    public function store(Request $request)
+    public function store(ClientesRequest $request)
     {
         $data = Cliente::create([
             'rs' => $request->input('rs'),

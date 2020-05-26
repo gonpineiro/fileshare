@@ -6,20 +6,22 @@ import {
   ERROR_FORM,
   CAMBIO_ESTADO_FORM,
 
-  CAMBIO_EMPRESA_ID,
-  CAMBIO_EMPRESA_RS,
-  CAMBIO_EMPRESA_CUIL,
-  CAMBIO_EMPRESA_DOMICILIO,
-  CAMBIO_EMPRESA_TELEFONO,
+  CAMBIO_CLIENTE_ID,
+  CAMBIO_CLIENTE_RS,
+  CAMBIO_CLIENTE_CUIL,
+  CAMBIO_CLIENTE_DOMICILIO,
+  CAMBIO_CLIENTE_TELEFONO,
+  CAMBIO_CLIENTE_USER_ID,
+  CAMBIO_CLIENTE_EMPRESA_ID,
 
   RECARGA,
   CANCELAR,
   GUARDAR
-} from '../types/empresaTypes'
+} from '../types/clienteTypes'
 
 const INITIAL_STATE = {
-  empresas: [],
-  empresa: [],
+  clientes: [],
+  cliente: [],
   loading: false,
   error: '',
   error_form: '',
@@ -32,7 +34,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_TODOS:
       return {
         ...state,
-        empresas: action.payload,
+        clientes: action.payload,
         loading: false,
         recargar_table: false,
         error: ''
@@ -40,7 +42,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_UNO:
       return {
         ...state,
-        empresa: action.payload,
+        cliente: action.payload,
         loading: false,
         error: ''
       }
@@ -51,48 +53,66 @@ export default (state = INITIAL_STATE, action) => {
     case ERROR_FORM:
       return { ...state, error_form: action.payload, loading: false }
 
-    case CAMBIO_EMPRESA_ID:
+    case CAMBIO_CLIENTE_ID:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        cliente: {
+          ...state.cliente,
           id: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_RS:
+    case CAMBIO_CLIENTE_RS:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        cliente: {
+          ...state.cliente,
           rs: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_CUIL:
+    case CAMBIO_CLIENTE_CUIL:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        cliente: {
+          ...state.cliente,
           cuil: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_DOMICILIO:
+    case CAMBIO_CLIENTE_DOMICILIO:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        cliente: {
+          ...state.cliente,
           domicilio: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_TELEFONO:
+    case CAMBIO_CLIENTE_TELEFONO:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        cliente: {
+          ...state.cliente,
           telefono: action.payload
+        }
+      };
+
+    case CAMBIO_CLIENTE_USER_ID:
+      return {
+        ...state,
+        cliente: {
+          ...state.cliente,
+          user_id: action.payload
+        }
+      };
+
+    case CAMBIO_CLIENTE_EMPRESA_ID:
+      return {
+        ...state,
+        cliente: {
+          ...state.cliente,
+          empresa_id: action.payload
         }
       };
 
@@ -105,8 +125,10 @@ export default (state = INITIAL_STATE, action) => {
     case GUARDAR:
       return {
         ...state,
-        empresa: {
+        cliente: {
           id: '',
+          user_id: '',
+          empresa_id: '',
           rs: '',
           cuil: '',
           domicilio: '',
@@ -126,8 +148,10 @@ export default (state = INITIAL_STATE, action) => {
         loading: false,
         error: '',
         error_form: '',
-        empresa: {
+        cliente: {
           id: '',
+          user_id: '',
+          empresa_id: '',
           rs: '',
           cuil: '',
           domicilio: '',

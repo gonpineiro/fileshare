@@ -4,24 +4,26 @@ import MenuRow from '../General/MenuRow';
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 import AddIcon from '@material-ui/icons/Add';
 
-import * as empresasActions from '../../actions/empresasActions'
+import * as clientesActions from '../../actions/clientesActions'
 
 const Table = (props) => {
-  const { empresas, goBack, state_form, traerFormulario } = props
+  const { clientes, goBack, state_form, traerFormulario } = props
 
-  const addRow = () => empresas.map((empresa, key) => (
+  const addRow = () => clientes.map((cliente, key) => (
     <tr key={key}>
-      <td>{empresa.id}</td>
+      <td>{cliente.id}</td>
       <td>{
         <MenuRow
           props={props}
-          data={empresa}
+          data={cliente}
         />
       }
       </td>
-      <td>{empresa.cuil}</td>
-      <td>{empresa.domicilio}</td>
-      <td>{empresa.telefono}</td>
+      <td>{cliente.cuil}</td>
+      <td>{cliente.domicilio}</td>
+      <td>{cliente.telefono}</td>
+      <td>{cliente.user.name}</td>
+      <td>{cliente.empresa.rs}</td>
     </tr>
   ))
 
@@ -31,7 +33,7 @@ const Table = (props) => {
         <div className="row mt-2">
           <div className="col col-md-6 text-izquierda">
             <h4>
-              Lista de empresas
+              Lista de clientes
               {state_form === 'tabla' ? <AddIcon fontSize="large" className="link" onClick={traerFormulario} /> : ''}
             </h4>
           </div>
@@ -47,6 +49,8 @@ const Table = (props) => {
               <th>CUIL</th>
               <th>Domicilio</th>
               <th>Teléfono</th>
+              <th>Usuario</th>
+              <th>Empresa</th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +63,7 @@ const Table = (props) => {
 }
 
 const mapStateToProps = (reducers) => {
-  return reducers.empresasReducer
+  return reducers.clientesReducer
 }
 
-export default connect(mapStateToProps, empresasActions)(Table);
+export default connect(mapStateToProps, clientesActions)(Table);
