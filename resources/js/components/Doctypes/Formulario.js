@@ -3,16 +3,23 @@ import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import Spinner from '../General/Spinner';
 import TocIcon from '@material-ui/icons/Toc';
 
-import * as empresasActions from '../../actions/empresasActions'
+import * as doctypesActions from '../../actions/doctypesActions'
 
 const Formulario = (props) => {
 
    const {
-      empresa: { id, rs, cuil, domicilio, telefono },
+      doctype: { id, name, tipo, obligatorio, estado },
       agregar,
       editar,
       borrar,
@@ -20,29 +27,29 @@ const Formulario = (props) => {
       traerTabla,
       state_form,
       error_form,
-      cambioEmpresaRs,
-      cambioEmpresaCuil,
-      cambioEmpresaDomicilio,
-      cambioEmpresaTelefono,
+      cambioDoctypeName,
+      cambioDoctypeTipo,
+      cambioDoctypeObligatorio,
+      cambioDoctypeEstado,
       loading,
    } = props
 
-   const handleCambioEmpresaRs = (event) => cambioEmpresaRs(event.target.value);
+   const handleCambioDoctypeName = (event) => cambioDoctypeName(event.target.value);
 
-   const handleCambioEmpresaCuil = (event) => cambioEmpresaCuil(event.target.value);
+   const handleCambioDoctypeTipo = (event) => cambioDoctypeTipo(event.target.value);
 
-   const handleCambioEmpresaDomicilio = (event) => cambioEmpresaDomicilio(event.target.value);
+   const handleCambioDoctypeObligatorio = (event) => cambioDoctypeObligatorio(event.target.checked);
 
-   const handleCambioEmpresaTelefono = (event) => cambioEmpresaTelefono(event.target.value);
+   const handleCambioDoctypeEstado = (event) => cambioDoctypeEstado(event.target.checked);
 
    const guardar = () => {
 
       const data = {
          id: id,
-         rs: rs,
-         cuil: cuil,
-         domicilio: domicilio,
-         telefono: telefono
+         name: name,
+         tipo: tipo,
+         obligatorio: obligatorio,
+         estado: estado
       };
 
       if (state_form === 'crear') agregar(data);
@@ -53,6 +60,10 @@ const Formulario = (props) => {
    const useStyles = makeStyles((theme) => ({
       root: {
          flexGrow: 1,
+         width: "100%",
+      },
+
+      formControl: {
          width: "100%",
       },
 
@@ -83,66 +94,73 @@ const Formulario = (props) => {
                <div className={classes.root}>
 
                   <Grid container spacing={3}>
-                     {/* RAZÓN SOCIAL */}
+                     {/* NAME */}
                      <Grid item xs={12}>
                         <TextField
                            id="standard-basic"
-                           label="Razón Social"
+                           label="Nombre del documento"
                            type="text"
                            className="form-control transparent"
-                           value={rs || ''}
-                           onChange={handleCambioEmpresaRs}
-                           helperText={error_form.rs}
-                           error={!error_form.rs ? false : true}
+                           value={name || ''}
+                           onChange={handleCambioDoctypeName}
+                           helperText={error_form.name}
+                           error={!error_form.name ? false : true}
                            disabled={state_form === 'borrar' ? true : false}
                         />
                      </Grid>
 
-                     {/* CUIL */}
+                     {/* TIPO */}
                      <Grid item xs={12} sm={12}>
-                        <TextField
-                           label="CUIL/CUIT"
-                           type="number"
-                           className="form-control transparent"
-                           value={cuil || ''}
-                           onChange={handleCambioEmpresaCuil}
-                           helperText={error_form.cuil}
-                           error={!error_form.cuil ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
+                        <FormControl className={classes.formControl}>
+                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.tipo ? false : true}>Requerido</InputLabel>
+                           <Select
+                              labelId="demo-simple-select-helper-label"
+                              id="demo-simple-select-helper"
+                              value={tipo || ''}
+                              onChange={handleCambioDoctypeTipo}
+                              error={!error_form.tipo ? false : true}
+                              disabled={state_form === 'borrar' ? true : false}
+                              className="transparent"
+                           >
+                              <MenuItem value={1}>Mensual</MenuItem>
+                              <MenuItem value={2}>Anual</MenuItem>
+                           </Select>
+                           <FormHelperText error={!error_form.tipo ? false : true}>{error_form.tipo}</FormHelperText>
+                        </FormControl>
                      </Grid>
 
-                     {/* DOMICILIO */}
                      <Grid item xs={12} sm={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Domicilio"
-                           type="text"
-                           className="form-control transparent"
-                           value={domicilio || ''}
-                           onChange={handleCambioEmpresaDomicilio}
-                           helperText={error_form.domicilio}
-                           error={!error_form.domicilio ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
+                        {/* OBLIGATORIO */}
+                        <FormControlLabel
+                           control={
+                              <Checkbox
+                                 checked={obligatorio || false}
+                                 onChange={handleCambioDoctypeObligatorio}
+                                 name="obligatorio"
+                                 color="default"
+                                 inputProps={{ 'aria-label': 'checkbox with default color' }}
+                              />
+                           }
+                           label="Obligatorio"
+                        />
+                        {/* ESTADO */}
+                        <FormControlLabel
+                           control={
+                              <Checkbox
+                                 checked={estado || false}
+                                 onChange={handleCambioDoctypeEstado}
+                                 name="estado"
+                                 color="default"
+                                 inputProps={{ 'aria-label': 'checkbox with default color' }}
+                                 disabled={state_form === 'crear' ? true : false}
+                              />
+                           }
+                           label="Estado"
                         />
 
                      </Grid>
 
-                     {/* TELÉFONO */}
-                     <Grid item xs={12} sm={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Teléfono"
-                           type="text"
-                           className="form-control transparent"
-                           value={telefono || ''}
-                           onChange={handleCambioEmpresaTelefono}
-                           helperText={error_form.telefono}
-                           error={!error_form.telefono ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
-
-                     </Grid>
+                    
 
                      {/* BUTTOMS */}
                      <Grid item xs={6} sm={6} >
@@ -192,7 +210,7 @@ const Formulario = (props) => {
 }
 
 const mapStateToProps = (reducers) => {
-   return reducers.empresasReducer
+   return reducers.doctypesReducer
 }
 
-export default connect(mapStateToProps, empresasActions)(Formulario);
+export default connect(mapStateToProps, doctypesActions)(Formulario);

@@ -33,6 +33,12 @@ Route::middleware('auth:api')->put('/cliente/{id}', 'ClienteController@update');
 Route::middleware('auth:api')->post('/cliente', 'ClienteController@store');
 Route::middleware('auth:api')->delete('/cliente/{id}', 'ClienteController@destroy');
 
+Route::middleware('auth:api')->get('/doctype', 'DoctypeController@index');
+Route::middleware('auth:api')->get('/doctype/{id}', 'DoctypeController@edit');
+Route::middleware('auth:api')->put('/doctype/{id}', 'DoctypeController@update');
+Route::middleware('auth:api')->post('/doctype', 'DoctypeController@store');
+Route::middleware('auth:api')->delete('/doctype/{id}', 'DoctypeController@destroy');
+
 /* Route::get('/empresa', 'EmpresaController@index');
 Route::get('/empresa/{id}', 'EmpresaController@edit');
 Route::put('/empresa/{id}', 'EmpresaController@update');

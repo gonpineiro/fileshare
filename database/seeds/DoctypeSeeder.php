@@ -11,8 +11,8 @@ class DoctypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('doctypes')->insert(['name' => 'F931','tipo' => 1,'obligatorio' => 1,'estado' => 1]);
-        DB::table('doctypes')->insert(['name' => 'Recibo de Sueldo','tipo' => 1,'obligatorio' => 1,'estado' => 1]);
-        DB::table('doctypes')->insert(['name' => 'Alta Temprana','tipo' => 1,'obligatorio' => 1,'estado' => 1]);
+        DB::table('doctypes')->insert(['name' => 'F931','tipo' => 1,'obligatorio' => false,'estado' => true]);
+        DB::table('doctypes')->insert(['name' => 'Recibo de Sueldo','tipo' => 1,'obligatorio' => true,'estado' => true]);
+        DB::table('doctypes')->insert(['name' => 'Alta Temprana','tipo' => 1,'obligatorio' => true,'estado' => true]);
     }
 }

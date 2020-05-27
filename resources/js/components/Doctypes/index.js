@@ -4,26 +4,26 @@ import Table from './Table'
 import Formulario from './Formulario'
 import Spinner from '../General/Spinner';
 
-import * as empresasActions from '../../actions/empresasActions'
+import * as doctypesActions from '../../actions/doctypesActions'
 
 
-class Empresas extends Component {
+class Doctypes extends Component {
 
 	async componentDidMount() {
-		const { traerTodos, empresas } = this.props
+		const { traerTodos, doctypes } = this.props
 
-		if (!empresas.length) traerTodos()
+		if (!doctypes.length) traerTodos()
 	}
 
 	ponerContenido = () => {
 		const {
-			traerTodos, recargar_table, loading, empresas, error,
+			traerTodos, recargar_table, loading, doctypes, error,
 			history: { goBack }
 		} = this.props
 
 		if (recargar_table) traerTodos()
 
-		if (loading && !empresas.length) return <Spinner />
+		if (loading && !doctypes.length) return <Spinner />
 
 		if (error) return 'Error'
 
@@ -63,7 +63,7 @@ class Empresas extends Component {
 }
 
 const mapStateToProps = (reducers) => {
-	return reducers.empresasReducer
+	return reducers.doctypesReducer
 }
 
-export default connect(mapStateToProps, empresasActions)(Empresas);
+export default connect(mapStateToProps, doctypesActions)(Doctypes);

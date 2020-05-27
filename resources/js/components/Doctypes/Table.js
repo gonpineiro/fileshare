@@ -3,25 +3,26 @@ import { connect } from 'react-redux'
 import MenuRow from '../General/MenuRow';
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 import AddIcon from '@material-ui/icons/Add';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
-import * as empresasActions from '../../actions/empresasActions'
+import * as doctypesActions from '../../actions/doctypesActions'
 
 const Table = (props) => {
-  const { empresas, goBack, state_form, traerFormulario } = props
+  const { doctypes, goBack, state_form, traerFormulario } = props
 
-  const addRow = () => empresas.map((empresa, key) => (
+  const addRow = () => doctypes.map((doctype, key) => (
     <tr key={key}>
-      <td>{empresa.id}</td>
+      <td>{doctype.id}</td>
       <td>{
         <MenuRow
           props={props}
-          data={empresa}
+          data={doctype}
         />
       }
       </td>
-      <td>{empresa.cuil}</td>
-      <td>{empresa.domicilio}</td>
-      <td>{empresa.telefono}</td>
+      <td>{doctype.tipo === 1 ? 'Mensual' : 'Anul'}</td>
+      <td>{doctype.obligatorio ? <CheckCircleIcon fontSize="small"  /> : ''}</td>
+      <td>{doctype.estado ? <CheckCircleIcon fontSize="small"  /> : ''}</td>
     </tr>
   ))
 
@@ -31,7 +32,7 @@ const Table = (props) => {
         <div className="row mt-2">
           <div className="col col-md-6 text-izquierda">
             <h4>
-              Lista de empresas
+              Tipos de documentos
               {state_form === 'tabla' ? <AddIcon fontSize="large" className="link" onClick={traerFormulario} /> : ''}
             </h4>
           </div>
@@ -43,10 +44,10 @@ const Table = (props) => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Razón Social</th>
-              <th>CUIL</th>
-              <th>Domicilio</th>
-              <th>Teléfono</th>
+              <th>Nombre</th>
+              <th>Requerido</th>
+              <th>Obligatorio</th>
+              <th>Estado</th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +60,7 @@ const Table = (props) => {
 }
 
 const mapStateToProps = (reducers) => {
-  return reducers.empresasReducer
+  return reducers.doctypesReducer
 }
 
-export default connect(mapStateToProps, empresasActions)(Table);
+export default connect(mapStateToProps, doctypesActions)(Table);

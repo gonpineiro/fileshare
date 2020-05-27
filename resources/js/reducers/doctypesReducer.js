@@ -6,20 +6,20 @@ import {
   ERROR_FORM,
   CAMBIO_ESTADO_FORM,
 
-  CAMBIO_EMPRESA_ID,
-  CAMBIO_EMPRESA_RS,
-  CAMBIO_EMPRESA_CUIL,
-  CAMBIO_EMPRESA_DOMICILIO,
-  CAMBIO_EMPRESA_TELEFONO,
+  CAMBIO_DOCTYPE_ID,
+  CAMBIO_DOCTYPE_NAME,
+  CAMBIO_DOCTYPE_TIPO,
+  CAMBIO_DOCTYPE_OBLIGATORIO,
+  CAMBIO_DOCTYPE_ESTADO,
 
   RECARGA,
   CANCELAR,
   GUARDAR
-} from '../types/empresaTypes'
+} from '../types/doctypeTypes'
 
 const INITIAL_STATE = {
-  empresas: [],
-  empresa: [],
+  doctypes: [],
+  doctype: [],
   loading: false,
   error: '',
   error_form: '',
@@ -32,7 +32,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_TODOS:
       return {
         ...state,
-        empresas: action.payload,
+        doctypes: action.payload,
         loading: false,
         recargar_table: false,
         error: ''
@@ -40,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_UNO:
       return {
         ...state,
-        empresa: action.payload,
+        doctype: action.payload,
         loading: false,
         error: ''
       }
@@ -51,48 +51,48 @@ export default (state = INITIAL_STATE, action) => {
     case ERROR_FORM:
       return { ...state, error_form: action.payload, loading: false }
 
-    case CAMBIO_EMPRESA_ID:
+    case CAMBIO_DOCTYPE_ID:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        doctype: {
+          ...state.doctype,
           id: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_RS:
+    case CAMBIO_DOCTYPE_NAME:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
-          rs: action.payload
+        doctype: {
+          ...state.doctype,
+          name: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_CUIL:
+    case CAMBIO_DOCTYPE_TIPO:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
-          cuil: action.payload
+        doctype: {
+          ...state.doctype,
+          tipo: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_DOMICILIO:
+    case CAMBIO_DOCTYPE_OBLIGATORIO:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
-          domicilio: action.payload
+        doctype: {
+          ...state.doctype,
+          obligatorio: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_TELEFONO:
+    case CAMBIO_DOCTYPE_ESTADO:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
-          telefono: action.payload
+        doctype: {
+          ...state.doctype,
+          estado: action.payload
         }
       };
 
@@ -105,12 +105,10 @@ export default (state = INITIAL_STATE, action) => {
     case GUARDAR:
       return {
         ...state,
-        empresa: {
-          id: '',
-          rs: '',
-          cuil: '',
-          domicilio: '',
-          telefono: '',
+        doctype: {
+          name: '',
+          tipo: '',
+          obligatorio: '',
           estado: '',
         },
         loading: false,
@@ -126,12 +124,10 @@ export default (state = INITIAL_STATE, action) => {
         loading: false,
         error: '',
         error_form: '',
-        empresa: {
-          id: '',
-          rs: '',
-          cuil: '',
-          domicilio: '',
-          telefono: '',
+        doctype: {
+          name: '',
+          tipo: '',
+          obligatorio: '',
           estado: '',
         },
         state_form: 'crear'

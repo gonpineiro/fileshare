@@ -17,8 +17,8 @@ class CreateDoctypesTable extends Migration
             $table->id();
             $table->string('name', 50);             
             $table->tinyInteger('tipo');      
-            $table->tinyInteger('obligatorio');
-            $table->tinyInteger('estado');   
+            $table->boolean('obligatorio');
+            $table->boolean('estado');   
             $table->timestamps();
         });
     }
