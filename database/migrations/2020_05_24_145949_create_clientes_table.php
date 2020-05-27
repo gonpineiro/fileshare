@@ -23,9 +23,8 @@ class CreateClientesTable extends Migration
             $table->string('telefono', 30)->nullable();            
             $table->tinyInteger('estado');
             $table->timestamps();
-        });
 
-        Schema::table('clientes', function (Blueprint $table) {
+            //RELACIONES
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('empresa_id')->references('id')->on('empresas');
         });

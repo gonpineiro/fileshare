@@ -17,7 +17,8 @@ class ClienteController extends Controller
     }
 
     public function edit($id){
-        $data = Cliente::where('id', $id)->firstOrFail();
+        $data = Cliente::where('id', $id)
+        ->with('doctypes')->firstOrFail();
         return response()->json($data, 200);
     }
 

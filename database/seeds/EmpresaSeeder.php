@@ -11,27 +11,29 @@ class EmpresaSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker\Factory::create();
+
         DB::table('empresas')->insert([
             'rs' => 'SAB-5',
-            'cuil' => '11111111111',
-            'domicilio' => 'Moldes 4451',
-            'telefono' => '47854524',
+            'cuil' => rand(20100000000, 21000000000),
+            'domicilio' => $faker->secondaryAddress(),
+            'telefono' => $faker->tollFreePhoneNumber(),
             'estado' => 1
         ]);       
 
         DB::table('empresas')->insert([
             'rs' => 'CONSISA',
-            'cuil' => '11111111122',
-            'domicilio' => 'Moldes 4451',
-            'telefono' => '47854524',
+            'cuil' => rand(20100000000, 21000000000),
+            'domicilio' => $faker->secondaryAddress(),
+            'telefono' => $faker->tollFreePhoneNumber(),
             'estado' => 1
         ]);    
 
         DB::table('empresas')->insert([
             'rs' => 'BROU CLEAN',
-            'cuil' => '11111111133',
-            'domicilio' => 'Moldes 4451',
-            'telefono' => '47854524',
+            'cuil' => rand(20100000000, 21000000000),
+            'domicilio' => $faker->secondaryAddress(),
+            'telefono' => $faker->tollFreePhoneNumber(),
             'estado' => 1
         ]);    
     }

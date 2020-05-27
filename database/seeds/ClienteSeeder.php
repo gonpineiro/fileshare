@@ -11,14 +11,18 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('clientes')->insert([
-            'rs' => 'COTO',
-            'cuil' => '11111111111',
-            'domicilio' => 'Moldes 4451',
-            'telefono' => '47854524',
-            'empresa_id' => 1,
-            'user_id' => 1,
-            'estado' => 1
-        ]);     
+        $faker = Faker\Factory::create();
+        
+        for ($i=0; $i < 5; $i++) {
+            DB::table('clientes')->insert([
+            'rs' => $faker->lastName(),
+            'cuil' => rand(20100000000, 21000000000),
+            'domicilio' => $faker->secondaryAddress(),
+            'telefono' => $faker->tollFreePhoneNumber(),
+            'empresa_id' => rand(1, 3),
+            'user_id' => rand(1, 5),
+            'estado' => 1            
+            ]);
+        }
     }
 }

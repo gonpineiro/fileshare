@@ -22,5 +22,9 @@ class Cliente extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function doctypes(){
+        return $this->belongsToMany('App\Doctype');
+    }
     
 }
