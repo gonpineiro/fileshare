@@ -1,5 +1,7 @@
-# File Share - 1.0.0
-File Share: Version 1.0.0 - Estable.
+# File Share - 1.0.1
+File Share: Version 1.0.1 - Estable.
+
++ Modulo Asociacion de Clientes en Doctypes
 
 ### 1° Paso: Instalar Laravel
 
