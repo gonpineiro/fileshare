@@ -7,10 +7,10 @@ import {
   CAMBIO_ESTADO_FORM,
 
   CAMBIO_DOCUMENTO_ID,
-  CAMBIO_DOCUMENTO_RS,
-  CAMBIO_DOCUMENTO_CUIL,
-  CAMBIO_DOCUMENTO_DOMICILIO,
-  CAMBIO_DOCUMENTO_TELEFONO,
+  CAMBIO_DOCUMENTO_NAME,
+  CAMBIO_DOCUMENTO_EMPRESA_ID,
+  CAMBIO_DOCUMENTO_CLIENTE_ID,
+  CAMBIO_DOCUMENTO_DOCTYPE_ID,
 
   RECARGA,
   CANCELAR,
@@ -20,6 +20,7 @@ import {
 const INITIAL_STATE = {
   documentos: [],
   documento: [],
+  clientes: [],
   loading: false,
   error: '',
   error_form: '',
@@ -60,39 +61,39 @@ export default (state = INITIAL_STATE, action) => {
         }
       };
 
-    case CAMBIO_DOCUMENTO_RS:
+    case CAMBIO_DOCUMENTO_NAME:
       return {
         ...state,
         documento: {
           ...state.documento,
-          rs: action.payload
+          name: action.payload
         }
       };
 
-    case CAMBIO_DOCUMENTO_CUIL:
+    case CAMBIO_DOCUMENTO_DOCTYPE_ID:
       return {
         ...state,
         documento: {
           ...state.documento,
-          cuil: action.payload
+          doctype_id: action.payload
         }
       };
 
-    case CAMBIO_DOCUMENTO_DOMICILIO:
+    case CAMBIO_DOCUMENTO_EMPRESA_ID:
       return {
         ...state,
         documento: {
           ...state.documento,
-          domicilio: action.payload
+          empresa_id: action.payload
         }
       };
 
-    case CAMBIO_DOCUMENTO_TELEFONO:
+    case CAMBIO_DOCUMENTO_CLIENTE_ID:
       return {
         ...state,
         documento: {
           ...state.documento,
-          telefono: action.payload
+          cliente_id: action.payload
         }
       };
 

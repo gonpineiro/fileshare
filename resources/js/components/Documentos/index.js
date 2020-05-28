@@ -4,25 +4,49 @@ import Table from './Table'
 import Formulario from './Formulario'
 import Spinner from '../General/Spinner';
 
+import * as documentosActions from '../../actions/documentosActions'
+
 import * as empresasActions from '../../actions/empresasActions'
+import * as doctypesActions from '../../actions/doctypesActions'
+
+const { traerTodos: documentosTraerTodos } = documentosActions;
+const { traerTodos: empresasTraerTodos } = empresasActions;
+const { traerTodos: doctypesTraerTodos } = doctypesActions;
 
 class Empresas extends Component {
 
 	async componentDidMount() {
-		const { traerTodos, empresas } = this.props
+		const { 
+			documentosReducer: { documentos },
+			empresasReducer: { empresas },
+			doctypesReducer: { doctypes },
+			documentosTraerTodos,
+			empresasTraerTodos,
+			doctypesTraerTodos,
+		} = this.props
 
-		if (!empresas.length) traerTodos()
+		if (!documentos.length) documentosTraerTodos()
+
+		if (!empresas.length) empresasTraerTodos()
+
+		if (!doctypes.length) doctypesTraerTodos()
 	}
 
 	ponerContenido = () => {
 		const {
-			traerTodos, recargar_table, loading, empresas, error,
+			documentosReducer: { 
+				documentos, 
+				loading, 
+				recargar_table, 
+				error,
+			},
+			documentosTraerTodos, 
 			history: { goBack }
 		} = this.props
 
-		if (recargar_table) traerTodos()
+		if (recargar_table) documentosTraerTodos()
 
-		if (loading && !empresas.length) return <Spinner />
+		if (loading && !documentos.length) return <Spinner />
 
 		if (error) return 'Error'
 
@@ -31,7 +55,7 @@ class Empresas extends Component {
 	ponerFormulario = () => <Formulario />
 
 	render() {
-		const { state_form } = this.props
+		const { documentosReducer: { state_form } } = this.props
 		return (
 			<>
 				{state_form === 'tabla' ?
@@ -61,8 +85,14 @@ class Empresas extends Component {
 	}
 }
 
-const mapStateToProps = (reducers) => {
-	return reducers.empresasReducer
-}
+const mapStateToProps = ({ documentosReducer, empresasReducer, doctypesReducer }) => {
+	return { documentosReducer, empresasReducer, doctypesReducer };
+};
 
-export default connect(mapStateToProps, empresasActions)(Empresas);
+const mapDispatchToProps = {
+	documentosTraerTodos,
+	empresasTraerTodos,
+	doctypesTraerTodos
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Empresas);

@@ -9,7 +9,9 @@ class DocumentoController extends Controller
 {
     public function index()
     {
-        $data = Documento::all();
+        $data = Documento::with('cliente')
+        ->with('doctype')
+        ->get();
         return response()->json($data, 200);
     }
     

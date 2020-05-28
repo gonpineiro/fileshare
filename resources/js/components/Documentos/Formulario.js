@@ -1,48 +1,58 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
+import Select from '@material-ui/core/Select';
 import Spinner from '../General/Spinner';
 import TocIcon from '@material-ui/icons/Toc';
 
-import * as empresasActions from '../../actions/empresasActions'
+import * as documentosActions from '../../actions/documentosActions'
 
 const Formulario = (props) => {
 
    const {
-      empresa: { id, rs, cuil, domicilio, telefono },
+      empresasReducer: { empresas },
+      doctypesReducer: { doctypes },
+      documentosReducer: {
+         documento: { id, name, cliente_id, doctype_id, empresa_id },
+         clientes,
+         traerTabla,
+         state_form,
+         error_form,
+      },
       agregar,
       editar,
       borrar,
       cancelar,
-      traerTabla,
-      state_form,
-      error_form,
-      cambioEmpresaRs,
-      cambioEmpresaCuil,
-      cambioEmpresaDomicilio,
-      cambioEmpresaTelefono,
+      cambioDocumentoName,
+      cambioDocumentoEmpresaId,
+      cambioDocumentoDoctypeId,
+      cambioDocumentoClienteId,
       loading,
    } = props
 
-   const handleCambioEmpresaRs = (event) => cambioEmpresaRs(event.target.value);
+   const handleCambioDocumentoName = (event) => cambioDocumentoName(event.target.value);
 
-   const handleCambioEmpresaCuil = (event) => cambioEmpresaCuil(event.target.value);
+   const handleCambioDocumentoEmpresaId = (event) => cambioDocumentoEmpresaId(event.target.value);
 
-   const handleCambioEmpresaDomicilio = (event) => cambioEmpresaDomicilio(event.target.value);
-
-   const handleCambioEmpresaTelefono = (event) => cambioEmpresaTelefono(event.target.value);
+   const handleCambioDocumentoDoctypeId = (event) => cambioDocumentoDoctypeId(event.target.value);
+   
+   const handleCambioDocumentoClienteId = (event) => cambioDocumentoClienteId(event.target.value);
 
    const guardar = () => {
 
       const data = {
          id: id,
-         rs: rs,
-         cuil: cuil,
-         domicilio: domicilio,
-         telefono: telefono
+         name: name,
+         doctype_id: doctype_id,
+         cliente_id: cliente_id
       };
 
       if (state_form === 'crear') agregar(data);
@@ -53,6 +63,10 @@ const Formulario = (props) => {
    const useStyles = makeStyles((theme) => ({
       root: {
          flexGrow: 1,
+         width: "100%",
+      },
+
+      formControl: {
          width: "100%",
       },
 
@@ -69,9 +83,9 @@ const Formulario = (props) => {
          <div className="card-header">
             <div className="row mt-2">
                <div className="col col-md-6 card-agregar" >
-                  {state_form === 'crear' ? 'AGREGAR EMPRESA' : ''}
-                  {state_form === 'editar' ? 'MODIFICAR EMPRESA' : ''}
-                  {state_form === 'borrar' ? 'ELIMINAR EMPRESA' : ''}
+                  {state_form === 'crear' ? 'AGREGAR DOCUMENTO' : ''}
+                  {state_form === 'editar' ? 'MODIFICAR DOCUMENTO' : ''}
+                  {state_form === 'borrar' ? 'ELIMINAR DOCUMENTO' : ''}
                </div>
                <div className="col col-md-6 text-derecha" >
                   <TocIcon fontSize="large" className="link" onClick={traerTabla} />
@@ -82,66 +96,100 @@ const Formulario = (props) => {
             <div className="card-body">
                <div className={classes.root}>
 
-                  <Grid container spacing={3}>
-                     {/* RAZÓN SOCIAL */}
-                     <Grid item xs={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Razón Social"
-                           type="text"
-                           className="form-control transparent"
-                           value={rs || ''}
-                           onChange={handleCambioEmpresaRs}
-                           helperText={error_form.rs}
-                           error={!error_form.rs ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
+                  <Grid container spacing={3}>                     
+
+                     {/* EMPRESA */}
+                     <Grid item xs={12} sm={12}>
+                        <FormControl className={classes.formControl}>
+                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.empresa_id ? false : true}>Empresa</InputLabel>
+                           <Select
+                              labelId="demo-simple-select-helper-label"
+                              id="demo-simple-select-helper"
+                              value={empresa_id || ''}
+                              onChange={handleCambioDocumentoEmpresaId}
+                              error={!error_form.empresa_id ? false : true}
+                              disabled={state_form === 'borrar' ? true : false}
+                              className="transparent"
+                           >
+                              <Link to="/empresas">
+                                 <MenuItem value="">
+                                    <em
+                                       className="link link-string"
+                                    >
+                                       Agregar
+                                       </em>
+                                 </MenuItem>
+                              </Link>
+
+                              {empresas.map((empresa) => (
+                                 <MenuItem key={empresa.id} value={empresa.id}>{empresa.rs}</MenuItem>
+                              ))}
+                           </Select>
+                           <FormHelperText error={!error_form.empresa_id ? false : true}>{error_form.empresa_id}</FormHelperText>
+                        </FormControl>
                      </Grid>
 
-                     {/* CUIL */}
+                     {/* DOCTYPE */}
                      <Grid item xs={12} sm={12}>
-                        <TextField
-                           label="CUIL/CUIT"
-                           type="number"
-                           className="form-control transparent"
-                           value={cuil || ''}
-                           onChange={handleCambioEmpresaCuil}
-                           helperText={error_form.cuil}
-                           error={!error_form.cuil ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
+                        <FormControl className={classes.formControl}>
+                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.doctype_id ? false : true}>Tipo de documento</InputLabel>
+                           <Select
+                              labelId="demo-simple-select-helper-label"
+                              id="demo-simple-select-helper"
+                              value={doctype_id || ''}
+                              onChange={handleCambioDocumentoDoctypeId}
+                              error={!error_form.doctype_id ? false : true}
+                              disabled={state_form === 'borrar' ? true : false}
+                              className="transparent"
+                           >
+                              <Link to="/doctypes">
+                                 <MenuItem value="">
+                                    <em
+                                       className="link link-string"
+                                    >
+                                       Agregar
+                                       </em>
+                                 </MenuItem>
+                              </Link>
+
+                              {doctypes.map((doctype) => (
+                                 <MenuItem key={doctype.id} value={doctype.id}>{doctype.name}</MenuItem>
+                              ))}
+                           </Select>
+                           <FormHelperText error={!error_form.doctype_id ? false : true}>{error_form.doctype_id}</FormHelperText>
+                        </FormControl>
                      </Grid>
 
-                     {/* DOMICILIO */}
+                     {/* CLIENTE */}
                      <Grid item xs={12} sm={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Domicilio"
-                           type="text"
-                           className="form-control transparent"
-                           value={domicilio || ''}
-                           onChange={handleCambioEmpresaDomicilio}
-                           helperText={error_form.domicilio}
-                           error={!error_form.domicilio ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
+                        <FormControl className={classes.formControl}>
+                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.cliente_id ? false : true}>Cliente</InputLabel>
+                           <Select
+                              labelId="demo-simple-select-helper-label"
+                              id="demo-simple-select-helper"
+                              value={cliente_id || ''}
+                              onChange={handleCambioDocumentoClienteId}
+                              error={!error_form.cliente_id ? false : true}
+                              disabled={state_form === 'borrar' ? true : false}
+                              className="transparent"
+                              disabled={cliente_id && empresa_id ? false : true}
+                           >
+                              <Link to="/clientes">
+                                 <MenuItem value="">
+                                    <em
+                                       className="link link-string"
+                                    >
+                                       Agregar
+                                       </em>
+                                 </MenuItem>
+                              </Link>
 
-                     </Grid>
-
-                     {/* TELÉFONO */}
-                     <Grid item xs={12} sm={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Teléfono"
-                           type="text"
-                           className="form-control transparent"
-                           value={telefono || ''}
-                           onChange={handleCambioEmpresaTelefono}
-                           helperText={error_form.telefono}
-                           error={!error_form.telefono ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
-
+                              {clientes.map((cliente) => (
+                                 <MenuItem key={cliente.id} value={cliente.id}>{cliente.rs}</MenuItem>
+                              ))}
+                           </Select>
+                           <FormHelperText error={!error_form.cliente_id ? false : true}>{error_form.cliente_id}</FormHelperText>
+                        </FormControl>
                      </Grid>
 
                      {/* BUTTOMS */}
@@ -191,8 +239,8 @@ const Formulario = (props) => {
    );
 }
 
-const mapStateToProps = (reducers) => {
-   return reducers.empresasReducer
-}
+const mapStateToProps = ({ documentosReducer, doctypesReducer, empresasReducer }) => {
+   return { documentosReducer, doctypesReducer, empresasReducer };
+};
 
-export default connect(mapStateToProps, empresasActions)(Formulario);
+export default connect(mapStateToProps, documentosActions)(Formulario);

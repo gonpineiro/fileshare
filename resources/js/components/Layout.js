@@ -23,8 +23,8 @@ function Layout(props) {
                 <Link className="Navbar__brand" to="/doctypes">
                     <span className="font-weight-light">TIPO DE DOCUMENTOS</span>
                 </Link>
-                <Link className="Navbar__brand" to="/ambientes">
-                    <span className="font-weight-light">AMBIENTES</span>
+                <Link className="Navbar__brand" to="/documentos">
+                    <span className="font-weight-light">DOCUMENTOS</span>
                 </Link>
             </div>
         </div>

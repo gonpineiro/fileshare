@@ -28,5 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/doctypes', function () {return view('home');});
 
+    Route::get('/documentos', function () {return view('home');});
+
     Route::get('/', function () {return view('home');});
 });

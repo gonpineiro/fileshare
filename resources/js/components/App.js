@@ -5,6 +5,7 @@ import Users from './Users'
 import Empresas from './Empresas';
 import Clientes from './Clientes';
 import Doctypes from './Doctypes';
+import Documentos from './Documentos';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/empresas" component={Empresas} />
       <Route exact path="/clientes" component={Clientes} />
       <Route exact path="/doctypes" component={Doctypes} />
+      <Route exact path="/documentos" component={Documentos} />
     </BrowserRouter>
   );
 }

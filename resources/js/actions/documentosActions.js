@@ -6,10 +6,10 @@ import {
     ERROR_FORM,
     CAMBIO_ESTADO_FORM,
 
-    CAMBIO_DOCUMENTO_RS,
-    CAMBIO_DOCUMENTO_CUIL,
-    CAMBIO_DOCUMENTO_DOMICILIO,
-    CAMBIO_DOCUMENTO_TELEFONO,
+    CAMBIO_DOCUMENTO_NAME,
+    CAMBIO_DOCUMENTO_EMPRESA_ID,
+    CAMBIO_DOCUMENTO_DOCTYPE_ID,
+    CAMBIO_DOCUMENTO_CLIENTE_ID,
 
     CANCELAR,
     RECARGA,
@@ -61,30 +61,30 @@ export const traerUno = (id) => async (dispatch) => {
     }
 }
 
-export const cambioEmpresaRs = (valor) => (dispatch) => {
+export const cambioDocumentoName = (valor) => (dispatch) => {
     dispatch({
-        type: CAMBIO_DOCUMENTO_RS,
+        type: CAMBIO_DOCUMENTO_NAME,
         payload: valor
     })
 };
 
-export const cambioEmpresaCuil = (valor) => (dispatch) => {
+export const cambioDocumentoEmpresaId = (valor) => (dispatch) => {
     dispatch({
-        type: CAMBIO_DOCUMENTO_CUIL,
+        type: CAMBIO_DOCUMENTO_EMPRESA_ID,
         payload: valor
     })
 };
 
-export const cambioEmpresaDomicilio = (valor) => (dispatch) => {
+export const cambioDocumentoDoctypeId = (valor) => (dispatch) => {
     dispatch({
-        type: CAMBIO_DOCUMENTO_DOMICILIO,
+        type: CAMBIO_DOCUMENTO_DOCTYPE_ID,
         payload: valor
     })
 };
 
-export const cambioEmpresaTelefono = (valor) => (dispatch) => {
+export const cambioDocumentoClienteId = (valor) => (dispatch) => {
     dispatch({
-        type: CAMBIO_DOCUMENTO_TELEFONO,
+        type: CAMBIO_DOCUMENTO_CLIENTE_ID,
         payload: valor
     })
 };

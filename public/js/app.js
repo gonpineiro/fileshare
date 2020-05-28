@@ -98908,6 +98908,368 @@ var traerFormulario = function traerFormulario() {
 
 /***/ }),
 
+/***/ "./resources/js/actions/documentosActions.js":
+/*!***************************************************!*\
+  !*** ./resources/js/actions/documentosActions.js ***!
+  \***************************************************/
+/*! exports provided: traerTodos, traerUno, cambioDocumentoName, cambioDocumentoEmpresaId, cambioDocumentoDoctypeId, cambioDocumentoClienteId, agregar, editar, traerUnoBorrar, borrar, cancelar, traerTabla, traerFormulario */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerTodos", function() { return traerTodos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUno", function() { return traerUno; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoName", function() { return cambioDocumentoName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoEmpresaId", function() { return cambioDocumentoEmpresaId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoDoctypeId", function() { return cambioDocumentoDoctypeId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoClienteId", function() { return cambioDocumentoClienteId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "agregar", function() { return agregar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUnoBorrar", function() { return traerUnoBorrar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "borrar", function() { return borrar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cancelar", function() { return cancelar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerTabla", function() { return traerTabla; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerFormulario", function() { return traerFormulario; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../types/documentoTypes */ "./resources/js/types/documentoTypes.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+var URL = 'http://192.168.0.146:950/api/';
+var traerTodos = function traerTodos() {
+  return /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["RECARGA"]
+              });
+              _context.prev = 1;
+              _context.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'documento');
+
+            case 4:
+              response = _context.sent;
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_TODOS"],
+                payload: response.data
+              });
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](1);
+              console.log(_context.t0);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[1, 8]]);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+};
+var traerUno = function traerUno(id) {
+  return /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_ESTADO_FORM"],
+                payload: 'editar'
+              });
+              _context2.prev = 2;
+              _context2.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'documento/' + id);
+
+            case 5:
+              response = _context2.sent;
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_UNO"],
+                payload: response.data
+              });
+              _context2.next = 12;
+              break;
+
+            case 9:
+              _context2.prev = 9;
+              _context2.t0 = _context2["catch"](2);
+              console.log(_context2.t0);
+
+            case 12:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[2, 9]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+var cambioDocumentoName = function cambioDocumentoName(valor) {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_DOCUMENTO_NAME"],
+      payload: valor
+    });
+  };
+};
+var cambioDocumentoEmpresaId = function cambioDocumentoEmpresaId(valor) {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_DOCUMENTO_EMPRESA_ID"],
+      payload: valor
+    });
+  };
+};
+var cambioDocumentoDoctypeId = function cambioDocumentoDoctypeId(valor) {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_DOCUMENTO_DOCTYPE_ID"],
+      payload: valor
+    });
+  };
+};
+var cambioDocumentoClienteId = function cambioDocumentoClienteId(valor) {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_DOCUMENTO_CLIENTE_ID"],
+      payload: valor
+    });
+  };
+};
+var agregar = function agregar(data) {
+  return /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(dispatch) {
+      var errors;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              _context3.prev = 1;
+              _context3.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'documento', data);
+
+            case 4:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
+              });
+              _context3.next = 11;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](1);
+              errors = _context3.t0.response.data.errors;
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
+                payload: errors
+              });
+
+            case 11:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[1, 7]]);
+    }));
+
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+};
+var editar = function editar(data, id) {
+  return /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(dispatch) {
+      var errors;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              _context4.prev = 1;
+              _context4.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(URL + 'documento/' + id, data);
+
+            case 4:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
+              });
+              _context4.next = 12;
+              break;
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](1);
+              errors = _context4.t0.response.data.errors;
+              console.log(_context4.t0.response);
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
+                payload: errors
+              });
+
+            case 12:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[1, 7]]);
+    }));
+
+    return function (_x4) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+};
+var traerUnoBorrar = function traerUnoBorrar(id) {
+  return /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(dispatch) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_ESTADO_FORM"],
+                payload: 'borrar'
+              });
+              _context5.prev = 2;
+              _context5.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'documento/' + id);
+
+            case 5:
+              response = _context5.sent;
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_UNO"],
+                payload: response.data
+              });
+              _context5.next = 12;
+              break;
+
+            case 9:
+              _context5.prev = 9;
+              _context5.t0 = _context5["catch"](2);
+              console.log(_context5.t0);
+
+            case 12:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[2, 9]]);
+    }));
+
+    return function (_x5) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+};
+var borrar = function borrar(id) {
+  return /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(dispatch) {
+      var errors;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              _context6.prev = 1;
+              _context6.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"](URL + 'documento/' + id);
+
+            case 4:
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
+              });
+              _context6.next = 12;
+              break;
+
+            case 7:
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](1);
+              errors = _context6.t0.response.data.message;
+              console.log(errors);
+              dispatch({
+                type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
+                payload: errors
+              });
+
+            case 12:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[1, 7]]);
+    }));
+
+    return function (_x6) {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+};
+var cancelar = function cancelar() {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CANCELAR"]
+    });
+  };
+};
+var traerTabla = function traerTabla() {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_ESTADO_FORM"],
+      payload: 'tabla'
+    });
+  };
+};
+var traerFormulario = function traerFormulario() {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_ESTADO_FORM"],
+      payload: 'crear'
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./resources/js/actions/empresasActions.js":
 /*!*************************************************!*\
   !*** ./resources/js/actions/empresasActions.js ***!
@@ -99705,6 +100067,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Empresas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Empresas */ "./resources/js/components/Empresas/index.js");
 /* harmony import */ var _Clientes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Clientes */ "./resources/js/components/Clientes/index.js");
 /* harmony import */ var _Doctypes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Doctypes */ "./resources/js/components/Doctypes/index.js");
+/* harmony import */ var _Documentos__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Documentos */ "./resources/js/components/Documentos/index.js");
+
 
 
 
@@ -99730,6 +100094,10 @@ function App() {
     exact: true,
     path: "/doctypes",
     component: _Doctypes__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/documentos",
+    component: _Documentos__WEBPACK_IMPORTED_MODULE_7__["default"]
   }));
 }
 
@@ -100931,6 +101299,516 @@ var mapDispatchToProps = {
 
 /***/ }),
 
+/***/ "./resources/js/components/Documentos/Formulario.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/Documentos/Formulario.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "./node_modules/@material-ui/core/esm/InputLabel/index.js");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "./node_modules/@material-ui/core/esm/MenuItem/index.js");
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormHelperText */ "./node_modules/@material-ui/core/esm/FormHelperText/index.js");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Select */ "./node_modules/@material-ui/core/esm/Select/index.js");
+/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
+/* harmony import */ var _material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/Toc */ "./node_modules/@material-ui/icons/Toc.js");
+/* harmony import */ var _material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../actions/documentosActions */ "./resources/js/actions/documentosActions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Formulario = function Formulario(props) {
+  var empresas = props.empresasReducer.empresas,
+      doctypes = props.doctypesReducer.doctypes,
+      _props$documentosRedu = props.documentosReducer,
+      _props$documentosRedu2 = _props$documentosRedu.documento,
+      id = _props$documentosRedu2.id,
+      name = _props$documentosRedu2.name,
+      cliente_id = _props$documentosRedu2.cliente_id,
+      doctype_id = _props$documentosRedu2.doctype_id,
+      empresa_id = _props$documentosRedu2.empresa_id,
+      clientes = _props$documentosRedu.clientes,
+      traerTabla = _props$documentosRedu.traerTabla,
+      state_form = _props$documentosRedu.state_form,
+      error_form = _props$documentosRedu.error_form,
+      agregar = props.agregar,
+      editar = props.editar,
+      borrar = props.borrar,
+      cancelar = props.cancelar,
+      cambioDocumentoName = props.cambioDocumentoName,
+      cambioDocumentoEmpresaId = props.cambioDocumentoEmpresaId,
+      cambioDocumentoDoctypeId = props.cambioDocumentoDoctypeId,
+      cambioDocumentoClienteId = props.cambioDocumentoClienteId,
+      loading = props.loading;
+
+  var handleCambioDocumentoName = function handleCambioDocumentoName(event) {
+    return cambioDocumentoName(event.target.value);
+  };
+
+  var handleCambioDocumentoEmpresaId = function handleCambioDocumentoEmpresaId(event) {
+    return cambioDocumentoEmpresaId(event.target.value);
+  };
+
+  var handleCambioDocumentoDoctypeId = function handleCambioDocumentoDoctypeId(event) {
+    return cambioDocumentoDoctypeId(event.target.value);
+  };
+
+  var handleCambioDocumentoClienteId = function handleCambioDocumentoClienteId(event) {
+    return cambioDocumentoClienteId(event.target.value);
+  };
+
+  var guardar = function guardar() {
+    var data = {
+      id: id,
+      name: name,
+      doctype_id: doctype_id,
+      cliente_id: cliente_id
+    };
+    if (state_form === 'crear') agregar(data);
+    if (state_form === 'editar') editar(data, id);
+  };
+
+  var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["makeStyles"])(function (theme) {
+    return {
+      root: {
+        flexGrow: 1,
+        width: "100%"
+      },
+      formControl: {
+        width: "100%"
+      },
+      formButton: {
+        marginTop: 20
+      }
+    };
+  });
+  var classes = useStyles();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card transparent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row mt-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-md-6 card-agregar"
+  }, state_form === 'crear' ? 'AGREGAR DOCUMENTO' : '', state_form === 'editar' ? 'MODIFICAR DOCUMENTO' : '', state_form === 'borrar' ? 'ELIMINAR DOCUMENTO' : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-md-6 text-derecha"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_13___default.a, {
+    fontSize: "large",
+    className: "link",
+    onClick: traerTabla
+  })))), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_12__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.root
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    container: true,
+    spacing: 3
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    item: true,
+    xs: 12,
+    sm: 12
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    className: classes.formControl
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    id: "demo-simple-select-helper-label",
+    error: !error_form.empresa_id ? false : true
+  }, "Empresa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    labelId: "demo-simple-select-helper-label",
+    id: "demo-simple-select-helper",
+    value: empresa_id || '',
+    onChange: handleCambioDocumentoEmpresaId,
+    error: !error_form.empresa_id ? false : true,
+    disabled: state_form === 'borrar' ? true : false,
+    className: "transparent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: "/empresas"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    value: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
+    className: "link link-string"
+  }, "Agregar"))), empresas.map(function (empresa) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      key: empresa.id,
+      value: empresa.id
+    }, empresa.rs);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    error: !error_form.empresa_id ? false : true
+  }, error_form.empresa_id))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    item: true,
+    xs: 12,
+    sm: 12
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    className: classes.formControl
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    id: "demo-simple-select-helper-label",
+    error: !error_form.doctype_id ? false : true
+  }, "Tipo de documento"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    labelId: "demo-simple-select-helper-label",
+    id: "demo-simple-select-helper",
+    value: doctype_id || '',
+    onChange: handleCambioDocumentoDoctypeId,
+    error: !error_form.doctype_id ? false : true,
+    disabled: state_form === 'borrar' ? true : false,
+    className: "transparent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: "/doctypes"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    value: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
+    className: "link link-string"
+  }, "Agregar"))), doctypes.map(function (doctype) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      key: doctype.id,
+      value: doctype.id
+    }, doctype.name);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    error: !error_form.doctype_id ? false : true
+  }, error_form.doctype_id))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    item: true,
+    xs: 12,
+    sm: 12
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    className: classes.formControl
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    id: "demo-simple-select-helper-label",
+    error: !error_form.cliente_id ? false : true
+  }, "Cliente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_11__["default"], _defineProperty({
+    labelId: "demo-simple-select-helper-label",
+    id: "demo-simple-select-helper",
+    value: cliente_id || '',
+    onChange: handleCambioDocumentoClienteId,
+    error: !error_form.cliente_id ? false : true,
+    disabled: state_form === 'borrar' ? true : false,
+    className: "transparent"
+  }, "disabled", cliente_id && empresa_id ? false : true), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: "/clientes"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    value: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
+    className: "link link-string"
+  }, "Agregar"))), clientes.map(function (cliente) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      key: cliente.id,
+      value: cliente.id
+    }, cliente.rs);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    error: !error_form.cliente_id ? false : true
+  }, error_form.cliente_id))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    item: true,
+    xs: 6,
+    sm: 6
+  }, state_form === 'crear' || state_form === 'editar' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    variant: "contained",
+    color: "primary",
+    onClick: guardar,
+    className: classes.formButton
+  }, "Guardar") : '', state_form === 'borrar' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    variant: "contained",
+    color: "primary",
+    onClick: function onClick() {
+      return borrar(id);
+    },
+    className: classes.formButton
+  }, "Borrar")) : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    item: true,
+    xs: 6,
+    sm: 6
+  }, state_form === 'editar' || state_form === 'borrar' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    variant: "contained",
+    color: "inherit",
+    onClick: cancelar,
+    className: classes.formButton
+  }, "Cancelar") : ''), error_form && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+    className: "text-danger"
+  }, "Existe un registro vinculado.")))));
+};
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var documentosReducer = _ref.documentosReducer,
+      doctypesReducer = _ref.doctypesReducer,
+      empresasReducer = _ref.empresasReducer;
+  return {
+    documentosReducer: documentosReducer,
+    doctypesReducer: doctypesReducer,
+    empresasReducer: empresasReducer
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__)(Formulario));
+
+/***/ }),
+
+/***/ "./resources/js/components/Documentos/Table.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Documentos/Table.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js");
+/* harmony import */ var _material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/icons/Add */ "./node_modules/@material-ui/icons/Add.js");
+/* harmony import */ var _material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _actions_documentosActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/documentosActions */ "./resources/js/actions/documentosActions.js");
+
+
+
+
+
+
+var Table = function Table(props) {
+  var documentos = props.documentos,
+      goBack = props.goBack,
+      state_form = props.state_form,
+      traerFormulario = props.traerFormulario;
+
+  var addRow = function addRow() {
+    return documentos.map(function (documento, key) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+        key: key
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.cliente.rs), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.cliente.empresa.rs), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.doctype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.created_at));
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card transparent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-margin"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row mt-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-md-6 text-izquierda"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lista de documentos", state_form === 'tabla' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    fontSize: "large",
+    className: "link",
+    onClick: traerFormulario
+  }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-md-6 text-derecha"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    fontSize: "large",
+    onClick: goBack,
+    className: "link"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cliente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Empresa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tipo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Fecha"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, addRow()))));
+};
+
+var mapStateToProps = function mapStateToProps(reducers) {
+  return reducers.documentosReducer;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_documentosActions__WEBPACK_IMPORTED_MODULE_4__)(Table));
+
+/***/ }),
+
+/***/ "./resources/js/components/Documentos/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Documentos/index.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Table */ "./resources/js/components/Documentos/Table.js");
+/* harmony import */ var _Formulario__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Formulario */ "./resources/js/components/Documentos/Formulario.js");
+/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
+/* harmony import */ var _actions_documentosActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/documentosActions */ "./resources/js/actions/documentosActions.js");
+/* harmony import */ var _actions_empresasActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/empresasActions */ "./resources/js/actions/empresasActions.js");
+/* harmony import */ var _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../actions/doctypesActions */ "./resources/js/actions/doctypesActions.js");
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+var documentosTraerTodos = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_6__["traerTodos"];
+var empresasTraerTodos = _actions_empresasActions__WEBPACK_IMPORTED_MODULE_7__["traerTodos"];
+var doctypesTraerTodos = _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_8__["traerTodos"];
+
+var Empresas = /*#__PURE__*/function (_Component) {
+  _inherits(Empresas, _Component);
+
+  var _super = _createSuper(Empresas);
+
+  function Empresas() {
+    var _this;
+
+    _classCallCheck(this, Empresas);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "ponerContenido", function () {
+      var _this$props = _this.props,
+          _this$props$documento = _this$props.documentosReducer,
+          documentos = _this$props$documento.documentos,
+          loading = _this$props$documento.loading,
+          recargar_table = _this$props$documento.recargar_table,
+          error = _this$props$documento.error,
+          documentosTraerTodos = _this$props.documentosTraerTodos,
+          goBack = _this$props.history.goBack;
+      if (recargar_table) documentosTraerTodos();
+      if (loading && !documentos.length) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+      if (error) return 'Error';
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        goBack: goBack
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "ponerFormulario", function () {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Formulario__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+    });
+
+    return _this;
+  }
+
+  _createClass(Empresas, [{
+    key: "componentDidMount",
+    value: function () {
+      var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this$props2, documentos, empresas, doctypes, documentosTraerTodos, empresasTraerTodos, doctypesTraerTodos;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this$props2 = this.props, documentos = _this$props2.documentosReducer.documentos, empresas = _this$props2.empresasReducer.empresas, doctypes = _this$props2.doctypesReducer.doctypes, documentosTraerTodos = _this$props2.documentosTraerTodos, empresasTraerTodos = _this$props2.empresasTraerTodos, doctypesTraerTodos = _this$props2.doctypesTraerTodos;
+                if (!documentos.length) documentosTraerTodos();
+                if (!empresas.length) empresasTraerTodos();
+                if (!doctypes.length) doctypesTraerTodos();
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function componentDidMount() {
+        return _componentDidMount.apply(this, arguments);
+      }
+
+      return componentDidMount;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var state_form = this.props.documentosReducer.state_form;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, state_form === 'tabla' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "container col-md-9"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "row mt-2 center"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col col-md-12"
+      }, this.ponerContenido()))) : '', state_form === 'crear' || state_form === 'editar' || state_form === 'borrar' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "container col-md-9"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "row mt-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col col-md-8"
+      }, this.ponerContenido()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col col-md-4"
+      }, this.ponerFormulario()))) : '');
+    }
+  }]);
+
+  return Empresas;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var documentosReducer = _ref.documentosReducer,
+      empresasReducer = _ref.empresasReducer,
+      doctypesReducer = _ref.doctypesReducer;
+  return {
+    documentosReducer: documentosReducer,
+    empresasReducer: empresasReducer,
+    doctypesReducer: doctypesReducer
+  };
+};
+
+var mapDispatchToProps = {
+  documentosTraerTodos: documentosTraerTodos,
+  empresasTraerTodos: empresasTraerTodos,
+  doctypesTraerTodos: doctypesTraerTodos
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Empresas));
+
+/***/ }),
+
 /***/ "./resources/js/components/Empresas/Formulario.js":
 /*!********************************************************!*\
   !*** ./resources/js/components/Empresas/Formulario.js ***!
@@ -101532,10 +102410,10 @@ function Layout(props) {
     className: "font-weight-light"
   }, "TIPO DE DOCUMENTOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "Navbar__brand",
-    to: "/ambientes"
+    to: "/documentos"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "font-weight-light"
-  }, "AMBIENTES"))));
+  }, "DOCUMENTOS"))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
@@ -102442,6 +103320,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var INITIAL_STATE = {
   documentos: [],
   documento: [],
+  clientes: [],
   loading: false,
   error: '',
   error_form: '',
@@ -102493,31 +103372,31 @@ var INITIAL_STATE = {
         })
       });
 
-    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_RS"]:
+    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_NAME"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         documento: _objectSpread(_objectSpread({}, state.documento), {}, {
-          rs: action.payload
+          name: action.payload
         })
       });
 
-    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_CUIL"]:
+    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_DOCTYPE_ID"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         documento: _objectSpread(_objectSpread({}, state.documento), {}, {
-          cuil: action.payload
+          doctype_id: action.payload
         })
       });
 
-    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_DOMICILIO"]:
+    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_EMPRESA_ID"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         documento: _objectSpread(_objectSpread({}, state.documento), {}, {
-          domicilio: action.payload
+          empresa_id: action.payload
         })
       });
 
-    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_TELEFONO"]:
+    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_CLIENTE_ID"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         documento: _objectSpread(_objectSpread({}, state.documento), {}, {
-          telefono: action.payload
+          cliente_id: action.payload
         })
       });
 
@@ -102984,7 +103863,7 @@ var GUARDAR = 'doctypes_guardar_user';
 /*!**********************************************!*\
   !*** ./resources/js/types/documentoTypes.js ***!
   \**********************************************/
-/*! exports provided: TRAER_TODOS, TRAER_UNO, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_DOCUMENTO_ID, CAMBIO_DOCUMENTO_RS, CAMBIO_DOCUMENTO_CUIL, CAMBIO_DOCUMENTO_DOMICILIO, CAMBIO_DOCUMENTO_TELEFONO, RECARGA, CANCELAR, GUARDAR */
+/*! exports provided: TRAER_TODOS, TRAER_UNO, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_DOCUMENTO_ID, CAMBIO_DOCUMENTO_NAME, CAMBIO_DOCUMENTO_EMPRESA_ID, CAMBIO_DOCUMENTO_CLIENTE_ID, CAMBIO_DOCUMENTO_DOCTYPE_ID, RECARGA, CANCELAR, GUARDAR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102996,10 +103875,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERROR_FORM", function() { return ERROR_FORM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_ESTADO_FORM", function() { return CAMBIO_ESTADO_FORM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_ID", function() { return CAMBIO_DOCUMENTO_ID; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_RS", function() { return CAMBIO_DOCUMENTO_RS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_CUIL", function() { return CAMBIO_DOCUMENTO_CUIL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_DOMICILIO", function() { return CAMBIO_DOCUMENTO_DOMICILIO; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_TELEFONO", function() { return CAMBIO_DOCUMENTO_TELEFONO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_NAME", function() { return CAMBIO_DOCUMENTO_NAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_EMPRESA_ID", function() { return CAMBIO_DOCUMENTO_EMPRESA_ID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_CLIENTE_ID", function() { return CAMBIO_DOCUMENTO_CLIENTE_ID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_DOCTYPE_ID", function() { return CAMBIO_DOCUMENTO_DOCTYPE_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECARGA", function() { return RECARGA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CANCELAR", function() { return CANCELAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GUARDAR", function() { return GUARDAR; });
@@ -103010,10 +103889,10 @@ var ERROR = 'documentos_error';
 var ERROR_FORM = 'documentos_error_form';
 var CAMBIO_ESTADO_FORM = 'documentos_cambio_estado_form';
 var CAMBIO_DOCUMENTO_ID = 'documentos_cambio_documento_id';
-var CAMBIO_DOCUMENTO_RS = 'documentos_cambio_documento_rs';
-var CAMBIO_DOCUMENTO_CUIL = 'documentos_cambio_documento_cuil';
-var CAMBIO_DOCUMENTO_DOMICILIO = 'documentos_cambio_documento_domicilio';
-var CAMBIO_DOCUMENTO_TELEFONO = 'documentos_cambio_documento_telefono';
+var CAMBIO_DOCUMENTO_NAME = 'documentos_cambio_documento_name';
+var CAMBIO_DOCUMENTO_EMPRESA_ID = 'documentos_cambio_documento_empresa_id';
+var CAMBIO_DOCUMENTO_CLIENTE_ID = 'documentos_cambio_documento_cliente_id';
+var CAMBIO_DOCUMENTO_DOCTYPE_ID = 'documentos_cambio_documento_doctype_id';
 var RECARGA = 'documentos_recarga_users';
 var CANCELAR = 'documentos_cancelar_users';
 var GUARDAR = 'documentos_guardar_user';
