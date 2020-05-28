@@ -6,20 +6,20 @@ import {
   ERROR_FORM,
   CAMBIO_ESTADO_FORM,
 
-  CAMBIO_EMPRESA_ID,
-  CAMBIO_EMPRESA_RS,
-  CAMBIO_EMPRESA_CUIL,
-  CAMBIO_EMPRESA_DOMICILIO,
-  CAMBIO_EMPRESA_TELEFONO,
+  CAMBIO_DOCUMENTO_ID,
+  CAMBIO_DOCUMENTO_RS,
+  CAMBIO_DOCUMENTO_CUIL,
+  CAMBIO_DOCUMENTO_DOMICILIO,
+  CAMBIO_DOCUMENTO_TELEFONO,
 
   RECARGA,
   CANCELAR,
   GUARDAR
-} from '../types/empresaTypes'
+} from '../types/documentoTypes'
 
 const INITIAL_STATE = {
-  empresas: [],
-  empresa: [],
+  documentos: [],
+  documento: [],
   loading: false,
   error: '',
   error_form: '',
@@ -32,7 +32,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_TODOS:
       return {
         ...state,
-        empresas: action.payload,
+        documentos: action.payload,
         loading: false,
         recargar_table: false,
         error: ''
@@ -40,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
     case TRAER_UNO:
       return {
         ...state,
-        empresa: action.payload,
+        documento: action.payload,
         loading: false,
         error: ''
       }
@@ -51,47 +51,47 @@ export default (state = INITIAL_STATE, action) => {
     case ERROR_FORM:
       return { ...state, error_form: action.payload, loading: false }
 
-    case CAMBIO_EMPRESA_ID:
+    case CAMBIO_DOCUMENTO_ID:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        documento: {
+          ...state.documento,
           id: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_RS:
+    case CAMBIO_DOCUMENTO_RS:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        documento: {
+          ...state.documento,
           rs: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_CUIL:
+    case CAMBIO_DOCUMENTO_CUIL:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        documento: {
+          ...state.documento,
           cuil: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_DOMICILIO:
+    case CAMBIO_DOCUMENTO_DOMICILIO:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        documento: {
+          ...state.documento,
           domicilio: action.payload
         }
       };
 
-    case CAMBIO_EMPRESA_TELEFONO:
+    case CAMBIO_DOCUMENTO_TELEFONO:
       return {
         ...state,
-        empresa: {
-          ...state.empresa,
+        documento: {
+          ...state.documento,
           telefono: action.payload
         }
       };
@@ -105,7 +105,7 @@ export default (state = INITIAL_STATE, action) => {
     case GUARDAR:
       return {
         ...state,
-        empresa: {
+        documento: {
           id: '',
           rs: '',
           cuil: '',
@@ -126,7 +126,7 @@ export default (state = INITIAL_STATE, action) => {
         loading: false,
         error: '',
         error_form: '',
-        empresa: {
+        documento: {
           id: '',
           rs: '',
           cuil: '',
