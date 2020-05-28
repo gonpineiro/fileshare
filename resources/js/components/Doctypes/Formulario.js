@@ -80,9 +80,9 @@ const Formulario = (props) => {
          <div className="card-header">
             <div className="row mt-2">
                <div className="col col-md-6 card-agregar" >
-                  {state_form === 'crear' ? 'AGREGAR EMPRESA' : ''}
-                  {state_form === 'editar' ? 'MODIFICAR EMPRESA' : ''}
-                  {state_form === 'borrar' ? 'ELIMINAR EMPRESA' : ''}
+                  {state_form === 'crear' ? 'AGREGAR TIPO DOC' : ''}
+                  {state_form === 'editar' ? 'MODIFICAR TIPO DOC' : ''}
+                  {state_form === 'borrar' ? 'ELIMINAR TIPO DOC' : ''}
                </div>
                <div className="col col-md-6 text-derecha" >
                   <TocIcon fontSize="large" className="link" onClick={traerTabla} />
@@ -159,8 +159,6 @@ const Formulario = (props) => {
                         />
 
                      </Grid>
-
-                    
 
                      {/* BUTTOMS */}
                      <Grid item xs={6} sm={6} >

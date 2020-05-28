@@ -13,7 +13,7 @@ class ClienteSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         
-        for ($i=0; $i < 5; $i++) {
+        for ($i=0; $i < 10; $i++) {
             DB::table('clientes')->insert([
             'rs' => $faker->lastName(),
             'cuil' => rand(20100000000, 21000000000),

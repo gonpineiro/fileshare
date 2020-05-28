@@ -25138,7 +25138,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mon
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".center {\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\ntable {\r\n    font-size: 0.785rem;\r\n}\r\n\r\n.table td {\r\n    padding: 0.30rem;\r\n    justify-content: center;\r\n    vertical-align: inherit;\r\n}\r\n\r\n.material-icons {\r\n    width: 0.30rem;\r\n    height: 0.30rem;\r\n}\r\n\r\n.alert {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-right: 15px;\r\n}\r\n\r\n.btn-cancelar {\r\n    background-color: #5e2129;\r\n    border-color: #5e2129;\r\n}\r\n\r\n.material-icons {\r\n    font-family: 'Material Icons';\r\n    font-weight: normal;\r\n    font-style: normal;\r\n    font-size: 20px;\r\n    /* Preferred icon size */\r\n    display: inline-block;\r\n    line-height: 1;\r\n    text-transform: none;\r\n    letter-spacing: normal;\r\n    word-wrap: normal;\r\n    white-space: nowrap;\r\n    direction: ltr;\r\n\r\n    /* Agregador por gon.pineiro */\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    /* Support for all WebKit browsers. */\r\n    -webkit-font-smoothing: antialiased;\r\n    /* Support for Safari and Chrome. */\r\n    text-rendering: optimizeLegibility;\r\n\r\n    /* Support for Firefox. */\r\n    -moz-osx-font-smoothing: grayscale;\r\n\r\n    /* Support for IE. */\r\n    font-feature-settings: 'liga';\r\n}\r\n\r\n.link {\r\n    cursor: pointer;\r\n}\r\n\r\n.link-string {\r\n    color: #3e5f8a;\r\n    font-weight: bold;\r\n}\r\n\r\n.card-agregar {\r\n    color: black;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.card-eliminar {\r\n    color: #5e2129;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n\r\n.margin-button {\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n}\r\n\r\n.container {\r\n    margin-top: 25px;\r\n}\r\n\r\n.text-derecha {\r\n    text-align: right;\r\n}\r\n\r\n.text-izquierda {\r\n    text-align: left;\r\n}\r\n\r\n.color-alert {\r\n    color: #5e2129;\r\n}\r\n\r\n\r\n.avatar {\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.transparent {\r\n    background-color:transparent;\r\n}\r\n\r\n.card-margin{\r\n    margin: 10px;\r\n}\r\n\r\n.input-stepper{\r\n    width: 50%;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n}\r\n\r\n.chart-title {    \r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n}\r\n", ""]);
+exports.push([module.i, ".center {\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\ntable {\r\n    font-size: 0.785rem;\r\n}\r\n\r\n.table td {\r\n    padding: 0.30rem;\r\n    justify-content: center;\r\n    vertical-align: inherit;\r\n}\r\n\r\n.material-icons {\r\n    width: 0.30rem;\r\n    height: 0.30rem;\r\n}\r\n\r\n.alert {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-right: 15px;\r\n}\r\n\r\n.btn-cancelar {\r\n    background-color: #5e2129;\r\n    border-color: #5e2129;\r\n}\r\n\r\n.material-icons {\r\n    font-family: 'Material Icons';\r\n    font-weight: normal;\r\n    font-style: normal;\r\n    font-size: 20px;\r\n    /* Preferred icon size */\r\n    display: inline-block;\r\n    line-height: 1;\r\n    text-transform: none;\r\n    letter-spacing: normal;\r\n    word-wrap: normal;\r\n    white-space: nowrap;\r\n    direction: ltr;\r\n\r\n    /* Agregador por gon.pineiro */\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    /* Support for all WebKit browsers. */\r\n    -webkit-font-smoothing: antialiased;\r\n    /* Support for Safari and Chrome. */\r\n    text-rendering: optimizeLegibility;\r\n\r\n    /* Support for Firefox. */\r\n    -moz-osx-font-smoothing: grayscale;\r\n\r\n    /* Support for IE. */\r\n    font-feature-settings: 'liga';\r\n}\r\n\r\n.link {\r\n    cursor: pointer;\r\n}\r\n\r\n.link-string {\r\n    color: #3e5f8a;\r\n    font-weight: bold;\r\n}\r\n\r\n.card-agregar {\r\n    color: black;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.card-eliminar {\r\n    color: #5e2129;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n\r\n.margin-button {\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n}\r\n\r\n.container {\r\n    margin-top: 25px;\r\n}\r\n\r\n.text-derecha {\r\n    text-align: right;\r\n}\r\n\r\n.text-izquierda {\r\n    text-align: left;\r\n}\r\n\r\n.color-alert {\r\n    color: #5e2129;\r\n}\r\n\r\n\r\n.avatar {\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.transparent {\r\n    background-color:transparent;\r\n}\r\n\r\n.card-margin{\r\n    margin: 10px;\r\n}\r\n\r\n.input-stepper{\r\n    width: 50%;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n}\r\n\r\n.chart-title {    \r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n}\r\n\r\n.checkbox {\r\n    font-size: 100px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -98443,19 +98443,22 @@ var traerFormulario = function traerFormulario() {
 /*!*************************************************!*\
   !*** ./resources/js/actions/doctypesActions.js ***!
   \*************************************************/
-/*! exports provided: traerTodos, traerUno, cambioDoctypeName, cambioDoctypeTipo, cambioDoctypeObligatorio, cambioDoctypeEstado, agregar, editar, traerUnoBorrar, borrar, cancelar, traerTabla, traerFormulario */
+/*! exports provided: traerTodos, traerUno, traerUnoAsociarClientes, cambioDoctypeName, cambioDoctypeTipo, cambioDoctypeObligatorio, cambioDoctypeEstado, cambioDoctypeClientes, agregar, editar, asociarClientes, traerUnoBorrar, borrar, cancelar, traerTabla, traerFormulario */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerTodos", function() { return traerTodos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUno", function() { return traerUno; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUnoAsociarClientes", function() { return traerUnoAsociarClientes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDoctypeName", function() { return cambioDoctypeName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDoctypeTipo", function() { return cambioDoctypeTipo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDoctypeObligatorio", function() { return cambioDoctypeObligatorio; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDoctypeEstado", function() { return cambioDoctypeEstado; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDoctypeClientes", function() { return cambioDoctypeClientes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "agregar", function() { return agregar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asociarClientes", function() { return asociarClientes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUnoBorrar", function() { return traerUnoBorrar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "borrar", function() { return borrar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cancelar", function() { return cancelar; });
@@ -98563,6 +98566,56 @@ var traerUno = function traerUno(id) {
     };
   }();
 };
+var traerUnoAsociarClientes = function traerUnoAsociarClientes(id) {
+  return /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(dispatch) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_ESTADO_FORM"],
+                payload: 'asociar'
+              });
+              _context3.prev = 2;
+              _context3.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'doctype/' + id);
+
+            case 5:
+              response = _context3.sent;
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_UNO"],
+                payload: response.data
+              });
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_CLIENTES"],
+                payload: response.data.clientes
+              });
+              _context3.next = 13;
+              break;
+
+            case 10:
+              _context3.prev = 10;
+              _context3.t0 = _context3["catch"](2);
+              console.log(_context3.t0);
+
+            case 13:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[2, 10]]);
+    }));
+
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+};
 var cambioDoctypeName = function cambioDoctypeName(valor) {
   return function (dispatch) {
     dispatch({
@@ -98595,52 +98648,15 @@ var cambioDoctypeEstado = function cambioDoctypeEstado(valor) {
     });
   };
 };
-var agregar = function agregar(data) {
-  return /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(dispatch) {
-      var errors;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              dispatch({
-                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
-              });
-              _context3.prev = 1;
-              _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'doctype', data);
-
-            case 4:
-              dispatch({
-                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
-              });
-              _context3.next = 12;
-              break;
-
-            case 7:
-              _context3.prev = 7;
-              _context3.t0 = _context3["catch"](1);
-              errors = _context3.t0.response.data.errors;
-              console.log(_context3.t0.response);
-              dispatch({
-                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
-                payload: errors
-              });
-
-            case 12:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3, null, [[1, 7]]);
-    }));
-
-    return function (_x3) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
+var cambioDoctypeClientes = function cambioDoctypeClientes(valor) {
+  return function (dispatch) {
+    dispatch({
+      type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_DOCTYPE_CLIENTES"],
+      payload: valor
+    });
+  };
 };
-var editar = function editar(data, id) {
+var agregar = function agregar(data) {
   return /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(dispatch) {
       var errors;
@@ -98653,7 +98669,7 @@ var editar = function editar(data, id) {
               });
               _context4.prev = 1;
               _context4.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(URL + 'doctype/' + id, data);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'doctype', data);
 
             case 4:
               dispatch({
@@ -98685,10 +98701,10 @@ var editar = function editar(data, id) {
     };
   }();
 };
-var traerUnoBorrar = function traerUnoBorrar(id) {
+var editar = function editar(data, id) {
   return /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(dispatch) {
-      var response;
+      var errors;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
@@ -98696,34 +98712,33 @@ var traerUnoBorrar = function traerUnoBorrar(id) {
               dispatch({
                 type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
               });
-              dispatch({
-                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_ESTADO_FORM"],
-                payload: 'borrar'
-              });
-              _context5.prev = 2;
-              _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'doctype/' + id);
+              _context5.prev = 1;
+              _context5.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(URL + 'doctype/' + id, data);
 
-            case 5:
-              response = _context5.sent;
+            case 4:
               dispatch({
-                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_UNO"],
-                payload: response.data
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
               });
               _context5.next = 12;
               break;
 
-            case 9:
-              _context5.prev = 9;
-              _context5.t0 = _context5["catch"](2);
-              console.log(_context5.t0);
+            case 7:
+              _context5.prev = 7;
+              _context5.t0 = _context5["catch"](1);
+              errors = _context5.t0.response.data.errors;
+              console.log(_context5.t0.response);
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
+                payload: errors
+              });
 
             case 12:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5, null, [[2, 9]]);
+      }, _callee5, null, [[1, 7]]);
     }));
 
     return function (_x5) {
@@ -98731,7 +98746,7 @@ var traerUnoBorrar = function traerUnoBorrar(id) {
     };
   }();
 };
-var borrar = function borrar(id) {
+var asociarClientes = function asociarClientes(data, id) {
   return /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(dispatch) {
       var errors;
@@ -98744,7 +98759,7 @@ var borrar = function borrar(id) {
               });
               _context6.prev = 1;
               _context6.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"](URL + 'doctype/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(URL + 'doctype/clientes/' + id, data);
 
             case 4:
               dispatch({
@@ -98756,8 +98771,8 @@ var borrar = function borrar(id) {
             case 7:
               _context6.prev = 7;
               _context6.t0 = _context6["catch"](1);
-              errors = _context6.t0.response.data.message;
-              console.log(errors);
+              console.log(_context6.t0);
+              errors = _context6.t0.response.data.errors;
               dispatch({
                 type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
                 payload: errors
@@ -98773,6 +98788,97 @@ var borrar = function borrar(id) {
 
     return function (_x6) {
       return _ref6.apply(this, arguments);
+    };
+  }();
+};
+var traerUnoBorrar = function traerUnoBorrar(id) {
+  return /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(dispatch) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_ESTADO_FORM"],
+                payload: 'borrar'
+              });
+              _context7.prev = 2;
+              _context7.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'doctype/' + id);
+
+            case 5:
+              response = _context7.sent;
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_UNO"],
+                payload: response.data
+              });
+              _context7.next = 12;
+              break;
+
+            case 9:
+              _context7.prev = 9;
+              _context7.t0 = _context7["catch"](2);
+              console.log(_context7.t0);
+
+            case 12:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7, null, [[2, 9]]);
+    }));
+
+    return function (_x7) {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+};
+var borrar = function borrar(id) {
+  return /*#__PURE__*/function () {
+    var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(dispatch) {
+      var errors;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+        while (1) {
+          switch (_context8.prev = _context8.next) {
+            case 0:
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
+              });
+              _context8.prev = 1;
+              _context8.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"](URL + 'doctype/' + id);
+
+            case 4:
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
+              });
+              _context8.next = 12;
+              break;
+
+            case 7:
+              _context8.prev = 7;
+              _context8.t0 = _context8["catch"](1);
+              errors = _context8.t0.response.data.message;
+              console.log(errors);
+              dispatch({
+                type: _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
+                payload: errors
+              });
+
+            case 12:
+            case "end":
+              return _context8.stop();
+          }
+        }
+      }, _callee8, null, [[1, 7]]);
+    }));
+
+    return function (_x8) {
+      return _ref8.apply(this, arguments);
     };
   }();
 };
@@ -100182,6 +100288,156 @@ var mapDispatchToProps = {
 
 /***/ }),
 
+/***/ "./resources/js/components/Doctypes/Asociacion.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Doctypes/Asociacion.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "./node_modules/@material-ui/core/esm/Checkbox/index.js");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "./node_modules/@material-ui/core/esm/FormControlLabel/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
+/* harmony import */ var _material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/icons/Toc */ "./node_modules/@material-ui/icons/Toc.js");
+/* harmony import */ var _material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _js_funciones__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../js/funciones */ "./resources/js/js/funciones.js");
+/* harmony import */ var _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../actions/doctypesActions */ "./resources/js/actions/doctypesActions.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var Asociacion = function Asociacion(props) {
+  var _props$doctypesReduce = props.doctypesReducer,
+      id = _props$doctypesReduce.doctype.id,
+      clientesForm = _props$doctypesReduce.clientes,
+      loading = _props$doctypesReduce.loading,
+      cancelar = props.cancelar,
+      asociarClientes = props.asociarClientes,
+      traerTabla = props.traerTabla,
+      cambioDoctypeClientes = props.cambioDoctypeClientes,
+      clientes = props.clientesReducer.clientes;
+
+  var handleAsociarClientes = function handleAsociarClientes(event, cliente) {
+    event.target.checked ? clientesForm.push(cliente) && cambioDoctypeClientes(clientesForm) : '';
+    !event.target.checked ? cambioDoctypeClientes(Object(_js_funciones__WEBPACK_IMPORTED_MODULE_9__["deleteObjectInArray"])(cliente, clientesForm)) : '';
+  };
+
+  var guardar = function guardar() {
+    var array = [];
+    clientesForm.map(function (cliente) {
+      array.push(cliente.id);
+    });
+    asociarClientes(array, id);
+  };
+
+  var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(function (theme) {
+    return {
+      root: {
+        flexGrow: 1,
+        width: "100%"
+      },
+      formButton: {
+        marginTop: 20
+      }
+    };
+  });
+  var classes = useStyles();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card transparent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row mt-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-md-6 card-agregar"
+  }, "ASOCIAR CLIENTES"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col col-md-6 text-derecha"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    fontSize: "large",
+    className: "link",
+    onClick: traerTabla
+  })))), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_7__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.root
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    container: true,
+    spacing: 0
+  }, clientes ? clientes.map(function (cliente, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      item: true,
+      xs: 12,
+      sm: 12,
+      key: key
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        checked: Object(_js_funciones__WEBPACK_IMPORTED_MODULE_9__["isExistInObj"])(cliente, clientesForm),
+        onChange: function onChange() {
+          return handleAsociarClientes(event, cliente);
+        },
+        name: cliente.rs,
+        color: "default",
+        inputProps: {
+          'aria-label': 'checkbox with default color'
+        }
+      }),
+      className: "checkbox",
+      label: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        style: {
+          fontSize: '0.8rem'
+        }
+      }, cliente.rs)
+    }));
+  }) : '', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 6,
+    sm: 6
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "contained",
+    color: "primary",
+    onClick: guardar,
+    className: classes.formButton
+  }, "Guardar")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    item: true,
+    xs: 6,
+    sm: 6
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "contained",
+    color: "inherit",
+    onClick: cancelar,
+    className: classes.formButton
+  }, "Cancelar"))))));
+};
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var doctypesReducer = _ref.doctypesReducer,
+      clientesReducer = _ref.clientesReducer;
+  return {
+    doctypesReducer: doctypesReducer,
+    clientesReducer: clientesReducer
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_10__)(Asociacion));
+
+/***/ }),
+
 /***/ "./resources/js/components/Doctypes/Formulario.js":
 /*!********************************************************!*\
   !*** ./resources/js/components/Doctypes/Formulario.js ***!
@@ -100297,7 +100553,7 @@ var Formulario = function Formulario(props) {
     className: "row mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col col-md-6 card-agregar"
-  }, state_form === 'crear' ? 'AGREGAR EMPRESA' : '', state_form === 'editar' ? 'MODIFICAR EMPRESA' : '', state_form === 'borrar' ? 'ELIMINAR EMPRESA' : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, state_form === 'crear' ? 'AGREGAR TIPO DOC' : '', state_form === 'editar' ? 'MODIFICAR TIPO DOC' : '', state_form === 'borrar' ? 'ELIMINAR TIPO DOC' : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col col-md-6 text-derecha"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Toc__WEBPACK_IMPORTED_MODULE_14___default.a, {
     fontSize: "large",
@@ -100451,8 +100707,9 @@ var Table = function Table(props) {
         key: key
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, doctype.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_MenuRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
         props: props,
-        data: doctype
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, doctype.tipo === 1 ? 'Mensual' : 'Anul'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, doctype.obligatorio ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_CheckCircle__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        data: doctype,
+        linkClientes: true
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, doctype.tipo === 1 ? 'Mensual' : 'Anual'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, doctype.obligatorio ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_CheckCircle__WEBPACK_IMPORTED_MODULE_5___default.a, {
         fontSize: "small"
       }) : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, doctype.estado ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_CheckCircle__WEBPACK_IMPORTED_MODULE_5___default.a, {
         fontSize: "small"
@@ -100507,8 +100764,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Table */ "./resources/js/components/Doctypes/Table.js");
 /* harmony import */ var _Formulario__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Formulario */ "./resources/js/components/Doctypes/Formulario.js");
-/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
-/* harmony import */ var _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/doctypesActions */ "./resources/js/actions/doctypesActions.js");
+/* harmony import */ var _Asociacion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Asociacion */ "./resources/js/components/Doctypes/Asociacion.js");
+/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
+/* harmony import */ var _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/doctypesActions */ "./resources/js/actions/doctypesActions.js");
+/* harmony import */ var _actions_clientesActions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../actions/clientesActions */ "./resources/js/actions/clientesActions.js");
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -100546,6 +100805,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+var doctypesTraerTodos = _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_7__["traerTodos"];
+var clientesTraerTodos = _actions_clientesActions__WEBPACK_IMPORTED_MODULE_8__["traerTodos"];
+
 var Doctypes = /*#__PURE__*/function (_Component) {
   _inherits(Doctypes, _Component);
 
@@ -100564,14 +100827,15 @@ var Doctypes = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "ponerContenido", function () {
       var _this$props = _this.props,
-          traerTodos = _this$props.traerTodos,
-          recargar_table = _this$props.recargar_table,
-          loading = _this$props.loading,
-          doctypes = _this$props.doctypes,
-          error = _this$props.error,
+          _this$props$doctypesR = _this$props.doctypesReducer,
+          doctypes = _this$props$doctypesR.doctypes,
+          recargar_table = _this$props$doctypesR.recargar_table,
+          loading = _this$props$doctypesR.loading,
+          error = _this$props$doctypesR.error,
+          doctypesTraerTodos = _this$props.doctypesTraerTodos,
           goBack = _this$props.history.goBack;
-      if (recargar_table) traerTodos();
-      if (loading && !doctypes.length) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+      if (recargar_table) doctypesTraerTodos();
+      if (loading && !doctypes.length) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_6__["default"], null);
       if (error) return 'Error';
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
         goBack: goBack
@@ -100582,6 +100846,10 @@ var Doctypes = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Formulario__WEBPACK_IMPORTED_MODULE_4__["default"], null);
     });
 
+    _defineProperty(_assertThisInitialized(_this), "ponerAsociacion", function () {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Asociacion__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+    });
+
     return _this;
   }
 
@@ -100589,16 +100857,17 @@ var Doctypes = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function () {
       var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this$props2, traerTodos, doctypes;
+        var _this$props2, doctypes, clientes, doctypesTraerTodos, clientesTraerTodos;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this$props2 = this.props, traerTodos = _this$props2.traerTodos, doctypes = _this$props2.doctypes;
-                if (!doctypes.length) traerTodos();
+                _this$props2 = this.props, doctypes = _this$props2.doctypesReducer.doctypes, clientes = _this$props2.clientesReducer.clientes, doctypesTraerTodos = _this$props2.doctypesTraerTodos, clientesTraerTodos = _this$props2.clientesTraerTodos;
+                if (!doctypes.length) doctypesTraerTodos();
+                if (!clientes.length) clientesTraerTodos();
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -100615,7 +100884,7 @@ var Doctypes = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var state_form = this.props.state_form;
+      var state_form = this.props.doctypesReducer.state_form;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, state_form === 'tabla' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container col-md-9"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -100630,18 +100899,35 @@ var Doctypes = /*#__PURE__*/function (_Component) {
         className: "col col-md-8"
       }, this.ponerContenido()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "col col-md-4"
-      }, this.ponerFormulario()))) : '');
+      }, this.ponerFormulario()))) : '', state_form === 'asociar' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "container col-md-9"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "row mt-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col col-md-8"
+      }, this.ponerContenido()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col col-md-4"
+      }, this.ponerAsociacion()))) : '');
     }
   }]);
 
   return Doctypes;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-var mapStateToProps = function mapStateToProps(reducers) {
-  return reducers.doctypesReducer;
+var mapStateToProps = function mapStateToProps(_ref) {
+  var doctypesReducer = _ref.doctypesReducer,
+      clientesReducer = _ref.clientesReducer;
+  return {
+    doctypesReducer: doctypesReducer,
+    clientesReducer: clientesReducer
+  };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_6__)(Doctypes));
+var mapDispatchToProps = {
+  doctypesTraerTodos: doctypesTraerTodos,
+  clientesTraerTodos: clientesTraerTodos
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Doctypes));
 
 /***/ }),
 
@@ -101112,7 +101398,9 @@ function MenuRow(props) {
   var _props$props = props.props,
       traerUno = _props$props.traerUno,
       traerUnoBorrar = _props$props.traerUnoBorrar,
-      data = props.data;
+      traerUnoAsociarClientes = _props$props.traerUnoAsociarClientes,
+      data = props.data,
+      linkClientes = props.linkClientes;
 
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(null),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -101139,6 +101427,11 @@ function MenuRow(props) {
     traerUnoBorrar(data.id);
   };
 
+  var handleTraerUnoAsociarClientes = function handleTraerUnoAsociarClientes() {
+    setAnchorEl(null);
+    traerUnoAsociarClientes(data.id);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     "aria-controls": "fade-menu",
     "aria-haspopup": "true",
@@ -101154,7 +101447,9 @@ function MenuRow(props) {
     onClick: handleTraerUno
   }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     onClick: handleTraerUnoBorrar
-  }, "Eliminar")));
+  }, "Eliminar"), linkClientes ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onClick: handleTraerUnoAsociarClientes
+  }, "Asociar Clientes") : ''));
 }
 
 /***/ }),
@@ -101211,11 +101506,11 @@ function Layout(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "Navbar__brand-margin",
+    className: "Navbar__brand-margin link",
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "font-weight-light"
-  }, "SIWRL")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, "DOC SHARE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "Navbar__brand",
     to: "/users"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -101761,6 +102056,43 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 
 /***/ }),
 
+/***/ "./resources/js/js/funciones.js":
+/*!**************************************!*\
+  !*** ./resources/js/js/funciones.js ***!
+  \**************************************/
+/*! exports provided: isExistInObj, deleteObjectInArray */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isExistInObj", function() { return isExistInObj; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteObjectInArray", function() { return deleteObjectInArray; });
+//BUSAR EN ARRAYS SI EXISTE ARRAY
+var isExistInObj = function isExistInObj(array, arrays) {
+  var validate = false;
+  arrays ? arrays.map(function (arr) {
+    if (arr.id === array.id) {
+      validate = true;
+    }
+  }) : '';
+  return validate;
+}; //
+
+var deleteObjectInArray = function deleteObjectInArray(obj, array) {
+  var newArray = [];
+  array.map(function (cliente) {
+    newArray.push(cliente.id);
+  });
+
+  if (newArray.indexOf(obj.id) > -1) {
+    array.splice(newArray.indexOf(obj.id), 1);
+  }
+
+  return array;
+};
+
+/***/ }),
+
 /***/ "./resources/js/reducers/clientesReducer.js":
 /*!**************************************************!*\
   !*** ./resources/js/reducers/clientesReducer.js ***!
@@ -101949,6 +102281,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var INITIAL_STATE = {
   doctypes: [],
   doctype: [],
+  clientes: [],
   loading: false,
   error: '',
   error_form: '',
@@ -101972,6 +102305,13 @@ var INITIAL_STATE = {
     case _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_0__["TRAER_UNO"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         doctype: action.payload,
+        loading: false,
+        error: ''
+      });
+
+    case _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_0__["TRAER_CLIENTES"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        clientes: action.payload,
         loading: false,
         error: ''
       });
@@ -102028,6 +102368,11 @@ var INITIAL_STATE = {
         })
       });
 
+    case _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCTYPE_CLIENTES"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        clientes: action.payload
+      });
+
     case _types_doctypeTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_ESTADO_FORM"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         state_form: action.payload
@@ -102041,6 +102386,7 @@ var INITIAL_STATE = {
           obligatorio: '',
           estado: ''
         },
+        clientes: [],
         loading: false,
         error: '',
         error_form: '',
@@ -102059,6 +102405,7 @@ var INITIAL_STATE = {
           obligatorio: '',
           estado: ''
         },
+        form_clientes: [],
         state_form: 'crear'
       });
 
@@ -102440,13 +102787,14 @@ var GUARDAR = 'clientes_guardar_user';
 /*!********************************************!*\
   !*** ./resources/js/types/doctypeTypes.js ***!
   \********************************************/
-/*! exports provided: TRAER_TODOS, TRAER_UNO, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_DOCTYPE_ID, CAMBIO_DOCTYPE_NAME, CAMBIO_DOCTYPE_TIPO, CAMBIO_DOCTYPE_OBLIGATORIO, CAMBIO_DOCTYPE_ESTADO, RECARGA, CANCELAR, GUARDAR */
+/*! exports provided: TRAER_TODOS, TRAER_UNO, TRAER_CLIENTES, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_DOCTYPE_ID, CAMBIO_DOCTYPE_NAME, CAMBIO_DOCTYPE_TIPO, CAMBIO_DOCTYPE_OBLIGATORIO, CAMBIO_DOCTYPE_ESTADO, CAMBIO_DOCTYPE_CLIENTES, RECARGA, CANCELAR, GUARDAR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRAER_TODOS", function() { return TRAER_TODOS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRAER_UNO", function() { return TRAER_UNO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRAER_CLIENTES", function() { return TRAER_CLIENTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOADING", function() { return LOADING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERROR", function() { return ERROR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERROR_FORM", function() { return ERROR_FORM; });
@@ -102456,11 +102804,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCTYPE_TIPO", function() { return CAMBIO_DOCTYPE_TIPO; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCTYPE_OBLIGATORIO", function() { return CAMBIO_DOCTYPE_OBLIGATORIO; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCTYPE_ESTADO", function() { return CAMBIO_DOCTYPE_ESTADO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCTYPE_CLIENTES", function() { return CAMBIO_DOCTYPE_CLIENTES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECARGA", function() { return RECARGA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CANCELAR", function() { return CANCELAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GUARDAR", function() { return GUARDAR; });
 var TRAER_TODOS = 'doctypes_traer_todos';
 var TRAER_UNO = 'doctypes_traer_uno';
+var TRAER_CLIENTES = 'doctypes_traer_clientes';
 var LOADING = 'doctypes_cargando';
 var ERROR = 'doctypes_error';
 var ERROR_FORM = 'doctypes_error_form';
@@ -102470,6 +102820,7 @@ var CAMBIO_DOCTYPE_NAME = 'doctypes_cambio_doctype_rs';
 var CAMBIO_DOCTYPE_TIPO = 'doctypes_cambio_doctype_cuil';
 var CAMBIO_DOCTYPE_OBLIGATORIO = 'doctypes_cambio_doctype_domicilio';
 var CAMBIO_DOCTYPE_ESTADO = 'doctypes_cambio_doctype_telefono';
+var CAMBIO_DOCTYPE_CLIENTES = 'doctypes_cambio_doctype_clientes';
 var RECARGA = 'doctypes_recarga_users';
 var CANCELAR = 'doctypes_cancelar_users';
 var GUARDAR = 'doctypes_guardar_user';

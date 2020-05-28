@@ -6,7 +6,6 @@ import Spinner from '../General/Spinner';
 
 import * as empresasActions from '../../actions/empresasActions'
 
-
 class Empresas extends Component {
 
 	async componentDidMount() {

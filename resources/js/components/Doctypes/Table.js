@@ -17,10 +17,11 @@ const Table = (props) => {
         <MenuRow
           props={props}
           data={doctype}
+          linkClientes={true}
         />
       }
       </td>
-      <td>{doctype.tipo === 1 ? 'Mensual' : 'Anul'}</td>
+      <td>{doctype.tipo === 1 ? 'Mensual' : 'Anual'}</td>
       <td>{doctype.obligatorio ? <CheckCircleIcon fontSize="small"  /> : ''}</td>
       <td>{doctype.estado ? <CheckCircleIcon fontSize="small"  /> : ''}</td>
     </tr>

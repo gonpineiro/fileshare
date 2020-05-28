@@ -32,6 +32,13 @@ class DoctypeController extends Controller
         return response()->json($data, 200);
     }
 
+    public function updateClientes($id, Request $request){       
+        $data = Doctype::where('id', $id)->firstOrFail();
+        $data->clientes()->sync($request->all());
+        $data->save();
+        return response()->json($data, 200);
+    }
+
     public function store(DoctypesRequest $request)
     {
         $data = Doctype::create([

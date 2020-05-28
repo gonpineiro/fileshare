@@ -8,8 +8,8 @@ function Layout(props) {
     return (
         <div className="Navbar">
             <div className="container-fluid">
-                <Link className="Navbar__brand-margin" to="/">
-                    <span className="font-weight-light">SIWRL</span>
+                <Link className="Navbar__brand-margin link" to="/">
+                    <span className="font-weight-light">DOC SHARE</span>
                 </Link>
                 <Link className="Navbar__brand" to="/users">
                     <span className="font-weight-light">USUARIOS</span>

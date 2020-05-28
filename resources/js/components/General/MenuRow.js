@@ -9,9 +9,11 @@ export default function MenuRow(props) {
     const {
         props: {
             traerUno,
-            traerUnoBorrar
+            traerUnoBorrar,
+            traerUnoAsociarClientes
         },
         data,
+        linkClientes
     } = props
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,6 +37,11 @@ export default function MenuRow(props) {
     traerUnoBorrar(data.id)
   };
 
+  const handleTraerUnoAsociarClientes = () => {      
+    setAnchorEl(null);
+    traerUnoAsociarClientes(data.id)
+  };
+
 
   return (
     <div>
@@ -51,6 +58,7 @@ export default function MenuRow(props) {
       >
         <MenuItem onClick={handleTraerUno}>Editar</MenuItem>
         <MenuItem onClick={handleTraerUnoBorrar}>Eliminar</MenuItem>
+        {linkClientes ? <MenuItem onClick={handleTraerUnoAsociarClientes}>Asociar Clientes</MenuItem> : ''}
       </Menu>
     </div>
   );

@@ -12,6 +12,7 @@ class ClienteController extends Controller
     {
         $data = Cliente::with('user')
         ->with('empresa')
+        ->with('doctypes')
         ->get();
         return response()->json($data, 200);
     }

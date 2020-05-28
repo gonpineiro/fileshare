@@ -2,6 +2,7 @@ import axios from 'axios'
 import {
     TRAER_TODOS,
     TRAER_UNO,
+    TRAER_CLIENTES,
     LOADING,
     ERROR_FORM,
     CAMBIO_ESTADO_FORM,
@@ -10,6 +11,7 @@ import {
     CAMBIO_DOCTYPE_TIPO,
     CAMBIO_DOCTYPE_OBLIGATORIO,
     CAMBIO_DOCTYPE_ESTADO,
+    CAMBIO_DOCTYPE_CLIENTES,
 
     CANCELAR,
     RECARGA,
@@ -61,6 +63,35 @@ export const traerUno = (id) => async (dispatch) => {
     }
 }
 
+export const traerUnoAsociarClientes = (id) => async (dispatch) => {
+
+    dispatch({
+        type: LOADING
+    })
+
+    dispatch({
+        type: CAMBIO_ESTADO_FORM,
+        payload: 'asociar'
+    })
+
+    try {
+        const response = await axios.get(URL + 'doctype/' + id)
+
+        dispatch({
+            type: TRAER_UNO,
+            payload: response.data
+        })
+
+        dispatch({
+            type: TRAER_CLIENTES,
+            payload: response.data.clientes
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const cambioDoctypeName = (valor) => (dispatch) => {
     dispatch({
         type: CAMBIO_DOCTYPE_NAME,
@@ -86,6 +117,13 @@ export const cambioDoctypeObligatorio = (valor) => (dispatch) => {
 export const cambioDoctypeEstado = (valor) => (dispatch) => {
     dispatch({
         type: CAMBIO_DOCTYPE_ESTADO,
+        payload: valor
+    })
+};
+
+export const cambioDoctypeClientes = (valor) => (dispatch) => {
+    dispatch({
+        type: CAMBIO_DOCTYPE_CLIENTES,
         payload: valor
     })
 };
@@ -130,6 +168,29 @@ export const editar = (data, id) => async (dispatch) => {
     } catch (error) {
         const errors = error.response.data.errors
         console.log(error.response)
+        dispatch({
+            type: ERROR_FORM,
+            payload: errors
+        });
+    }
+}
+
+export const asociarClientes = (data, id) => async (dispatch) => {
+
+    dispatch({
+        type: LOADING
+    })
+
+    try {        
+        await axios.put(URL + 'doctype/clientes/' + id, data)
+
+        dispatch({
+            type: GUARDAR
+        })
+
+    } catch (error) {
+        console.log(error)
+        const errors = error.response.data.errors
         dispatch({
             type: ERROR_FORM,
             payload: errors

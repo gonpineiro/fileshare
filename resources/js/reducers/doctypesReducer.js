@@ -1,6 +1,7 @@
 import {
   TRAER_TODOS,
   TRAER_UNO,
+  TRAER_CLIENTES,
   LOADING,
   ERROR,
   ERROR_FORM,
@@ -11,6 +12,7 @@ import {
   CAMBIO_DOCTYPE_TIPO,
   CAMBIO_DOCTYPE_OBLIGATORIO,
   CAMBIO_DOCTYPE_ESTADO,
+  CAMBIO_DOCTYPE_CLIENTES,
 
   RECARGA,
   CANCELAR,
@@ -20,6 +22,7 @@ import {
 const INITIAL_STATE = {
   doctypes: [],
   doctype: [],
+  clientes: [],
   loading: false,
   error: '',
   error_form: '',
@@ -41,6 +44,13 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         doctype: action.payload,
+        loading: false,
+        error: ''
+      }
+    case TRAER_CLIENTES:
+      return {
+        ...state,
+        clientes: action.payload,
         loading: false,
         error: ''
       }
@@ -96,6 +106,12 @@ export default (state = INITIAL_STATE, action) => {
         }
       };
 
+    case CAMBIO_DOCTYPE_CLIENTES:
+      return {
+        ...state,
+        clientes: action.payload
+      };
+
     case CAMBIO_ESTADO_FORM:
       return {
         ...state,
@@ -111,6 +127,7 @@ export default (state = INITIAL_STATE, action) => {
           obligatorio: '',
           estado: '',
         },
+        clientes: [],
         loading: false,
         error: '',
         error_form: '',
@@ -130,6 +147,7 @@ export default (state = INITIAL_STATE, action) => {
           obligatorio: '',
           estado: '',
         },
+        form_clientes: [],
         state_form: 'crear'
       };
 
