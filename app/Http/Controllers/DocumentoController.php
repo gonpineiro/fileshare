@@ -30,10 +30,18 @@ class DocumentoController extends Controller
     }
     
     public function store(Request $request)
-    {
+    {   
+        $s3Request = $request->file('file')->store(
+            'file',
+            's3'
+        );
+        
         $data = Documento::create([
-                'cliente_id' => $request->input('cliente_id'),
-            ]);
+            'name' => $request->file('file')->getClientOriginalName(),
+            'cliente_id' => $request->input('cliente_id'),
+            'doctype_id' => $request->input('doctype_id'),
+            'file' => $s3Request
+            ]);        
     }
     
     public function destroy($id)

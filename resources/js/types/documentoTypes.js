@@ -10,6 +10,7 @@ export const CAMBIO_DOCUMENTO_NAME = 'documentos_cambio_documento_name'
 export const CAMBIO_DOCUMENTO_EMPRESA_ID = 'documentos_cambio_documento_empresa_id'
 export const CAMBIO_DOCUMENTO_CLIENTE_ID = 'documentos_cambio_documento_cliente_id'
 export const CAMBIO_DOCUMENTO_DOCTYPE_ID = 'documentos_cambio_documento_doctype_id'
+export const CAMBIO_DOCUMENTO_FILE = 'documentos_cambio_documento_file'
 
 export const RECARGA = 'documentos_recarga_users'
 export const CANCELAR = 'documentos_cancelar_users'

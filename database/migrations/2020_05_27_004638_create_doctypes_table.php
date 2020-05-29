@@ -15,7 +15,7 @@ class CreateDoctypesTable extends Migration
     {
         Schema::create('doctypes', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);             
+            $table->string('name', 50);     
             $table->tinyInteger('tipo');      
             $table->boolean('obligatorio');
             $table->boolean('estado');   

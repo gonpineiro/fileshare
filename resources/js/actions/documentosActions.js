@@ -10,6 +10,7 @@ import {
     CAMBIO_DOCUMENTO_EMPRESA_ID,
     CAMBIO_DOCUMENTO_DOCTYPE_ID,
     CAMBIO_DOCUMENTO_CLIENTE_ID,
+    CAMBIO_DOCUMENTO_FILE,
 
     CANCELAR,
     RECARGA,
@@ -89,14 +90,23 @@ export const cambioDocumentoClienteId = (valor) => (dispatch) => {
     })
 };
 
+export const cambioDocumentoFile = (valor) => (dispatch) => {
+    dispatch({
+        type: CAMBIO_DOCUMENTO_FILE,
+        payload: valor
+    })
+};
+
 export const agregar = (data) => async (dispatch) => {
 
     dispatch({
         type: LOADING
     });
 
-    try {
-        await axios.post(URL + 'documento', data);
+    try {   
+        
+        const config = { headers: { 'Content-Type': 'multipart/form-data' } }     
+        await axios.post(URL + 'documento', data, config);
 
         dispatch({
             type: GUARDAR
@@ -105,6 +115,7 @@ export const agregar = (data) => async (dispatch) => {
     }
     catch (error) {
         const errors = error.response.data.errors
+        console.log(error.response)
 
         dispatch({
             type: ERROR_FORM,

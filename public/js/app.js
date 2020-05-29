@@ -98912,7 +98912,7 @@ var traerFormulario = function traerFormulario() {
 /*!***************************************************!*\
   !*** ./resources/js/actions/documentosActions.js ***!
   \***************************************************/
-/*! exports provided: traerTodos, traerUno, cambioDocumentoName, cambioDocumentoEmpresaId, cambioDocumentoDoctypeId, cambioDocumentoClienteId, agregar, editar, traerUnoBorrar, borrar, cancelar, traerTabla, traerFormulario */
+/*! exports provided: traerTodos, traerUno, cambioDocumentoName, cambioDocumentoEmpresaId, cambioDocumentoDoctypeId, cambioDocumentoClienteId, cambioDocumentoFile, agregar, editar, traerUnoBorrar, borrar, cancelar, traerTabla, traerFormulario */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98923,6 +98923,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoEmpresaId", function() { return cambioDocumentoEmpresaId; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoDoctypeId", function() { return cambioDocumentoDoctypeId; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoClienteId", function() { return cambioDocumentoClienteId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioDocumentoFile", function() { return cambioDocumentoFile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "agregar", function() { return agregar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUnoBorrar", function() { return traerUnoBorrar; });
@@ -99064,10 +99065,18 @@ var cambioDocumentoClienteId = function cambioDocumentoClienteId(valor) {
     });
   };
 };
+var cambioDocumentoFile = function cambioDocumentoFile(valor) {
+  return function (dispatch) {
+    dispatch({
+      type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_DOCUMENTO_FILE"],
+      payload: valor
+    });
+  };
+};
 var agregar = function agregar(data) {
   return /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(dispatch) {
-      var errors;
+      var config, errors;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
@@ -99076,31 +99085,37 @@ var agregar = function agregar(data) {
                 type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["LOADING"]
               });
               _context3.prev = 1;
-              _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'documento', data);
+              config = {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              };
+              _context3.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'documento', data, config);
 
-            case 4:
+            case 5:
               dispatch({
                 type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
               });
-              _context3.next = 11;
+              _context3.next = 13;
               break;
 
-            case 7:
-              _context3.prev = 7;
+            case 8:
+              _context3.prev = 8;
               _context3.t0 = _context3["catch"](1);
               errors = _context3.t0.response.data.errors;
+              console.log(_context3.t0.response);
               dispatch({
                 type: _types_documentoTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
                 payload: errors
               });
 
-            case 11:
+            case 13:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[1, 7]]);
+      }, _callee3, null, [[1, 8]]);
     }));
 
     return function (_x3) {
@@ -101350,7 +101365,8 @@ var agregar = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__["agregar"
     traerTabla = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__["traerTabla"],
     cambioDocumentoEmpresaId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__["cambioDocumentoEmpresaId"],
     cambioDocumentoDoctypeId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__["cambioDocumentoDoctypeId"],
-    cambioDocumentoClienteId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__["cambioDocumentoClienteId"];
+    cambioDocumentoClienteId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__["cambioDocumentoClienteId"],
+    cambioDocumentoFile = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_14__["cambioDocumentoFile"];
 
 var Formulario = function Formulario(props) {
   var empresas = props.empresasReducer.empresas,
@@ -101359,10 +101375,10 @@ var Formulario = function Formulario(props) {
       doctype = _props$doctypesReduce.doctype,
       _props$documentosRedu = props.documentosReducer,
       _props$documentosRedu2 = _props$documentosRedu.documento,
-      name = _props$documentosRedu2.name,
       cliente_id = _props$documentosRedu2.cliente_id,
       doctype_id = _props$documentosRedu2.doctype_id,
       empresa_id = _props$documentosRedu2.empresa_id,
+      file = _props$documentosRedu.file,
       state_form = _props$documentosRedu.state_form,
       error_form = _props$documentosRedu.error_form,
       loading = _props$documentosRedu.loading,
@@ -101372,6 +101388,7 @@ var Formulario = function Formulario(props) {
       cambioDocumentoEmpresaId = props.cambioDocumentoEmpresaId,
       cambioDocumentoDoctypeId = props.cambioDocumentoDoctypeId,
       cambioDocumentoClienteId = props.cambioDocumentoClienteId,
+      cambioDocumentoFile = props.cambioDocumentoFile,
       doctypeTraerUno = props.doctypeTraerUno;
 
   var handleCambioDocumentoDoctypeId = function handleCambioDocumentoDoctypeId(event) {
@@ -101395,13 +101412,17 @@ var Formulario = function Formulario(props) {
     });
   };
 
+  var handleCapture = function handleCapture(_ref2) {
+    var target = _ref2.target;
+    return cambioDocumentoFile(target.files[0]);
+  };
+
   var guardar = function guardar() {
-    var data = {
-      name: name,
-      doctype_id: doctype_id,
-      cliente_id: cliente_id
-    };
-    if (state_form === 'crear') agregar(data);
+    var formData = new FormData();
+    formData.append('file', file);
+    formData.append('cliente_id', cliente_id);
+    formData.append('doctype_id', doctype_id);
+    if (state_form === 'crear') agregar(formData);
   };
 
   var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["makeStyles"])(function (theme) {
@@ -101531,6 +101552,25 @@ var Formulario = function Formulario(props) {
     error: !error_form.cliente_id ? false : true
   }, error_form.cliente_id))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
     item: true,
+    xs: 12,
+    sm: 12
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    accept: "application/pdf",
+    className: classes.input,
+    style: {
+      display: 'none'
+    },
+    id: "raised-button-file",
+    type: "file",
+    onChange: handleCapture
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    htmlFor: "raised-button-file"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    variant: "contained",
+    component: "span",
+    className: classes.button
+  }, "Upload"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    item: true,
     xs: 6,
     sm: 6
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -101541,10 +101581,10 @@ var Formulario = function Formulario(props) {
   }, "Guardar"))))));
 };
 
-var mapStateToProps = function mapStateToProps(_ref2) {
-  var documentosReducer = _ref2.documentosReducer,
-      doctypesReducer = _ref2.doctypesReducer,
-      empresasReducer = _ref2.empresasReducer;
+var mapStateToProps = function mapStateToProps(_ref3) {
+  var documentosReducer = _ref3.documentosReducer,
+      doctypesReducer = _ref3.doctypesReducer,
+      empresasReducer = _ref3.empresasReducer;
   return {
     documentosReducer: documentosReducer,
     doctypesReducer: doctypesReducer,
@@ -101559,6 +101599,7 @@ var mapDispatchToProps = {
   cambioDocumentoEmpresaId: cambioDocumentoEmpresaId,
   cambioDocumentoDoctypeId: cambioDocumentoDoctypeId,
   cambioDocumentoClienteId: cambioDocumentoClienteId,
+  cambioDocumentoFile: cambioDocumentoFile,
   doctypeTraerUno: doctypeTraerUno
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Formulario));
@@ -103322,6 +103363,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var INITIAL_STATE = {
   documentos: [],
   documento: [],
+  file: [],
   loading: false,
   error: '',
   error_form: '',
@@ -103398,6 +103440,11 @@ var INITIAL_STATE = {
         documento: _objectSpread(_objectSpread({}, state.documento), {}, {
           cliente_id: action.payload
         })
+      });
+
+    case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_DOCUMENTO_FILE"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        file: action.payload
       });
 
     case _types_documentoTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_ESTADO_FORM"]:
@@ -103861,7 +103908,7 @@ var GUARDAR = 'doctypes_guardar_user';
 /*!**********************************************!*\
   !*** ./resources/js/types/documentoTypes.js ***!
   \**********************************************/
-/*! exports provided: TRAER_TODOS, TRAER_UNO, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_DOCUMENTO_ID, CAMBIO_DOCUMENTO_NAME, CAMBIO_DOCUMENTO_EMPRESA_ID, CAMBIO_DOCUMENTO_CLIENTE_ID, CAMBIO_DOCUMENTO_DOCTYPE_ID, RECARGA, CANCELAR, GUARDAR */
+/*! exports provided: TRAER_TODOS, TRAER_UNO, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_DOCUMENTO_ID, CAMBIO_DOCUMENTO_NAME, CAMBIO_DOCUMENTO_EMPRESA_ID, CAMBIO_DOCUMENTO_CLIENTE_ID, CAMBIO_DOCUMENTO_DOCTYPE_ID, CAMBIO_DOCUMENTO_FILE, RECARGA, CANCELAR, GUARDAR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -103877,6 +103924,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_EMPRESA_ID", function() { return CAMBIO_DOCUMENTO_EMPRESA_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_CLIENTE_ID", function() { return CAMBIO_DOCUMENTO_CLIENTE_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_DOCTYPE_ID", function() { return CAMBIO_DOCUMENTO_DOCTYPE_ID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_DOCUMENTO_FILE", function() { return CAMBIO_DOCUMENTO_FILE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECARGA", function() { return RECARGA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CANCELAR", function() { return CANCELAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GUARDAR", function() { return GUARDAR; });
@@ -103891,6 +103939,7 @@ var CAMBIO_DOCUMENTO_NAME = 'documentos_cambio_documento_name';
 var CAMBIO_DOCUMENTO_EMPRESA_ID = 'documentos_cambio_documento_empresa_id';
 var CAMBIO_DOCUMENTO_CLIENTE_ID = 'documentos_cambio_documento_cliente_id';
 var CAMBIO_DOCUMENTO_DOCTYPE_ID = 'documentos_cambio_documento_doctype_id';
+var CAMBIO_DOCUMENTO_FILE = 'documentos_cambio_documento_file';
 var RECARGA = 'documentos_recarga_users';
 var CANCELAR = 'documentos_cancelar_users';
 var GUARDAR = 'documentos_guardar_user';

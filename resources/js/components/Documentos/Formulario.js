@@ -24,7 +24,7 @@ const {
    cambioDocumentoEmpresaId,
    cambioDocumentoDoctypeId,
    cambioDocumentoClienteId,
-
+   cambioDocumentoFile
 } = documentosActions;
 
 const Formulario = (props) => {
@@ -33,7 +33,8 @@ const Formulario = (props) => {
       empresasReducer: { empresas },
       doctypesReducer: { doctypes, doctype },
       documentosReducer: {
-         documento: { name, cliente_id, doctype_id, empresa_id },
+         documento: { cliente_id, doctype_id, empresa_id },
+         file,
          state_form,
          error_form,
          loading,
@@ -44,6 +45,7 @@ const Formulario = (props) => {
       cambioDocumentoEmpresaId,
       cambioDocumentoDoctypeId,
       cambioDocumentoClienteId,
+      cambioDocumentoFile,
       doctypeTraerUno
    } = props
 
@@ -59,15 +61,15 @@ const Formulario = (props) => {
 
    const clientesFilter = ({ clientes }, id) => clientes.filter((cliente) => cliente.empresa_id == id)
 
+   const handleCapture = ({ target }) => cambioDocumentoFile(target.files[0])
+
    const guardar = () => {
-
-      const data = {
-         name: name,
-         doctype_id: doctype_id,
-         cliente_id: cliente_id
-      };
-
-      if (state_form === 'crear') agregar(data);
+      const formData = new FormData();
+      formData.append('file', file)
+      formData.append('cliente_id', cliente_id)
+      formData.append('doctype_id', doctype_id)
+      
+      if (state_form === 'crear') agregar(formData);
    };
 
    const useStyles = makeStyles((theme) => ({
@@ -201,6 +203,24 @@ const Formulario = (props) => {
                         </FormControl>
                      </Grid>
 
+                     {/* FILE */}
+                     <Grid item xs={12} sm={12}>
+                        <input
+                           accept="application/pdf"
+                           className={classes.input}
+                           style={{ display: 'none' }}
+                           id="raised-button-file"
+                           type="file"
+                           onChange={handleCapture}
+                        />
+                        <InputLabel htmlFor="raised-button-file">
+                           <Button variant="contained" component="span" className={classes.button}>
+                              Upload
+                           </Button>
+                        </InputLabel>
+                     </Grid>
+
+
                      {/* BUTTOMS */}
                      <Grid item xs={6} sm={6} >
                         <Button
@@ -210,7 +230,7 @@ const Formulario = (props) => {
                            className={classes.formButton}
                         >
                            Guardar
-                        </Button>                        
+                        </Button>
                      </Grid>
                   </Grid>
                </div>
@@ -230,6 +250,7 @@ const mapDispatchToProps = {
    cambioDocumentoEmpresaId,
    cambioDocumentoDoctypeId,
    cambioDocumentoClienteId,
+   cambioDocumentoFile,
    doctypeTraerUno
 };
 

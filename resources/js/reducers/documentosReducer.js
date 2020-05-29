@@ -11,6 +11,7 @@ import {
   CAMBIO_DOCUMENTO_EMPRESA_ID,
   CAMBIO_DOCUMENTO_CLIENTE_ID,
   CAMBIO_DOCUMENTO_DOCTYPE_ID,
+  CAMBIO_DOCUMENTO_FILE,
 
   RECARGA,
   CANCELAR,
@@ -20,11 +21,12 @@ import {
 const INITIAL_STATE = {
   documentos: [],
   documento: [],
+  file: [],
   loading: false,
   error: '',
   error_form: '',
   recargar_table: false,
-  state_form: 'tabla' 
+  state_form: 'tabla'
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -94,6 +96,12 @@ export default (state = INITIAL_STATE, action) => {
           ...state.documento,
           cliente_id: action.payload
         }
+      };
+
+    case CAMBIO_DOCUMENTO_FILE:
+      return {
+        ...state,
+        file: action.payload
       };
 
     case CAMBIO_ESTADO_FORM:
