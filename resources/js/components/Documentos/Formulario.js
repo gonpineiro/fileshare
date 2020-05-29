@@ -14,50 +14,60 @@ import Spinner from '../General/Spinner';
 import TocIcon from '@material-ui/icons/Toc';
 
 import * as documentosActions from '../../actions/documentosActions'
+import * as doctypesActions from '../../actions/doctypesActions'
+
+const { traerUno: doctypeTraerUno, cancelar: cancelarDoctype } = doctypesActions;
+
+const {
+   agregar,
+   traerTabla,
+   cambioDocumentoEmpresaId,
+   cambioDocumentoDoctypeId,
+   cambioDocumentoClienteId,
+
+} = documentosActions;
 
 const Formulario = (props) => {
 
    const {
       empresasReducer: { empresas },
-      doctypesReducer: { doctypes },
+      doctypesReducer: { doctypes, doctype },
       documentosReducer: {
-         documento: { id, name, cliente_id, doctype_id, empresa_id },
-         clientes,
-         traerTabla,
+         documento: { name, cliente_id, doctype_id, empresa_id },
          state_form,
          error_form,
+         loading,
       },
+      traerTabla,
+      cancelarDoctype,
       agregar,
-      editar,
-      borrar,
-      cancelar,
-      cambioDocumentoName,
       cambioDocumentoEmpresaId,
       cambioDocumentoDoctypeId,
       cambioDocumentoClienteId,
-      loading,
+      doctypeTraerUno
    } = props
 
-   const handleCambioDocumentoName = (event) => cambioDocumentoName(event.target.value);
+   const handleCambioDocumentoDoctypeId = (event) => {
+      const doctypeId = event.target.value
+      doctypeId ? doctypeTraerUno(doctypeId) : false
+      cambioDocumentoDoctypeId(doctypeId)
+   };
 
-   const handleCambioDocumentoEmpresaId = (event) => cambioDocumentoEmpresaId(event.target.value);
+   const handleCambioDocumentoEmpresaId = (event) => cambioDocumentoEmpresaId(event.target.value)
 
-   const handleCambioDocumentoDoctypeId = (event) => cambioDocumentoDoctypeId(event.target.value);
-   
    const handleCambioDocumentoClienteId = (event) => cambioDocumentoClienteId(event.target.value);
+
+   const clientesFilter = ({ clientes }, id) => clientes.filter((cliente) => cliente.empresa_id == id)
 
    const guardar = () => {
 
       const data = {
-         id: id,
          name: name,
          doctype_id: doctype_id,
          cliente_id: cliente_id
       };
 
       if (state_form === 'crear') agregar(data);
-
-      if (state_form === 'editar') editar(data, id)
    };
 
    const useStyles = makeStyles((theme) => ({
@@ -96,7 +106,37 @@ const Formulario = (props) => {
             <div className="card-body">
                <div className={classes.root}>
 
-                  <Grid container spacing={3}>                     
+                  <Grid container spacing={3}>
+
+                     {/* DOCTYPE */}
+                     <Grid item xs={12} sm={12}>
+                        <FormControl className={classes.formControl}>
+                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.doctype_id ? false : true}>Tipo de documento</InputLabel>
+                           <Select
+                              labelId="demo-simple-select-helper-label"
+                              id="demo-simple-select-helper"
+                              value={doctype_id || ''}
+                              onChange={handleCambioDocumentoDoctypeId}
+                              error={!error_form.doctype_id ? false : true}
+                              className="transparent"
+                           >
+                              <Link to="/doctypes">
+                                 <MenuItem onClick={cancelarDoctype}>
+                                    <em
+                                       className="link link-string"
+                                    >
+                                       Agregar
+                                       </em>
+                                 </MenuItem>
+                              </Link>
+
+                              {doctypes.map((doctype) => (
+                                 <MenuItem key={doctype.id} value={doctype.id}>{doctype.name}</MenuItem>
+                              ))}
+                           </Select>
+                           <FormHelperText error={!error_form.doctype_id ? false : true}>{error_form.doctype_id}</FormHelperText>
+                        </FormControl>
+                     </Grid>
 
                      {/* EMPRESA */}
                      <Grid item xs={12} sm={12}>
@@ -108,7 +148,7 @@ const Formulario = (props) => {
                               value={empresa_id || ''}
                               onChange={handleCambioDocumentoEmpresaId}
                               error={!error_form.empresa_id ? false : true}
-                              disabled={state_form === 'borrar' ? true : false}
+                              disabled={doctype_id ? false : true}
                               className="transparent"
                            >
                               <Link to="/empresas">
@@ -129,37 +169,6 @@ const Formulario = (props) => {
                         </FormControl>
                      </Grid>
 
-                     {/* DOCTYPE */}
-                     <Grid item xs={12} sm={12}>
-                        <FormControl className={classes.formControl}>
-                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.doctype_id ? false : true}>Tipo de documento</InputLabel>
-                           <Select
-                              labelId="demo-simple-select-helper-label"
-                              id="demo-simple-select-helper"
-                              value={doctype_id || ''}
-                              onChange={handleCambioDocumentoDoctypeId}
-                              error={!error_form.doctype_id ? false : true}
-                              disabled={state_form === 'borrar' ? true : false}
-                              className="transparent"
-                           >
-                              <Link to="/doctypes">
-                                 <MenuItem value="">
-                                    <em
-                                       className="link link-string"
-                                    >
-                                       Agregar
-                                       </em>
-                                 </MenuItem>
-                              </Link>
-
-                              {doctypes.map((doctype) => (
-                                 <MenuItem key={doctype.id} value={doctype.id}>{doctype.name}</MenuItem>
-                              ))}
-                           </Select>
-                           <FormHelperText error={!error_form.doctype_id ? false : true}>{error_form.doctype_id}</FormHelperText>
-                        </FormControl>
-                     </Grid>
-
                      {/* CLIENTE */}
                      <Grid item xs={12} sm={12}>
                         <FormControl className={classes.formControl}>
@@ -172,7 +181,7 @@ const Formulario = (props) => {
                               error={!error_form.cliente_id ? false : true}
                               disabled={state_form === 'borrar' ? true : false}
                               className="transparent"
-                              disabled={cliente_id && empresa_id ? false : true}
+                              disabled={doctype_id && empresa_id ? false : true}
                            >
                               <Link to="/clientes">
                                  <MenuItem value="">
@@ -184,9 +193,9 @@ const Formulario = (props) => {
                                  </MenuItem>
                               </Link>
 
-                              {clientes.map((cliente) => (
+                              {doctype && doctype.clientes ? clientesFilter(doctype, empresa_id).map((cliente) => (
                                  <MenuItem key={cliente.id} value={cliente.id}>{cliente.rs}</MenuItem>
-                              ))}
+                              )) : ''}
                            </Select>
                            <FormHelperText error={!error_form.cliente_id ? false : true}>{error_form.cliente_id}</FormHelperText>
                         </FormControl>
@@ -194,44 +203,15 @@ const Formulario = (props) => {
 
                      {/* BUTTOMS */}
                      <Grid item xs={6} sm={6} >
-                        {state_form === 'crear' || state_form === 'editar'
-                           ?
-                           <Button
-                              variant="contained"
-                              color="primary"
-                              onClick={guardar}
-                              className={classes.formButton}
-                           >
-                              Guardar
-                                    </Button> : ''}
-                        {state_form === 'borrar'
-                           ?
-                           <div>
-                              <Button
-                                 variant="contained"
-                                 color="primary"
-                                 onClick={() => borrar(id)}
-                                 className={classes.formButton}
-                              >
-                                 Borrar
-                                       </Button>
-                           </div>
-                           : ''}
+                        <Button
+                           variant="contained"
+                           color="primary"
+                           onClick={guardar}
+                           className={classes.formButton}
+                        >
+                           Guardar
+                        </Button>                        
                      </Grid>
-
-                     <Grid item xs={6} sm={6}>
-                        {state_form === 'editar' || state_form === 'borrar'
-                           ?
-                           <Button
-                              variant="contained"
-                              color="inherit"
-                              onClick={cancelar}
-                              className={classes.formButton}
-                           >
-                              Cancelar
-                                    </Button> : ''}
-                     </Grid>
-                     {error_form && <small className="text-danger">Existe un registro vinculado.</small>}
                   </Grid>
                </div>
             </div>}
@@ -243,4 +223,14 @@ const mapStateToProps = ({ documentosReducer, doctypesReducer, empresasReducer }
    return { documentosReducer, doctypesReducer, empresasReducer };
 };
 
-export default connect(mapStateToProps, documentosActions)(Formulario);
+const mapDispatchToProps = {
+   agregar,
+   traerTabla,
+   cancelarDoctype,
+   cambioDocumentoEmpresaId,
+   cambioDocumentoDoctypeId,
+   cambioDocumentoClienteId,
+   doctypeTraerUno
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Formulario);

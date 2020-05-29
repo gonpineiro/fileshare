@@ -122,6 +122,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         doctype: {
+          id: '',
           name: '',
           tipo: '',
           obligatorio: '',
@@ -142,6 +143,7 @@ export default (state = INITIAL_STATE, action) => {
         error: '',
         error_form: '',
         doctype: {
+          id: '',
           name: '',
           tipo: '',
           obligatorio: '',

@@ -20,12 +20,11 @@ import {
 const INITIAL_STATE = {
   documentos: [],
   documento: [],
-  clientes: [],
   loading: false,
   error: '',
   error_form: '',
   recargar_table: false,
-  state_form: 'tabla' //MODO GUARDAR 
+  state_form: 'tabla' 
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -108,11 +107,10 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         documento: {
           id: '',
-          rs: '',
-          cuil: '',
-          domicilio: '',
-          telefono: '',
-          estado: '',
+          name: '',
+          doctype_id: '',
+          empresa_id: '',
+          cliente_id: '',
         },
         loading: false,
         error: '',
@@ -129,11 +127,10 @@ export default (state = INITIAL_STATE, action) => {
         error_form: '',
         documento: {
           id: '',
-          rs: '',
-          cuil: '',
-          domicilio: '',
-          telefono: '',
-          estado: '',
+          name: '',
+          doctype_id: '',
+          empresa_id: '',
+          cliente_id: '',
         },
         state_form: 'crear'
       };

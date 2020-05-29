@@ -56,6 +56,7 @@ class Empresas extends Component {
 
 	render() {
 		const { documentosReducer: { state_form } } = this.props
+		
 		return (
 			<>
 				{state_form === 'tabla' ?

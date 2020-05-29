@@ -14,4 +14,3 @@ export const CAMBIO_DOCUMENTO_DOCTYPE_ID = 'documentos_cambio_documento_doctype_
 export const RECARGA = 'documentos_recarga_users'
 export const CANCELAR = 'documentos_cancelar_users'
 export const GUARDAR = 'documentos_guardar_user'
-

@@ -52,5 +52,10 @@ class ClienteController extends Controller
     public function destroy($id) {
         $data = Cliente::where('id', $id)->firstOrFail();
         $data->delete();
-    }
+    }    
+
+    /* public function showClienteEmpresa($id){
+        $data = Cliente::where('empresa_id', $id)->with('doctypes')->get();
+        return response()->json($data, 200);
+    } */
 }
