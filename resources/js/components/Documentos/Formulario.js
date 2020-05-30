@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -27,6 +26,7 @@ import * as documentosActions from '../../actions/documentosActions'
 import * as doctypesActions from '../../actions/doctypesActions'
 
 const { traerUno: doctypeTraerUno, cancelar: cancelarDoctype } = doctypesActions;
+const { cancelar: cancelarDocumento } = documentosActions;
 
 const {
    agregar,
@@ -49,6 +49,7 @@ const Formulario = (props) => {
          error_form,
          loading,
       },
+      cancelarDocumento,
       traerTabla,
       cancelarDoctype,
       agregar,
@@ -283,20 +284,31 @@ const Formulario = (props) => {
                      {state_form === 'crear' ? formulario() : ''}
                      {state_form === 'file' ? fileDetails() : ''}
 
-
-
                      {state_form === 'file' ?
-                        <Grid item xs={6} sm={6} >
-                           <Button
-                              variant="contained"
-                              color="primary"
-                              onClick={guardar}
-                              className={classes.formButton}
-                              disabled={file.name ? false : true}
-                           >
-                              Guardar
-                        </Button>
-                        </Grid>
+                        <Fragment>
+                           <Grid item xs={6} sm={6} >
+                              <Button
+                                 variant="contained"
+                                 color="primary"
+                                 onClick={guardar}
+                                 className={classes.formButton}
+                                 disabled={file.name ? false : true}
+                              >
+                                 Guardar
+                              </Button>
+                           </Grid>
+
+                           <Grid item xs={6} sm={6} >
+                              <Button
+                                 variant="contained"
+                                 onClick={cancelarDocumento}
+                                 className={classes.formButton}
+                                 disabled={file.name ? false : true}
+                              >
+                                 Cancelar
+                              </Button>
+                           </Grid>
+                        </Fragment>
                         : ''}
                   </Grid>
                </div>
@@ -310,6 +322,7 @@ const mapStateToProps = ({ documentosReducer, doctypesReducer, empresasReducer }
 };
 
 const mapDispatchToProps = {
+   cancelarDocumento,
    agregar,
    traerTabla,
    cancelarDoctype,

@@ -140,6 +140,7 @@ export default (state = INITIAL_STATE, action) => {
           doctype_id: '',
           empresa_id: '',
           cliente_id: '',
+          file: ''
         },
         state_form: 'crear'
       };
