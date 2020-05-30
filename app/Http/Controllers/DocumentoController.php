@@ -6,6 +6,7 @@ use App\Documento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response as Download;
+use Carbon\Carbon;
 
 class DocumentoController extends Controller
 {
@@ -33,10 +34,12 @@ class DocumentoController extends Controller
     
     public function store(Request $request)
     {   
+        $clientPath = $request->input('cliente_id');
+        $yearNow = new Carbon();
+        
         $s3Request = $request->file('file')->store(
-            $request->input('cliente_id'),
-            's3'
-        );
+            $yearNow->format('Y') . '/' . $clientPath, 
+            's3');
         
         $data = Documento::create([
             'name' => $request->file('file')->getClientOriginalName(),

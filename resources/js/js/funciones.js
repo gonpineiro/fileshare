@@ -21,4 +21,6 @@ export const deleteObjectInArray = (obj, array) => {
     }
 
     return array
-} 
+}
+
+export const bytesToMegabytes = (value) => (value / (1024 * 1024)).toFixed(2)

@@ -69,7 +69,7 @@ class Empresas extends Component {
 					</div>
 					: ''}
 
-				{state_form === 'crear' || state_form === 'editar' || state_form === 'borrar' ?
+				{state_form === 'crear' || state_form === 'editar' || state_form === 'file' ?
 
 					<div className="container col-md-9">
 						<div className="row mt-2">

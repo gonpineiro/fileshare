@@ -101,7 +101,8 @@ export default (state = INITIAL_STATE, action) => {
     case CAMBIO_DOCUMENTO_FILE:
       return {
         ...state,
-        file: action.payload
+        file: action.payload,
+        state_form: 'file'
       };
 
     case CAMBIO_ESTADO_FORM:
