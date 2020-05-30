@@ -18,14 +18,13 @@ const Table = (props) => {
       <td>{documento.doctype.name}</td>
       <td>{documento.created_at}</td>
       <td className="link" >
-      <a
-        href={`/documento/download/${documento.id}`}
-        target="_blank"
-      >
-        
+        <a
+          href={`/documento/download/${documento.id}`}
+          target="_blank"
+        >
           <AssignmentReturnedIcon fontSize="small" className="link" />
-      </a>
-        </td>
+        </a>
+      </td>
     </tr>
   ))
 

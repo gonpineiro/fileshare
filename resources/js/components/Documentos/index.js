@@ -16,7 +16,7 @@ const { traerTodos: doctypesTraerTodos } = doctypesActions;
 class Empresas extends Component {
 
 	async componentDidMount() {
-		const { 
+		const {
 			documentosReducer: { documentos },
 			empresasReducer: { empresas },
 			doctypesReducer: { doctypes },
@@ -34,13 +34,13 @@ class Empresas extends Component {
 
 	ponerContenido = () => {
 		const {
-			documentosReducer: { 
-				documentos, 
-				loading, 
-				recargar_table, 
+			documentosReducer: {
+				documentos,
+				loading,
+				recargar_table,
 				error,
 			},
-			documentosTraerTodos, 
+			documentosTraerTodos,
 			history: { goBack }
 		} = this.props
 
@@ -56,7 +56,7 @@ class Empresas extends Component {
 
 	render() {
 		const { documentosReducer: { state_form } } = this.props
-		
+
 		return (
 			<>
 				{state_form === 'tabla' ?
