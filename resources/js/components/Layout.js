@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import '../css/Navbar.css'
 
 function Layout(props) {
+    const { type } = props
 
-    return (
+    const adminNavbar = () => (
         <div className="Navbar">
             <div className="container-fluid">
                 <Link className="Navbar__brand-margin link" to="/">
@@ -28,7 +29,21 @@ function Layout(props) {
                 </Link>
             </div>
         </div>
-    );
+    )
+
+    const clienteNavbar = () => (
+        <div className="Navbar">
+            <div className="container-fluid">
+                <Link className="Navbar__brand-margin link" to="/">
+                    <span className="font-weight-light">DOC SHARE</span>
+                </Link>
+            </div>
+        </div>
+    )
+
+    if (type === 'admin') return adminNavbar()
+
+    if (type === 'cliente') return clienteNavbar()    
 }
 
 export default Layout;

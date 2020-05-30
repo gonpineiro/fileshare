@@ -4,11 +4,13 @@ import empresasReducer from './empresasReducer'
 import clientesReducer from './clientesReducer'
 import doctypesReducer from './doctypesReducer'
 import documentosReducer from './documentosReducer'
+import sesionsReducer from './sesionsReducer'
 
 export default combineReducers({
     usersReducer,
     empresasReducer,
     clientesReducer,
     doctypesReducer,
-    documentosReducer
+    documentosReducer,
+    sesionsReducer
 })

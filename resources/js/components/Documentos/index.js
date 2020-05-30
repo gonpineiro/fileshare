@@ -20,6 +20,7 @@ class Empresas extends Component {
 			documentosReducer: { documentos },
 			empresasReducer: { empresas },
 			doctypesReducer: { doctypes },
+			sesionsReducer: { user },
 			documentosTraerTodos,
 			empresasTraerTodos,
 			doctypesTraerTodos,
@@ -27,13 +28,14 @@ class Empresas extends Component {
 
 		if (!documentos.length) documentosTraerTodos()
 
-		if (!empresas.length) empresasTraerTodos()
+		if (!empresas.length && user.type === 'admin') empresasTraerTodos()
 
-		if (!doctypes.length) doctypesTraerTodos()
+		if (!doctypes.length && user.type === 'admin') doctypesTraerTodos()
 	}
 
 	ponerContenido = () => {
 		const {
+			sesionsReducer: { user },
 			documentosReducer: {
 				documentos,
 				loading,
@@ -50,7 +52,7 @@ class Empresas extends Component {
 
 		if (error) return 'Error'
 
-		return <Table goBack={goBack} />
+		return <Table goBack={goBack} user={user} />
 	}
 	ponerFormulario = () => <Formulario />
 
@@ -86,14 +88,14 @@ class Empresas extends Component {
 	}
 }
 
-const mapStateToProps = ({ documentosReducer, empresasReducer, doctypesReducer }) => {
-	return { documentosReducer, empresasReducer, doctypesReducer };
+const mapStateToProps = ({ documentosReducer, empresasReducer, doctypesReducer, sesionsReducer }) => {
+	return { documentosReducer, empresasReducer, doctypesReducer, sesionsReducer };
 };
 
 const mapDispatchToProps = {
 	documentosTraerTodos,
 	empresasTraerTodos,
-	doctypesTraerTodos
+	doctypesTraerTodos,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Empresas);

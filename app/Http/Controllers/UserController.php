@@ -46,5 +46,11 @@ class UserController extends Controller
     public function destroy($id) {
         $data = User::where('id', $id)->firstOrFail();
         $data->delete();
+    }    
+
+    //REQUERIDO PARA VALIDAR TIPO DE CUENTAS EN LA APP
+    public function loginApp($id){
+        $data = User::where('api_token', $id)->firstOrFail();
+        return response()->json($data, 200);
     }
 }

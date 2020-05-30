@@ -100318,6 +100318,72 @@ var traerFormulario = function traerFormulario() {
 
 /***/ }),
 
+/***/ "./resources/js/actions/sesionsActions.js":
+/*!************************************************!*\
+  !*** ./resources/js/actions/sesionsActions.js ***!
+  \************************************************/
+/*! exports provided: traerUsuario */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUsuario", function() { return traerUsuario; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _types_sesionTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../types/sesionTypes */ "./resources/js/types/sesionTypes.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+var URL = 'http://192.168.0.146:950/api/';
+var traerUsuario = function traerUsuario(token) {
+  return /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'loginapp/' + token);
+
+            case 3:
+              response = _context.sent;
+              dispatch({
+                type: _types_sesionTypes__WEBPACK_IMPORTED_MODULE_2__["TRAER_USUARIO"],
+                payload: response.data
+              });
+              _context.next = 10;
+              break;
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              console.log(_context.t0);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+};
+
+/***/ }),
+
 /***/ "./resources/js/actions/usersActions.js":
 /*!**********************************************!*\
   !*** ./resources/js/actions/usersActions.js ***!
@@ -100747,13 +100813,16 @@ if (api_token) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Layout */ "./resources/js/components/Layout.js");
-/* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Users */ "./resources/js/components/Users/index.js");
-/* harmony import */ var _Empresas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Empresas */ "./resources/js/components/Empresas/index.js");
-/* harmony import */ var _Clientes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Clientes */ "./resources/js/components/Clientes/index.js");
-/* harmony import */ var _Doctypes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Doctypes */ "./resources/js/components/Doctypes/index.js");
-/* harmony import */ var _Documentos__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Documentos */ "./resources/js/components/Documentos/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Layout */ "./resources/js/components/Layout.js");
+/* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Users */ "./resources/js/components/Users/index.js");
+/* harmony import */ var _Empresas__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Empresas */ "./resources/js/components/Empresas/index.js");
+/* harmony import */ var _Clientes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Clientes */ "./resources/js/components/Clientes/index.js");
+/* harmony import */ var _Doctypes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Doctypes */ "./resources/js/components/Doctypes/index.js");
+/* harmony import */ var _Documentos__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Documentos */ "./resources/js/components/Documentos/index.js");
+/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./General/Spinner */ "./resources/js/components/General/Spinner.js");
+/* harmony import */ var _actions_sesionsActions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../actions/sesionsActions */ "./resources/js/actions/sesionsActions.js");
 
 
 
@@ -100763,31 +100832,64 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/users",
-    component: _Users__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/empresas",
-    component: _Empresas__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/clientes",
-    component: _Clientes__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/doctypes",
-    component: _Doctypes__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/documentos",
-    component: _Documentos__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }));
+
+
+var api_token = document.head.querySelector('meta[name="api-token"]');
+
+function App(props) {
+  var user = props.sesionsReducer.user,
+      traerUsuario = props.traerUsuario;
+  if (!user) traerUsuario(api_token.content);
+
+  var adminRouter = function adminRouter() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      type: user.type
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      exact: true,
+      path: "/users",
+      component: _Users__WEBPACK_IMPORTED_MODULE_4__["default"]
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      exact: true,
+      path: "/empresas",
+      component: _Empresas__WEBPACK_IMPORTED_MODULE_5__["default"]
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      exact: true,
+      path: "/clientes",
+      component: _Clientes__WEBPACK_IMPORTED_MODULE_6__["default"]
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      exact: true,
+      path: "/doctypes",
+      component: _Doctypes__WEBPACK_IMPORTED_MODULE_7__["default"]
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      exact: true,
+      path: "/documentos",
+      component: _Documentos__WEBPACK_IMPORTED_MODULE_8__["default"]
+    }));
+  };
+
+  var clienteRouter = function clienteRouter() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      type: user.type
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      exact: true,
+      path: "/",
+      component: _Documentos__WEBPACK_IMPORTED_MODULE_8__["default"]
+    }));
+  };
+
+  if (!user) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_9__["default"], null);
+  if (user.type === 'admin') return adminRouter();
+  if (user.type === 'cliente') return clienteRouter();
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+var mapStateToProps = function mapStateToProps(_ref) {
+  var sesionsReducer = _ref.sesionsReducer;
+  return {
+    sesionsReducer: sesionsReducer
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_sesionsActions__WEBPACK_IMPORTED_MODULE_10__)(App));
 
 /***/ }),
 
@@ -102367,9 +102469,10 @@ var Table = function Table(props) {
   var documentos = props.documentos,
       goBack = props.goBack,
       state_form = props.state_form,
-      traerFormulario = props.traerFormulario;
+      traerFormulario = props.traerFormulario,
+      user = props.user;
 
-  var addRow = function addRow() {
+  var addRowAdmin = function addRowAdmin() {
     return documentos.map(function (documento, key) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         key: key
@@ -102385,6 +102488,30 @@ var Table = function Table(props) {
     });
   };
 
+  var addColumnsAdmin = function addColumnsAdmin() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cliente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Empresa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tipo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Fecha"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Download"));
+  };
+
+  var addRowCliente = function addRowCliente() {
+    return documentos.map(function (documento, key) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+        key: key
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.doctype.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, documento.created_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        className: "link"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/documento/download/".concat(documento.id),
+        target: "_blank"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_AssignmentReturned__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        fontSize: "small",
+        className: "link"
+      }))));
+    });
+  };
+
+  var addColumnsCliente = function addColumnsCliente() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tipo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Fecha"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Download"));
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card transparent"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -102393,19 +102520,19 @@ var Table = function Table(props) {
     className: "row mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col col-md-6 text-izquierda"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lista de documentos", state_form === 'tabla' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lista de documentos", state_form === 'tabla' && user.type !== 'cliente' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Add__WEBPACK_IMPORTED_MODULE_3___default.a, {
     fontSize: "large",
     className: "link",
     onClick: traerFormulario
   }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col col-md-6 text-derecha"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, user.type !== 'cliente' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_2___default.a, {
     fontSize: "large",
     onClick: goBack,
     className: "link"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+  }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cliente"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Empresa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tipo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Fecha"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Dowload"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, addRow()))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, user.type === 'admin' ? addColumnsAdmin() : '', user.type === 'cliente' ? addColumnsCliente() : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, user.type === 'admin' ? addRowAdmin() : '', user.type === 'cliente' ? addRowCliente() : ''))));
 };
 
 var mapStateToProps = function mapStateToProps(reducers) {
@@ -102496,6 +102623,7 @@ var Empresas = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "ponerContenido", function () {
       var _this$props = _this.props,
+          user = _this$props.sesionsReducer.user,
           _this$props$documento = _this$props.documentosReducer,
           documentos = _this$props$documento.documentos,
           loading = _this$props$documento.loading,
@@ -102507,7 +102635,8 @@ var Empresas = /*#__PURE__*/function (_Component) {
       if (loading && !documentos.length) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_5__["default"], null);
       if (error) return 'Error';
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        goBack: goBack
+        goBack: goBack,
+        user: user
       });
     });
 
@@ -102522,16 +102651,16 @@ var Empresas = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function () {
       var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this$props2, documentos, empresas, doctypes, documentosTraerTodos, empresasTraerTodos, doctypesTraerTodos;
+        var _this$props2, documentos, empresas, doctypes, user, documentosTraerTodos, empresasTraerTodos, doctypesTraerTodos;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this$props2 = this.props, documentos = _this$props2.documentosReducer.documentos, empresas = _this$props2.empresasReducer.empresas, doctypes = _this$props2.doctypesReducer.doctypes, documentosTraerTodos = _this$props2.documentosTraerTodos, empresasTraerTodos = _this$props2.empresasTraerTodos, doctypesTraerTodos = _this$props2.doctypesTraerTodos;
+                _this$props2 = this.props, documentos = _this$props2.documentosReducer.documentos, empresas = _this$props2.empresasReducer.empresas, doctypes = _this$props2.doctypesReducer.doctypes, user = _this$props2.sesionsReducer.user, documentosTraerTodos = _this$props2.documentosTraerTodos, empresasTraerTodos = _this$props2.empresasTraerTodos, doctypesTraerTodos = _this$props2.doctypesTraerTodos;
                 if (!documentos.length) documentosTraerTodos();
-                if (!empresas.length) empresasTraerTodos();
-                if (!doctypes.length) doctypesTraerTodos();
+                if (!empresas.length && user.type === 'admin') empresasTraerTodos();
+                if (!doctypes.length && user.type === 'admin') doctypesTraerTodos();
 
               case 4:
               case "end":
@@ -102575,11 +102704,13 @@ var Empresas = /*#__PURE__*/function (_Component) {
 var mapStateToProps = function mapStateToProps(_ref) {
   var documentosReducer = _ref.documentosReducer,
       empresasReducer = _ref.empresasReducer,
-      doctypesReducer = _ref.doctypesReducer;
+      doctypesReducer = _ref.doctypesReducer,
+      sesionsReducer = _ref.sesionsReducer;
   return {
     documentosReducer: documentosReducer,
     empresasReducer: empresasReducer,
-    doctypesReducer: doctypesReducer
+    doctypesReducer: doctypesReducer,
+    sesionsReducer: sesionsReducer
   };
 };
 
@@ -103162,41 +103293,61 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Layout(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Navbar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container-fluid"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "Navbar__brand-margin link",
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "font-weight-light"
-  }, "DOC SHARE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "Navbar__brand",
-    to: "/users"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "font-weight-light"
-  }, "USUARIOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "Navbar__brand",
-    to: "/empresas"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "font-weight-light"
-  }, "EMPRESAS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "Navbar__brand",
-    to: "/clientes"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "font-weight-light"
-  }, "CLIENTES")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "Navbar__brand",
-    to: "/doctypes"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "font-weight-light"
-  }, "TIPO DE DOCUMENTOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    className: "Navbar__brand",
-    to: "/documentos"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "font-weight-light"
-  }, "DOCUMENTOS"))));
+  var type = props.type;
+
+  var adminNavbar = function adminNavbar() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "Navbar"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "container-fluid"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "Navbar__brand-margin link",
+      to: "/"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "DOC SHARE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "Navbar__brand",
+      to: "/users"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "USUARIOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "Navbar__brand",
+      to: "/empresas"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "EMPRESAS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "Navbar__brand",
+      to: "/clientes"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "CLIENTES")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "Navbar__brand",
+      to: "/doctypes"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "TIPO DE DOCUMENTOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "Navbar__brand",
+      to: "/documentos"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "DOCUMENTOS"))));
+  };
+
+  var clienteNavbar = function clienteNavbar() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "Navbar"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "container-fluid"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "Navbar__brand-margin link",
+      to: "/"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "DOC SHARE"))));
+  };
+
+  if (type === 'admin') return adminNavbar();
+  if (type === 'cliente') return clienteNavbar();
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
@@ -104409,6 +104560,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _clientesReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./clientesReducer */ "./resources/js/reducers/clientesReducer.js");
 /* harmony import */ var _doctypesReducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./doctypesReducer */ "./resources/js/reducers/doctypesReducer.js");
 /* harmony import */ var _documentosReducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./documentosReducer */ "./resources/js/reducers/documentosReducer.js");
+/* harmony import */ var _sesionsReducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sesionsReducer */ "./resources/js/reducers/sesionsReducer.js");
+
 
 
 
@@ -104420,8 +104573,38 @@ __webpack_require__.r(__webpack_exports__);
   empresasReducer: _empresasReducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   clientesReducer: _clientesReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
   doctypesReducer: _doctypesReducer__WEBPACK_IMPORTED_MODULE_4__["default"],
-  documentosReducer: _documentosReducer__WEBPACK_IMPORTED_MODULE_5__["default"]
+  documentosReducer: _documentosReducer__WEBPACK_IMPORTED_MODULE_5__["default"],
+  sesionsReducer: _sesionsReducer__WEBPACK_IMPORTED_MODULE_6__["default"]
 }));
+
+/***/ }),
+
+/***/ "./resources/js/reducers/sesionsReducer.js":
+/*!*************************************************!*\
+  !*** ./resources/js/reducers/sesionsReducer.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types_sesionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types/sesionTypes */ "./resources/js/types/sesionTypes.js");
+
+var INITIAL_STATE = {};
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _types_sesionTypes__WEBPACK_IMPORTED_MODULE_0__["TRAER_USUARIO"]:
+      return {
+        user: action.payload
+      };
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
@@ -104731,6 +104914,20 @@ var CAMBIO_EMPRESA_TELEFONO = 'empresas_cambio_empresa_telefono';
 var RECARGA = 'empresas_recarga_users';
 var CANCELAR = 'empresas_cancelar_users';
 var GUARDAR = 'empresas_guardar_user';
+
+/***/ }),
+
+/***/ "./resources/js/types/sesionTypes.js":
+/*!*******************************************!*\
+  !*** ./resources/js/types/sesionTypes.js ***!
+  \*******************************************/
+/*! exports provided: TRAER_USUARIO */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRAER_USUARIO", function() { return TRAER_USUARIO; });
+var TRAER_USUARIO = 'empresas_traer_usuario';
 
 /***/ }),
 

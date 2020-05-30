@@ -7,9 +7,9 @@ import AssignmentReturnedIcon from '@material-ui/icons/AssignmentReturned';
 import * as documentosActions from '../../actions/documentosActions'
 
 const Table = (props) => {
-  const { documentos, goBack, state_form, traerFormulario } = props
+  const { documentos, goBack, state_form, traerFormulario, user } = props
 
-  const addRow = () => documentos.map((documento, key) => (
+  const addRowAdmin = () => documentos.map((documento, key) => (
     <tr key={key}>
       <td>{documento.id}</td>
       <td>{documento.name}</td>
@@ -28,6 +28,45 @@ const Table = (props) => {
     </tr>
   ))
 
+  const addColumnsAdmin = () => (
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Cliente</th>
+      <th>Empresa</th>
+      <th>Tipo</th>
+      <th>Fecha</th>
+      <th>Download</th>
+    </tr>
+  )
+
+  const addRowCliente = () => documentos.map((documento, key) => (
+    <tr key={key}>
+      <td>{documento.id}</td>
+      <td>{documento.name}</td>
+      <td>{documento.doctype.name}</td>
+      <td>{documento.created_at}</td>
+      <td className="link" >
+        <a
+          href={`/documento/download/${documento.id}`}
+          target="_blank"
+        >
+          <AssignmentReturnedIcon fontSize="small" className="link" />
+        </a>
+      </td>
+    </tr>
+  ))
+
+  const addColumnsCliente = () => (
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Fecha</th>
+      <th>Download</th>
+    </tr>
+  )
+
   return (
     <div className="card transparent">
       <div className="card-margin">
@@ -35,27 +74,21 @@ const Table = (props) => {
           <div className="col col-md-6 text-izquierda">
             <h4>
               Lista de documentos
-              {state_form === 'tabla' ? <AddIcon fontSize="large" className="link" onClick={traerFormulario} /> : ''}
+              {state_form === 'tabla' && user.type !== 'cliente' ? <AddIcon fontSize="large" className="link" onClick={traerFormulario} /> : ''}
             </h4>
           </div>
           <div className="col col-md-6 text-derecha">
-            <KeyboardReturnIcon fontSize="large" onClick={goBack} className="link" />
+            {user.type !== 'cliente' ? <KeyboardReturnIcon fontSize="large" onClick={goBack} className="link" /> : ''}
           </div>
         </div>
         <table className="table table-hover">
           <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Cliente</th>
-              <th>Empresa</th>
-              <th>Tipo</th>
-              <th>Fecha</th>
-              <th>Dowload</th>
-            </tr>
+            {user.type === 'admin' ? addColumnsAdmin() : ''}
+            {user.type === 'cliente' ? addColumnsCliente() : ''}
           </thead>
           <tbody>
-            {addRow()}
+            {user.type === 'admin' ? addRowAdmin() : ''}
+            {user.type === 'cliente' ? addRowCliente() : ''}
           </tbody>
         </table>
       </div>
