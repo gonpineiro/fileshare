@@ -30,5 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/documentos', function () {return view('home');});
 
+    Route::get('/documento/download/{id}', 'DocumentoController@download');
+
     Route::get('/', function () {return view('home');});
 });

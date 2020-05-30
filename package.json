@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "reset-sd": "php artisan migrate:reset && php artisan migrate && php artisan db:seed",
-        "reset": "php artisan migrate:reset && php artisan migrate",
+        "reset": "php artisan migrate:reset && php artisan migrate && php artisan db:seed --class='UserSeeder'",
         "bk": "php backup.php",
         "start": "php artisan serve --host=192.168.0.146 --port=950",
         "dev": "npm run development",

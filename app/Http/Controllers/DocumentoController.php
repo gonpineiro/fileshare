@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Documento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response as Download;
 
 class DocumentoController extends Controller
 {
@@ -32,7 +34,7 @@ class DocumentoController extends Controller
     public function store(Request $request)
     {   
         $s3Request = $request->file('file')->store(
-            'file',
+            $request->input('cliente_id'),
             's3'
         );
         
@@ -42,6 +44,19 @@ class DocumentoController extends Controller
             'doctype_id' => $request->input('doctype_id'),
             'file' => $s3Request
             ]);        
+    }
+
+    public function download($id, Request $request )
+    {
+        
+        $documento = Documento::where('id', $id)->firstOrFail();
+
+        $headers = [
+            'Content-Type'        => 'Content-Type: application/zip',
+            'Content-Disposition' => 'attachment; filename="'. $documento->name .'"',
+        ];
+
+        return  Storage::disk('s3')->download($documento->file, $documento->name, $headers);
     }
     
     public function destroy($id)

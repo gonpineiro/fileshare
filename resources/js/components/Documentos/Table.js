@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 import AddIcon from '@material-ui/icons/Add';
+import AssignmentReturnedIcon from '@material-ui/icons/AssignmentReturned';
 
 import * as documentosActions from '../../actions/documentosActions'
 
@@ -16,6 +17,15 @@ const Table = (props) => {
       <td>{documento.cliente.empresa.rs}</td>
       <td>{documento.doctype.name}</td>
       <td>{documento.created_at}</td>
+      <td className="link" >
+      <a
+        href={`/documento/download/${documento.id}`}
+        target="_blank"
+      >
+        
+          <AssignmentReturnedIcon fontSize="small" className="link" />
+      </a>
+        </td>
     </tr>
   ))
 
@@ -42,6 +52,7 @@ const Table = (props) => {
               <th>Empresa</th>
               <th>Tipo</th>
               <th>Fecha</th>
+              <th>Dowload</th>
             </tr>
           </thead>
           <tbody>

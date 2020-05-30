@@ -42,6 +42,7 @@ Route::middleware('auth:api')->post('/doctype', 'DoctypeController@store');
 Route::middleware('auth:api')->delete('/doctype/{id}', 'DoctypeController@destroy');
 
 Route::middleware('auth:api')->get('/documento', 'DocumentoController@index');
+Route::middleware('auth:api')->get('/documento/download/{id}', 'DocumentoController@download');
 Route::middleware('auth:api')->get('/documento/{id}', 'DocumentoController@edit');
 Route::middleware('auth:api')->put('/documento/{id}', 'DocumentoController@update');
 Route::middleware('auth:api')->put('/documento/clientes/{id}', 'DocumentoController@updateClientes');

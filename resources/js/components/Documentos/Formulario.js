@@ -204,7 +204,7 @@ const Formulario = (props) => {
                      </Grid>
 
                      {/* FILE */}
-                     <Grid item xs={12} sm={12}>
+                     <Grid item xs={3} sm={3}>
                         <input
                            accept="application/pdf"
                            className={classes.input}
@@ -214,20 +214,21 @@ const Formulario = (props) => {
                            onChange={handleCapture}
                         />
                         <InputLabel htmlFor="raised-button-file">
-                           <Button variant="contained" component="span" className={classes.button}>
+                           <Button variant="contained" component="span" className={classes.formButton}>
                               Upload
                            </Button>
-                        </InputLabel>
+                        </InputLabel>                        
                      </Grid>
 
 
                      {/* BUTTOMS */}
                      <Grid item xs={6} sm={6} >
-                        <Button
+                     <Button
                            variant="contained"
                            color="primary"
                            onClick={guardar}
                            className={classes.formButton}
+                           disabled={file.name ? false : true}
                         >
                            Guardar
                         </Button>

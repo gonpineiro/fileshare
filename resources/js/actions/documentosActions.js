@@ -215,4 +215,3 @@ export const traerFormulario = () => (dispatch) => {
         payload: 'crear'
     })
 }
-
