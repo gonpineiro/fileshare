@@ -5,9 +5,9 @@ import {
     LOADING,
     ERROR_FORM,
 
-    CAMBIO_USUARIO_ID,
     CAMBIO_USUARIO_NAME,
     CAMBIO_USUARIO_EMAIL,
+    CAMBIO_USUARIO_TYPE,
     CAMBIO_USUARIO_PASSWORD,
     CAMBIO_ESTADO_FORM,
     
@@ -76,6 +76,13 @@ export const cambioUsuarioEmail = (valor) => (dispatch) => {
     })
 };
 
+export const cambioUsuarioType = (valor) => (dispatch) => {
+    dispatch({
+        type: CAMBIO_USUARIO_TYPE,
+        payload: valor
+    })
+};
+
 export const cambioUsuarioPassword = (valor) => (dispatch) => {
     dispatch({
         type: CAMBIO_USUARIO_PASSWORD,
@@ -99,7 +106,7 @@ export const agregar = (data) => async (dispatch) => {
     }
     catch (error) {
         const errors = error.response.data.errors
-        
+        console.log(error.response)
         dispatch({
             type: ERROR_FORM,
             payload: errors

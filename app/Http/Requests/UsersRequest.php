@@ -27,8 +27,9 @@ class UsersRequest extends FormRequest
 
         return [
             'name' => 'required|min:3|max:20',
+            'email' => 'required|email|max:100|unique:users,email'.$id,
+            'type' => 'required',
             'password' => 'required',
-            'email' => 'required|email|max:100|unique:users,email'.$id
         ];
     }
 
@@ -39,12 +40,14 @@ class UsersRequest extends FormRequest
             'name.min' => 'El minimo es 3 caracteres.',
             'name.max' => 'El maximo es 20 caracteres.',
 
-            'password.required' => 'Requerido.',
-
             'email.required' => 'Requerido.',
             'email.unique' => 'Ya existe un correo. ',
             'email.email' => 'No corresponde el formato.',
-            'email.max' => 'El maximo es 20 caracteres.'
+            'email.max' => 'El maximo es 20 caracteres.',
+
+            'type.required' => 'Requerido.',
+
+            'password.required' => 'Requerido.'
         ];
     }
 }

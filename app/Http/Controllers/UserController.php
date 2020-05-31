@@ -26,6 +26,7 @@ class UserController extends Controller
         $data = User::where('id', $id)->firstOrFail();
         $data->name = $request->get('name');
         $data->email = $request->get('email');
+        $data->type = $request->get('type');
         if (!is_null($request->get('password'))) {            
             $data->password = Hash::make($request->get('password'));
         }
@@ -38,6 +39,7 @@ class UserController extends Controller
         $data = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'type' => $request->input('type'),
             'password' => Hash::make($request->input('password')),
             'api_token' => Str::random(60)
         ]);

@@ -100417,7 +100417,7 @@ var logout = function logout(token) {
 /*!**********************************************!*\
   !*** ./resources/js/actions/usersActions.js ***!
   \**********************************************/
-/*! exports provided: traerTodos, traerUno, cambioUsuarioName, cambioUsuarioEmail, cambioUsuarioPassword, agregar, editar, traerUnoBorrar, borrar, cancelar */
+/*! exports provided: traerTodos, traerUno, cambioUsuarioName, cambioUsuarioEmail, cambioUsuarioType, cambioUsuarioPassword, agregar, editar, traerUnoBorrar, borrar, cancelar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100426,6 +100426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUno", function() { return traerUno; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioUsuarioName", function() { return cambioUsuarioName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioUsuarioEmail", function() { return cambioUsuarioEmail; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioUsuarioType", function() { return cambioUsuarioType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cambioUsuarioPassword", function() { return cambioUsuarioPassword; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "agregar", function() { return agregar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
@@ -100551,6 +100552,14 @@ var cambioUsuarioEmail = function cambioUsuarioEmail(valor) {
     });
   };
 };
+var cambioUsuarioType = function cambioUsuarioType(valor) {
+  return function (dispatch) {
+    dispatch({
+      type: _types_userTypes__WEBPACK_IMPORTED_MODULE_2__["CAMBIO_USUARIO_TYPE"],
+      payload: valor
+    });
+  };
+};
 var cambioUsuarioPassword = function cambioUsuarioPassword(valor) {
   return function (dispatch) {
     dispatch({
@@ -100578,19 +100587,20 @@ var agregar = function agregar(data) {
               dispatch({
                 type: _types_userTypes__WEBPACK_IMPORTED_MODULE_2__["GUARDAR"]
               });
-              _context3.next = 11;
+              _context3.next = 12;
               break;
 
             case 7:
               _context3.prev = 7;
               _context3.t0 = _context3["catch"](1);
               errors = _context3.t0.response.data.errors;
+              console.log(_context3.t0.response);
               dispatch({
                 type: _types_userTypes__WEBPACK_IMPORTED_MODULE_2__["ERROR_FORM"],
                 payload: errors
               });
 
-            case 11:
+            case 12:
             case "end":
               return _context3.stop();
           }
@@ -103422,9 +103432,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
-/* harmony import */ var _actions_usersActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/usersActions */ "./resources/js/actions/usersActions.js");
+/* harmony import */ var _material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/InputLabel */ "./node_modules/@material-ui/core/esm/InputLabel/index.js");
+/* harmony import */ var _material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/MenuItem */ "./node_modules/@material-ui/core/esm/MenuItem/index.js");
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormHelperText */ "./node_modules/@material-ui/core/esm/FormHelperText/index.js");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/index.js");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Select */ "./node_modules/@material-ui/core/esm/Select/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
+/* harmony import */ var _actions_usersActions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../actions/usersActions */ "./resources/js/actions/usersActions.js");
+
+
+
+
+
 
 
 
@@ -103440,6 +103460,7 @@ var Formulario = function Formulario(props) {
       name = _props$user.name,
       email = _props$user.email,
       password = _props$user.password,
+      type = _props$user.type,
       agregar = props.agregar,
       editar = props.editar,
       borrar = props.borrar,
@@ -103448,6 +103469,7 @@ var Formulario = function Formulario(props) {
       error_form = props.error_form,
       cambioUsuarioName = props.cambioUsuarioName,
       cambioUsuarioEmail = props.cambioUsuarioEmail,
+      cambioUsuarioType = props.cambioUsuarioType,
       cambioUsuarioPassword = props.cambioUsuarioPassword,
       loading = props.loading;
 
@@ -103459,6 +103481,10 @@ var Formulario = function Formulario(props) {
     return cambioUsuarioEmail(event.target.value);
   };
 
+  var handleCambioUsuarioType = function handleCambioUsuarioType(event) {
+    return cambioUsuarioType(event.target.value);
+  };
+
   var handleCambioUsuarioPassword = function handleCambioUsuarioPassword(event) {
     return cambioUsuarioPassword(event.target.value);
   };
@@ -103468,6 +103494,7 @@ var Formulario = function Formulario(props) {
       id: id,
       name: name,
       email: email,
+      type: type,
       password: password
     };
     if (state_form === 'crear') agregar(data);
@@ -103478,6 +103505,9 @@ var Formulario = function Formulario(props) {
     return {
       root: {
         flexGrow: 1,
+        width: "100%"
+      },
+      formControl: {
         width: "100%"
       },
       formButton: {
@@ -103494,14 +103524,14 @@ var Formulario = function Formulario(props) {
     className: "row mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col col-md-6 card-agregar"
-  }, state_form === 'crear' ? 'AGREGAR USUARIO' : '', state_form === 'editar' ? 'MODIFICAR USUARIO' : '', state_form === 'borrar' ? 'ELIMINAR USUARIO' : ''))), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_6__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, state_form === 'crear' ? 'AGREGAR USUARIO' : '', state_form === 'editar' ? 'MODIFICAR USUARIO' : '', state_form === 'borrar' ? 'ELIMINAR USUARIO' : ''))), loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_Spinner__WEBPACK_IMPORTED_MODULE_11__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.root
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
     container: true,
     spacing: 3
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
     item: true,
     xs: 12
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -103514,7 +103544,7 @@ var Formulario = function Formulario(props) {
     helperText: error_form.name,
     error: !error_form.name ? false : true,
     disabled: state_form === 'borrar' ? true : false
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
     item: true,
     xs: 12,
     sm: 12
@@ -103527,7 +103557,7 @@ var Formulario = function Formulario(props) {
     helperText: error_form.email,
     error: !error_form.email ? false : true,
     disabled: state_form === 'borrar' ? true : false
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
     item: true,
     xs: 12,
     sm: 12
@@ -103541,7 +103571,30 @@ var Formulario = function Formulario(props) {
     helperText: error_form.password,
     error: !error_form.password ? false : true,
     disabled: state_form === 'borrar' ? true : false
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    item: true,
+    xs: 12,
+    sm: 12
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    className: classes.formControl
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_InputLabel__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    id: "demo-simple-select-helper-label",
+    error: !error_form.type ? false : true
+  }, "Tipo de usuario"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    labelId: "demo-simple-select-helper-label",
+    id: "demo-simple-select-helper",
+    value: type || '',
+    onChange: handleCambioUsuarioType,
+    error: !error_form.cliente_id ? false : true,
+    disabled: state_form === 'borrar' ? true : false,
+    className: "transparent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    value: 'admin'
+  }, 'Admin'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    value: 'cliente'
+  }, 'Cliente')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    error: !error_form.type ? false : true
+  }, error_form.type))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
     item: true,
     xs: 6,
     sm: 6
@@ -103557,7 +103610,7 @@ var Formulario = function Formulario(props) {
       return borrar(id);
     },
     className: classes.formButton
-  }, "Borrar")) : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "Borrar")) : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
     item: true,
     xs: 6,
     sm: 6
@@ -103575,7 +103628,7 @@ var mapStateToProps = function mapStateToProps(reducers) {
   return reducers.usersReducer;
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_usersActions__WEBPACK_IMPORTED_MODULE_7__)(Formulario));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_usersActions__WEBPACK_IMPORTED_MODULE_12__)(Formulario));
 
 /***/ }),
 
@@ -103612,7 +103665,7 @@ var Table = function Table(props) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_MenuRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
         props: props,
         data: user
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.email));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.type));
     });
   };
 
@@ -103634,7 +103687,7 @@ var Table = function Table(props) {
     className: "link"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Email"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, addRow()))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tipo"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, addRow()))));
 };
 
 var mapStateToProps = function mapStateToProps(reducers) {
@@ -104742,6 +104795,13 @@ var INITIAL_STATE = {
         })
       });
 
+    case _types_userTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_USUARIO_TYPE"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        user: _objectSpread(_objectSpread({}, state.user), {}, {
+          type: action.payload
+        })
+      });
+
     case _types_userTypes__WEBPACK_IMPORTED_MODULE_0__["CAMBIO_USUARIO_PASSWORD"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         user: _objectSpread(_objectSpread({}, state.user), {}, {
@@ -104984,7 +105044,7 @@ var TRAER_USUARIO = 'empresas_traer_usuario';
 /*!*****************************************!*\
   !*** ./resources/js/types/userTypes.js ***!
   \*****************************************/
-/*! exports provided: TRAER_TODOS, TRAER_UNO, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_USUARIO_ID, CAMBIO_USUARIO_NAME, CAMBIO_USUARIO_EMAIL, CAMBIO_USUARIO_PASSWORD, RECARGA, CANCELAR, GUARDAR */
+/*! exports provided: TRAER_TODOS, TRAER_UNO, LOADING, ERROR, ERROR_FORM, CAMBIO_ESTADO_FORM, CAMBIO_USUARIO_ID, CAMBIO_USUARIO_NAME, CAMBIO_USUARIO_EMAIL, CAMBIO_USUARIO_TYPE, CAMBIO_USUARIO_PASSWORD, RECARGA, CANCELAR, GUARDAR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -104998,6 +105058,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_USUARIO_ID", function() { return CAMBIO_USUARIO_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_USUARIO_NAME", function() { return CAMBIO_USUARIO_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_USUARIO_EMAIL", function() { return CAMBIO_USUARIO_EMAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_USUARIO_TYPE", function() { return CAMBIO_USUARIO_TYPE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CAMBIO_USUARIO_PASSWORD", function() { return CAMBIO_USUARIO_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECARGA", function() { return RECARGA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CANCELAR", function() { return CANCELAR; });
@@ -105011,6 +105072,7 @@ var CAMBIO_ESTADO_FORM = 'users_cambio_estado_form';
 var CAMBIO_USUARIO_ID = 'users_cambio_user_id';
 var CAMBIO_USUARIO_NAME = 'users_cambio_user_name';
 var CAMBIO_USUARIO_EMAIL = 'users_cambio_user_email';
+var CAMBIO_USUARIO_TYPE = 'users_cambio_user_type';
 var CAMBIO_USUARIO_PASSWORD = 'users_cambio_user_password';
 var RECARGA = 'users_recarga_users';
 var CANCELAR = 'users_cancelar_users';

@@ -19,6 +19,7 @@ const Table = (props) => {
       }
       </td>
       <td>{user.email}</td>
+      <td>{user.type}</td>
     </tr>
   ))
 
@@ -39,6 +40,7 @@ const Table = (props) => {
               <th>ID</th>
               <th>Nombre</th>
               <th>Email</th>
+              <th>Tipo</th>
             </tr>
           </thead>
           <tbody>

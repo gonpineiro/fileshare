@@ -9,6 +9,7 @@ import {
   CAMBIO_USUARIO_ID,
   CAMBIO_USUARIO_NAME,
   CAMBIO_USUARIO_EMAIL,
+  CAMBIO_USUARIO_TYPE,
   CAMBIO_USUARIO_PASSWORD,
 
   RECARGA,
@@ -77,6 +78,15 @@ export default (state = INITIAL_STATE, action) => {
         }
       };
 
+    case CAMBIO_USUARIO_TYPE:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          type: action.payload
+        }
+      };
+
     case CAMBIO_USUARIO_PASSWORD:
       return {
         ...state,
@@ -108,27 +118,27 @@ export default (state = INITIAL_STATE, action) => {
         state_form: 'crear'
       };
 
-      case CANCELAR:
-        return {
-          ...state,
-          loading: false,
-          error: '',
-          error_form: '',
-          user: {
-            id: '',
-            name: '',
-            email: '',
-            password: ''
-          },
-          state_form: 'crear'
-        };
-  
-      case RECARGA:
-        return {
-          ...state,
-          loading: true,
-          recargar_table: false,
-        };
+    case CANCELAR:
+      return {
+        ...state,
+        loading: false,
+        error: '',
+        error_form: '',
+        user: {
+          id: '',
+          name: '',
+          email: '',
+          password: ''
+        },
+        state_form: 'crear'
+      };
+
+    case RECARGA:
+      return {
+        ...state,
+        loading: true,
+        recargar_table: false,
+      };
 
     default: return state
   }

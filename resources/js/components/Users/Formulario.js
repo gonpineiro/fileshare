@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import Spinner from '../General/Spinner';
 
@@ -11,7 +16,7 @@ import * as usersActions from '../../actions/usersActions'
 const Formulario = (props) => {
 
    const {
-      user: { id, name, email, password },
+      user: { id, name, email, password, type },
       agregar,
       editar,
       borrar,
@@ -20,6 +25,7 @@ const Formulario = (props) => {
       error_form,
       cambioUsuarioName,
       cambioUsuarioEmail,
+      cambioUsuarioType,
       cambioUsuarioPassword,
       loading,
    } = props
@@ -27,6 +33,8 @@ const Formulario = (props) => {
    const handleCambioUsuarioName = (event) => cambioUsuarioName(event.target.value);
 
    const handleCambioUsuarioEmail = (event) => cambioUsuarioEmail(event.target.value);
+
+   const handleCambioUsuarioType = (event) => cambioUsuarioType(event.target.value);
 
    const handleCambioUsuarioPassword = (event) => cambioUsuarioPassword(event.target.value);
 
@@ -36,6 +44,7 @@ const Formulario = (props) => {
          id: id,
          name: name,
          email: email,
+         type: type,
          password: password
       };
 
@@ -47,6 +56,10 @@ const Formulario = (props) => {
    const useStyles = makeStyles((theme) => ({
       root: {
          flexGrow: 1,
+         width: "100%",
+      },
+
+      formControl: {
          width: "100%",
       },
 
@@ -118,6 +131,27 @@ const Formulario = (props) => {
                         />
 
                      </Grid>
+
+                     {/* TYPE */}
+                     < Grid item xs={12} sm={12} >
+                        <FormControl className={classes.formControl}>
+                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.type ? false : true}>Tipo de usuario</InputLabel>
+                           <Select
+                              labelId="demo-simple-select-helper-label"
+                              id="demo-simple-select-helper"
+                              value={type || ''}
+                              onChange={handleCambioUsuarioType}
+                              error={!error_form.cliente_id ? false : true}
+                              disabled={state_form === 'borrar' ? true : false}
+                              className="transparent"
+                           >
+
+                              <MenuItem value={'admin'}>{'Admin'}</MenuItem>
+                              <MenuItem value={'cliente'}>{'Cliente'}</MenuItem>
+                           </Select>
+                           <FormHelperText error={!error_form.type ? false : true}>{error_form.type}</FormHelperText>
+                        </FormControl>
+                     </Grid >
 
                      {/* BUTTOMS */}
                      <Grid item xs={6} sm={6} >

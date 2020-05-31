@@ -8,6 +8,7 @@ export const CAMBIO_ESTADO_FORM = 'users_cambio_estado_form'
 export const CAMBIO_USUARIO_ID = 'users_cambio_user_id'
 export const CAMBIO_USUARIO_NAME = 'users_cambio_user_name'
 export const CAMBIO_USUARIO_EMAIL = 'users_cambio_user_email'
+export const CAMBIO_USUARIO_TYPE = 'users_cambio_user_type'
 export const CAMBIO_USUARIO_PASSWORD = 'users_cambio_user_password'
 
 export const RECARGA = 'users_recarga_users'
