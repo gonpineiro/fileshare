@@ -31,7 +31,6 @@ const Formulario = (props) => {
       agregar,
       borrar,
       traerTabla,
-
       cambioClienteRs,
       cambioClienteCuil,
       cambioClienteDomicilio,
@@ -39,6 +38,8 @@ const Formulario = (props) => {
       cambioClienteEmpresaId,
       cambioClienteUserId,
    } = props
+
+   const usersFilter = users.filter(user => user.type === 'cliente');
 
    const handleCambioClienteRs = (event) => cambioClienteRs(event.target.value);
 
@@ -50,7 +51,7 @@ const Formulario = (props) => {
 
    const handleCambioClienteEmpresaId = (event) => cambioClienteEmpresaId(event.target.value);
 
-   const handleCambioClienteUserId = (event) => cambioClienteUserId(event.target.value);
+   const handleCambioClienteUserId = (event) => cambioClienteUserId(event.target.value);   
 
    const guardar = () => {
 
@@ -221,7 +222,7 @@ const Formulario = (props) => {
                                  </MenuItem>
                               </Link>
 
-                              {users.map((user) => (
+                              {usersFilter.map((user) => (
                                  <MenuItem key={user.id} value={user.id}>{user.name}</MenuItem>
                               ))}
                            </Select>
@@ -279,6 +280,5 @@ const Formulario = (props) => {
 const mapStateToProps = ({ clientesReducer, empresasReducer, usersReducer }) => {
    return { clientesReducer, empresasReducer, usersReducer };
 };
-
 
 export default connect(mapStateToProps, clientesActions)(Formulario);

@@ -101006,6 +101006,9 @@ var Formulario = function Formulario(props) {
       cambioClienteTelefono = props.cambioClienteTelefono,
       cambioClienteEmpresaId = props.cambioClienteEmpresaId,
       cambioClienteUserId = props.cambioClienteUserId;
+  var usersFilter = users.filter(function (user) {
+    return user.type === 'cliente';
+  });
 
   var handleCambioClienteRs = function handleCambioClienteRs(event) {
     return cambioClienteRs(event.target.value);
@@ -101188,7 +101191,7 @@ var Formulario = function Formulario(props) {
     value: ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
     className: "link link-string"
-  }, "Agregar"))), users.map(function (user) {
+  }, "Agregar"))), usersFilter.map(function (user) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
       key: user.id,
       value: user.id
