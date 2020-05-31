@@ -12,7 +12,7 @@
     <meta name="api-token" content="{{ auth()->user()->api_token }}">
     @endif
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Doc Share</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,11 +27,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    
-        
-    
-        <div id="app"></div>
-        
-
+    <div id="app"></div>
 </body>
 </html>

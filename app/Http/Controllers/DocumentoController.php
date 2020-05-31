@@ -16,7 +16,7 @@ class DocumentoController extends Controller
         $user = $request->user();
 
         if ($user->type === 'admin') {
-            $data = Documento::with('cliente')->with('doctype') ->get();
+            $data = Documento::with('cliente')->with('doctype')->get();
 
             return response()->json($data, 200);
         }

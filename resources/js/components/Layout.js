@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../css/Navbar.css'
 
 function Layout(props) {
-    const { type } = props
+    const { type, logout, csrf_token } = props
 
     const adminNavbar = () => (
         <div className="Navbar">
@@ -27,6 +27,13 @@ function Layout(props) {
                 <Link className="Navbar__brand" to="/documentos">
                     <span className="font-weight-light">DOCUMENTOS</span>
                 </Link>
+                <a
+                    className="Navbar__brand"
+                    href="/login"
+                    onClick={() => logout(csrf_token.content)}
+                >
+                    <span className="font-weight-light">LOG</span>
+                </a>
             </div>
         </div>
     )
@@ -37,17 +44,20 @@ function Layout(props) {
                 <Link className="Navbar__brand-margin link" to="/">
                     <span className="font-weight-light">DOC SHARE</span>
                 </Link>
+                <a
+                    className="Navbar__brand"
+                    href="/login"
+                    onClick={() => logout(csrf_token.content)}
+                >
+                    <span className="font-weight-light">LOG</span>
+                </a>
             </div>
         </div>
     )
 
     if (type === 'admin') return adminNavbar()
 
-    if (type === 'cliente') return clienteNavbar()    
+    if (type === 'cliente') return clienteNavbar()
 }
 
 export default Layout;
-/*
-if (document.getElementById('main')) {
-    ReactDOM.render(<Layout />, document.getElementById('main'));
-}*/

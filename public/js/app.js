@@ -25809,7 +25809,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mon
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".center {\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\ntable {\r\n    font-size: 0.785rem;\r\n}\r\n\r\n.table td {\r\n    padding: 0.30rem;\r\n    justify-content: center;\r\n    vertical-align: inherit;\r\n}\r\n\r\n.material-icons {\r\n    width: 0.30rem;\r\n    height: 0.30rem;\r\n}\r\n\r\n.alert {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-right: 15px;\r\n}\r\n\r\n.btn-cancelar {\r\n    background-color: #5e2129;\r\n    border-color: #5e2129;\r\n}\r\n\r\n.material-icons {\r\n    font-family: 'Material Icons';\r\n    font-weight: normal;\r\n    font-style: normal;\r\n    font-size: 20px;\r\n    /* Preferred icon size */\r\n    display: inline-block;\r\n    line-height: 1;\r\n    text-transform: none;\r\n    letter-spacing: normal;\r\n    word-wrap: normal;\r\n    white-space: nowrap;\r\n    direction: ltr;\r\n\r\n    /* Agregador por gon.pineiro */\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    /* Support for all WebKit browsers. */\r\n    -webkit-font-smoothing: antialiased;\r\n    /* Support for Safari and Chrome. */\r\n    text-rendering: optimizeLegibility;\r\n\r\n    /* Support for Firefox. */\r\n    -moz-osx-font-smoothing: grayscale;\r\n\r\n    /* Support for IE. */\r\n    font-feature-settings: 'liga';\r\n}\r\n\r\n.link {\r\n    cursor: pointer;\r\n}\r\n\r\n.link-string {\r\n    color: #3e5f8a;\r\n    font-weight: bold;\r\n}\r\n\r\n.card-agregar {\r\n    color: black;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.card-eliminar {\r\n    color: #5e2129;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n\r\n.margin-button {\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n}\r\n\r\n.container {\r\n    margin-top: 25px;\r\n}\r\n\r\n.text-derecha {\r\n    text-align: right;\r\n}\r\n\r\n.text-izquierda {\r\n    text-align: left;\r\n}\r\n\r\n.color-alert {\r\n    color: #5e2129;\r\n}\r\n\r\n\r\n.avatar {\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.transparent {\r\n    background-color:transparent;\r\n}\r\n\r\n.card-margin{\r\n    margin: 10px;\r\n}\r\n\r\n.input-stepper{\r\n    width: 50%;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n}\r\n\r\n.chart-title {    \r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n}\r\n\r\n.checkbox {\r\n    font-size: 100px;\r\n}\r\n", ""]);
+exports.push([module.i, ".center {\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\ntable {\r\n    font-size: 0.785rem;\r\n}\r\n\r\n.table td {\r\n    padding: 0.30rem;\r\n    justify-content: center;\r\n    vertical-align: inherit;\r\n}\r\n\r\n.material-icons {\r\n    width: 0.30rem;\r\n    height: 0.30rem;\r\n}\r\n\r\n.alert {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-right: 15px;\r\n}\r\n\r\n.btn-cancelar {\r\n    background-color: #5e2129;\r\n    border-color: #5e2129;\r\n}\r\n\r\n.material-icons {\r\n    font-family: 'Material Icons';\r\n    font-weight: normal;\r\n    font-style: normal;\r\n    font-size: 20px;\r\n    /* Preferred icon size */\r\n    display: inline-block;\r\n    line-height: 1;\r\n    text-transform: none;\r\n    letter-spacing: normal;\r\n    word-wrap: normal;\r\n    white-space: nowrap;\r\n    direction: ltr;\r\n\r\n    /* Agregador por gon.pineiro */\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    /* Support for all WebKit browsers. */\r\n    -webkit-font-smoothing: antialiased;\r\n    /* Support for Safari and Chrome. */\r\n    text-rendering: optimizeLegibility;\r\n\r\n    /* Support for Firefox. */\r\n    -moz-osx-font-smoothing: grayscale;\r\n\r\n    /* Support for IE. */\r\n    font-feature-settings: 'liga';\r\n}\r\n\r\n.link {\r\n    cursor: pointer;\r\n}\r\n\r\n.link-string {\r\n    color: #3e5f8a;\r\n    font-weight: bold;\r\n}\r\n\r\n.card-agregar {\r\n    color: black;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.card-eliminar {\r\n    color: #5e2129;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n\r\n.margin-button {\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n}\r\n\r\n.container {\r\n    margin-top: 0;\r\n}\r\n\r\n.text-derecha {\r\n    text-align: right;\r\n}\r\n\r\n.text-izquierda {\r\n    text-align: left;\r\n}\r\n\r\n.color-alert {\r\n    color: #5e2129;\r\n}\r\n\r\n\r\n.avatar {\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.transparent {\r\n    background-color:transparent;\r\n}\r\n\r\n.card-margin{\r\n    margin: 10px;\r\n}\r\n\r\n.input-stepper{\r\n    width: 50%;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n}\r\n\r\n.chart-title {    \r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n}\r\n\r\n.checkbox {\r\n    font-size: 100px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -100322,12 +100322,13 @@ var traerFormulario = function traerFormulario() {
 /*!************************************************!*\
   !*** ./resources/js/actions/sesionsActions.js ***!
   \************************************************/
-/*! exports provided: traerUsuario */
+/*! exports provided: traerUsuario, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "traerUsuario", function() { return traerUsuario; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -100341,7 +100342,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-var URL = 'http://192.168.0.146:950/api/';
+var URL_API = 'http://192.168.0.146:950/api/';
+var URL = 'http://192.168.0.146:950/';
 var traerUsuario = function traerUsuario(token) {
   return /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(dispatch) {
@@ -100352,7 +100354,7 @@ var traerUsuario = function traerUsuario(token) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL + 'loginapp/' + token);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(URL_API + 'loginapp/' + token);
 
             case 3:
               response = _context.sent;
@@ -100380,6 +100382,33 @@ var traerUsuario = function traerUsuario(token) {
       return _ref.apply(this, arguments);
     };
   }();
+};
+var logout = function logout(token) {
+  return /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(URL + 'logout', token);
+
+          case 3:
+            _context2.next = 8;
+            break;
+
+          case 5:
+            _context2.prev = 5;
+            _context2.t0 = _context2["catch"](0);
+            console.log(_context2.t0);
+
+          case 8:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[0, 5]]);
+  }));
 };
 
 /***/ }),
@@ -100835,15 +100864,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var api_token = document.head.querySelector('meta[name="api-token"]');
+var csrf_token = document.head.querySelector('meta[name="csrf-token"]');
 
 function App(props) {
   var user = props.sesionsReducer.user,
-      traerUsuario = props.traerUsuario;
+      traerUsuario = props.traerUsuario,
+      logout = props.logout;
   if (!user) traerUsuario(api_token.content);
 
   var adminRouter = function adminRouter() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      type: user.type
+      type: user.type,
+      csrf_token: csrf_token,
+      logout: logout
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
       exact: true,
       path: "/users",
@@ -100869,10 +100902,12 @@ function App(props) {
 
   var clienteRouter = function clienteRouter() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      type: user.type
+      type: user.type,
+      csrf_token: csrf_token,
+      logout: logout
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
       exact: true,
-      path: "/",
+      path: "/home",
       component: _Documentos__WEBPACK_IMPORTED_MODULE_8__["default"]
     }));
   };
@@ -102532,7 +102567,7 @@ var Table = function Table(props) {
     className: "link"
   }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, user.type === 'admin' ? addColumnsAdmin() : '', user.type === 'cliente' ? addColumnsCliente() : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, user.type === 'admin' ? addRowAdmin() : '', user.type === 'cliente' ? addRowCliente() : ''))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, user.type === 'admin' ? addColumnsAdmin() : addColumnsCliente()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, user.type === 'admin' ? addRowAdmin() : addRowCliente()))));
 };
 
 var mapStateToProps = function mapStateToProps(reducers) {
@@ -103293,7 +103328,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Layout(props) {
-  var type = props.type;
+  var type = props.type,
+      logout = props.logout,
+      csrf_token = props.csrf_token;
 
   var adminNavbar = function adminNavbar() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -103330,7 +103367,15 @@ function Layout(props) {
       to: "/documentos"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
-    }, "DOCUMENTOS"))));
+    }, "DOCUMENTOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "Navbar__brand",
+      href: "/login",
+      onClick: function onClick() {
+        return logout(csrf_token.content);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "LOG"))));
   };
 
   var clienteNavbar = function clienteNavbar() {
@@ -103343,7 +103388,15 @@ function Layout(props) {
       to: "/"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
-    }, "DOC SHARE"))));
+    }, "DOC SHARE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "Navbar__brand",
+      href: "/login",
+      onClick: function onClick() {
+        return logout(csrf_token.content);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "font-weight-light"
+    }, "LOG"))));
   };
 
   if (type === 'admin') return adminNavbar();
@@ -103351,10 +103404,6 @@ function Layout(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
-/*
-if (document.getElementById('main')) {
-    ReactDOM.render(<Layout />, document.getElementById('main'));
-}*/
 
 /***/ }),
 

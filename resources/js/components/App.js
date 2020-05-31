@@ -12,15 +12,20 @@ import Spinner from './General/Spinner'
 import * as sesionsActions from '../actions/sesionsActions'
 
 const api_token = document.head.querySelector('meta[name="api-token"]');
+const csrf_token = document.head.querySelector('meta[name="csrf-token"]');
 
 function App(props) {
-  const { sesionsReducer: { user }, traerUsuario } = props
+  const { sesionsReducer: { user }, traerUsuario, logout } = props
 
   if (!user) traerUsuario(api_token.content)
 
   const adminRouter = () => (
     <BrowserRouter>
-      <Layout type={user.type} />
+      <Layout
+        type={user.type}
+        csrf_token={csrf_token}
+        logout={logout}
+      />
       <Route exact path="/users" component={Users} />
       <Route exact path="/empresas" component={Empresas} />
       <Route exact path="/clientes" component={Clientes} />
@@ -31,8 +36,12 @@ function App(props) {
 
   const clienteRouter = () => (
     <BrowserRouter>
-      <Layout type={user.type} />
-      <Route exact path="/" component={Documentos} />
+      <Layout
+        type={user.type}
+        csrf_token={csrf_token}
+        logout={logout}
+      />
+      <Route exact path="/home" component={Documentos} />
     </BrowserRouter>
   )
 

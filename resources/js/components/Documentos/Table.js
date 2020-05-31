@@ -83,12 +83,10 @@ const Table = (props) => {
         </div>
         <table className="table table-hover">
           <thead>
-            {user.type === 'admin' ? addColumnsAdmin() : ''}
-            {user.type === 'cliente' ? addColumnsCliente() : ''}
+            {user.type === 'admin' ? addColumnsAdmin() : addColumnsCliente()}
           </thead>
           <tbody>
-            {user.type === 'admin' ? addRowAdmin() : ''}
-            {user.type === 'cliente' ? addRowCliente() : ''}
+            {user.type === 'admin' ? addRowAdmin() : addRowCliente()}
           </tbody>
         </table>
       </div>
