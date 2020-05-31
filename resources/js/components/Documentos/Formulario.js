@@ -19,6 +19,9 @@ import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import DescriptionIcon from '@material-ui/icons/Description';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 
 import { bytesToMegabytes } from '../../js/funciones'
 
@@ -214,7 +217,7 @@ const Formulario = (props) => {
             <ListItem>
                <ListItemAvatar>
                   <Avatar>
-                     <WorkIcon />
+                     <DescriptionIcon />
                   </Avatar>
                </ListItemAvatar>
                <ListItemText primary="Nombre" secondary={file.name} />
@@ -223,7 +226,7 @@ const Formulario = (props) => {
             <ListItem>
                <ListItemAvatar>
                   <Avatar>
-                     <ImageIcon />
+                     <ScheduleIcon />
                   </Avatar>
                </ListItemAvatar>
                <ListItemText primary="Modificado" secondary={date} />
@@ -232,10 +235,10 @@ const Formulario = (props) => {
             <ListItem>
                <ListItemAvatar>
                   <Avatar>
-                     <BeachAccessIcon />
+                     <FitnessCenterIcon />
                   </Avatar>
                </ListItemAvatar>
-               <ListItemText primary="Tanaño" secondary={`${bytesToMegabytes(file.size)} Mb`} />
+               <ListItemText primary="Tamaño" secondary={`${bytesToMegabytes(file.size)} Mb`} />
             </ListItem>
          </List>
       )

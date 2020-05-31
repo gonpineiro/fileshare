@@ -15937,6 +15937,64 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Description.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Description.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+}), 'Description');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/FitnessCenter.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/FitnessCenter.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"
+}), 'FitnessCenter');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Image.js":
 /*!**************************************************!*\
   !*** ./node_modules/@material-ui/icons/Image.js ***!
@@ -15990,6 +16048,37 @@ var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/crea
 var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
   d: "M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z"
 }), 'KeyboardReturn');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Schedule.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Schedule.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+}), _react.default.createElement("path", {
+  d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+})), 'Schedule');
 
 exports.default = _default;
 
@@ -102170,9 +102259,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_Work__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Work__WEBPACK_IMPORTED_MODULE_19__);
 /* harmony import */ var _material_ui_icons_BeachAccess__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @material-ui/icons/BeachAccess */ "./node_modules/@material-ui/icons/BeachAccess.js");
 /* harmony import */ var _material_ui_icons_BeachAccess__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_BeachAccess__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var _js_funciones__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../js/funciones */ "./resources/js/js/funciones.js");
-/* harmony import */ var _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../actions/documentosActions */ "./resources/js/actions/documentosActions.js");
-/* harmony import */ var _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../actions/doctypesActions */ "./resources/js/actions/doctypesActions.js");
+/* harmony import */ var _material_ui_icons_Description__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @material-ui/icons/Description */ "./node_modules/@material-ui/icons/Description.js");
+/* harmony import */ var _material_ui_icons_Description__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Description__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _material_ui_icons_FitnessCenter__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @material-ui/icons/FitnessCenter */ "./node_modules/@material-ui/icons/FitnessCenter.js");
+/* harmony import */ var _material_ui_icons_FitnessCenter__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_FitnessCenter__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _material_ui_icons_Schedule__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @material-ui/icons/Schedule */ "./node_modules/@material-ui/icons/Schedule.js");
+/* harmony import */ var _material_ui_icons_Schedule__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Schedule__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _js_funciones__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../js/funciones */ "./resources/js/js/funciones.js");
+/* harmony import */ var _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../actions/documentosActions */ "./resources/js/actions/documentosActions.js");
+/* harmony import */ var _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../actions/doctypesActions */ "./resources/js/actions/doctypesActions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -102199,15 +102294,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var doctypeTraerUno = _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_23__["traerUno"],
-    cancelarDoctype = _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_23__["cancelar"];
-var cancelarDocumento = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__["cancelar"];
-var agregar = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__["agregar"],
-    traerTabla = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__["traerTabla"],
-    cambioDocumentoEmpresaId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__["cambioDocumentoEmpresaId"],
-    cambioDocumentoDoctypeId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__["cambioDocumentoDoctypeId"],
-    cambioDocumentoClienteId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__["cambioDocumentoClienteId"],
-    cambioDocumentoFile = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_22__["cambioDocumentoFile"];
+
+
+
+var doctypeTraerUno = _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_26__["traerUno"],
+    cancelarDoctype = _actions_doctypesActions__WEBPACK_IMPORTED_MODULE_26__["cancelar"];
+var cancelarDocumento = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__["cancelar"];
+var agregar = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__["agregar"],
+    traerTabla = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__["traerTabla"],
+    cambioDocumentoEmpresaId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__["cambioDocumentoEmpresaId"],
+    cambioDocumentoDoctypeId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__["cambioDocumentoDoctypeId"],
+    cambioDocumentoClienteId = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__["cambioDocumentoClienteId"],
+    cambioDocumentoFile = _actions_documentosActions__WEBPACK_IMPORTED_MODULE_25__["cambioDocumentoFile"];
 
 var Formulario = function Formulario(props) {
   var empresas = props.empresasReducer.empresas,
@@ -102386,15 +102484,15 @@ var Formulario = function Formulario(props) {
     var date = new Date(file.lastModified).toUTCString();
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_List__WEBPACK_IMPORTED_MODULE_13__["default"], {
       className: classes.list
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_14__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_16__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_17__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Work__WEBPACK_IMPORTED_MODULE_19___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_14__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_16__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_17__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Description__WEBPACK_IMPORTED_MODULE_21___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_15__["default"], {
       primary: "Nombre",
       secondary: file.name
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_14__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_16__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_17__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Image__WEBPACK_IMPORTED_MODULE_18___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_14__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_16__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_17__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Schedule__WEBPACK_IMPORTED_MODULE_23___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_15__["default"], {
       primary: "Modificado",
       secondary: date
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_14__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_16__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_17__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_BeachAccess__WEBPACK_IMPORTED_MODULE_20___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_15__["default"], {
-      primary: "Tana\xF1o",
-      secondary: "".concat(Object(_js_funciones__WEBPACK_IMPORTED_MODULE_21__["bytesToMegabytes"])(file.size), " Mb")
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_14__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemAvatar__WEBPACK_IMPORTED_MODULE_16__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_17__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_FitnessCenter__WEBPACK_IMPORTED_MODULE_22___default.a, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ListItemText__WEBPACK_IMPORTED_MODULE_15__["default"], {
+      primary: "Tama\xF1o",
+      secondary: "".concat(Object(_js_funciones__WEBPACK_IMPORTED_MODULE_24__["bytesToMegabytes"])(file.size), " Mb")
     })));
   };
 
