@@ -11,17 +11,16 @@ import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
 import Spinner from '../General/Spinner';
 import TocIcon from '@material-ui/icons/Toc';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
-import WorkIcon from '@material-ui/icons/Work';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import DescriptionIcon from '@material-ui/icons/Description';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import Typography from '@material-ui/core/Typography';
 
 import { bytesToMegabytes } from '../../js/funciones'
 
@@ -48,6 +47,8 @@ const Formulario = (props) => {
       documentosReducer: {
          documento: { cliente_id, doctype_id, empresa_id },
          file,
+         file_loading,
+         file_progress,
          state_form,
          error_form,
          loading,
@@ -62,7 +63,7 @@ const Formulario = (props) => {
       cambioDocumentoFile,
       doctypeTraerUno
    } = props
-
+   
    const handleCambioDocumentoDoctypeId = (event) => {
       const doctypeId = event.target.value
       doctypeId ? doctypeTraerUno(doctypeId) : false
@@ -250,6 +251,12 @@ const Formulario = (props) => {
          width: "100%",
       },
 
+      progress: {
+         width: "100%",
+         marginTop: 10,
+         marginBottom: 20,
+      },
+
       formControl: {
          width: "100%",
       },
@@ -261,7 +268,8 @@ const Formulario = (props) => {
       list: {
          width: '100%',
          maxWidth: 360,
-         backgroundColor: theme.palette.background.paper,
+         backgroundColor: theme.palette.background.transparent,
+         
       },
    }));
 
@@ -287,7 +295,7 @@ const Formulario = (props) => {
                      {state_form === 'crear' ? formulario() : ''}
                      {state_form === 'file' ? fileDetails() : ''}
 
-                     {state_form === 'file' ?
+                     {state_form === 'file' && !file_loading ?
                         <Fragment>
                            <Grid item xs={6} sm={6} >
                               <Button
@@ -312,6 +320,16 @@ const Formulario = (props) => {
                               </Button>
                            </Grid>
                         </Fragment>
+                        : ''}
+
+                     {file_loading ?
+                        <div className={classes.progress}>
+                           {file_progress === 100 ?
+                              <Typography>Esperando respuesta</Typography> :
+                              <LinearProgress variant="determinate" value={file_progress} />
+                           }
+
+                        </div>
                         : ''}
                   </Grid>
                </div>

@@ -3,6 +3,8 @@ import {
     TRAER_TODOS,
     TRAER_UNO,
     LOADING,
+    FILE_LOADING,
+    FILE_PROGRESS,
     ERROR_FORM,
     CAMBIO_ESTADO_FORM,
 
@@ -100,12 +102,22 @@ export const cambioDocumentoFile = (valor) => (dispatch) => {
 export const agregar = (data) => async (dispatch) => {
 
     dispatch({
-        type: LOADING
+        type: FILE_LOADING
     });
 
     try {   
         
-        const config = { headers: { 'Content-Type': 'multipart/form-data' } }     
+        const config = { 
+            headers: { 'Content-Type': 'multipart/form-data' },
+            onUploadProgress: progressEvent => {
+                var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+                dispatch({
+                    type: FILE_PROGRESS,
+                    payload: percentCompleted
+                });
+                //console.log(percentCompleted)
+              }
+        }     
         await axios.post(URL + 'documento', data, config);
 
         dispatch({

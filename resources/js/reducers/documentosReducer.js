@@ -2,9 +2,11 @@ import {
   TRAER_TODOS,
   TRAER_UNO,
   LOADING,
+  FILE_LOADING,
   ERROR,
   ERROR_FORM,
   CAMBIO_ESTADO_FORM,
+  FILE_PROGRESS,
 
   CAMBIO_DOCUMENTO_ID,
   CAMBIO_DOCUMENTO_NAME,
@@ -22,6 +24,8 @@ const INITIAL_STATE = {
   documentos: [],
   documento: [],
   file: [],
+  file_progress: '',
+  file_loading: false,
   loading: false,
   error: '',
   error_form: '',
@@ -48,6 +52,8 @@ export default (state = INITIAL_STATE, action) => {
       }
     case LOADING:
       return { ...state, loading: true }
+    case FILE_LOADING:
+      return { ...state, file_loading: true }
     case ERROR:
       return { ...state, error: action.payload, loading: false }
     case ERROR_FORM:
@@ -111,6 +117,12 @@ export default (state = INITIAL_STATE, action) => {
         state_form: action.payload
       };
 
+    case FILE_PROGRESS:
+      return {
+        ...state,
+        file_progress: action.payload
+      };
+
     case GUARDAR:
       return {
         ...state,
@@ -122,6 +134,7 @@ export default (state = INITIAL_STATE, action) => {
           cliente_id: '',
         },
         loading: false,
+        file_loading: false,
         error: '',
         error_form: '',
         recargar_table: true,

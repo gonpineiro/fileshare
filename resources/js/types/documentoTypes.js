@@ -1,9 +1,12 @@
 export const TRAER_TODOS = 'documentos_traer_todos'
 export const TRAER_UNO = 'documentos_traer_uno'
 export const LOADING = 'documentos_cargando'
+export const FILE_LOADING = 'documentos_file_loading'
 export const ERROR = 'documentos_error'
 export const ERROR_FORM = 'documentos_error_form'
 export const CAMBIO_ESTADO_FORM = 'documentos_cambio_estado_form'
+export const FILE_PROGRESS = 'documentos_cambio_file_progress'
+
 
 export const CAMBIO_DOCUMENTO_ID = 'documentos_cambio_documento_id'
 export const CAMBIO_DOCUMENTO_NAME = 'documentos_cambio_documento_name'
