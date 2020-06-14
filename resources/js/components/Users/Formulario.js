@@ -2,206 +2,166 @@ import React from 'react';
 import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Grid from '@material-ui/core/Grid';
 import Spinner from '../General/Spinner';
+import { Title, FormGrid, RowGrid, Form, DivButton } from './styles'
 
 import * as usersActions from '../../actions/usersActions'
 
 const Formulario = (props) => {
 
-   const {
-      user: { id, name, email, password, type },
-      agregar,
-      editar,
-      borrar,
-      cancelar,
-      state_form,
-      error_form,
-      cambioUsuarioName,
-      cambioUsuarioEmail,
-      cambioUsuarioType,
-      cambioUsuarioPassword,
-      loading,
-   } = props
+  const {
+    user: { id, name, email, password, type },
+    agregar,
+    editar,
+    borrar,
+    cancelar,
+    state_form,
+    error_form,
+    cambioUsuarioName,
+    cambioUsuarioEmail,
+    cambioUsuarioType,
+    cambioUsuarioPassword,
+    loading,
+  } = props
 
-   const handleCambioUsuarioName = (event) => cambioUsuarioName(event.target.value);
+  const handleCambioUsuarioName = (event) => cambioUsuarioName(event.target.value);
 
-   const handleCambioUsuarioEmail = (event) => cambioUsuarioEmail(event.target.value);
+  const handleCambioUsuarioEmail = (event) => cambioUsuarioEmail(event.target.value);
 
-   const handleCambioUsuarioType = (event) => cambioUsuarioType(event.target.value);
+  const handleCambioUsuarioType = (event) => cambioUsuarioType(event.target.value);
 
-   const handleCambioUsuarioPassword = (event) => cambioUsuarioPassword(event.target.value);
+  const handleCambioUsuarioPassword = (event) => cambioUsuarioPassword(event.target.value);
 
-   const guardar = () => {
+  const handleTitle = (state_form) => {
+    if (state_form === 'crear') return <Title>Agrega usuario</Title>
+    if (state_form === 'editar') return <Title>Modificando usuario</Title>
+    if (state_form === 'borrar') return <Title>Borrar usuario</Title>
+  }
 
-      const data = {
-         id: id,
-         name: name,
-         email: email,
-         type: type,
-         password: password
-      };
+  const guardar = () => {
 
-      if (state_form === 'crear') agregar(data);
+    const data = {
+      id: id,
+      name: name,
+      email: email,
+      type: type,
+      password: password
+    };
 
-      if (state_form === 'editar') editar(data, id)
-   };
+    if (state_form === 'crear') agregar(data);
 
-   const useStyles = makeStyles((theme) => ({
-      root: {
-         flexGrow: 1,
-         width: "100%",
-      },
+    if (state_form === 'editar') editar(data, id)
+  };
 
-      formControl: {
-         width: "100%",
-      },
+  return (
 
-      formButton: {
-         marginTop: 20,
-      },
-   }));
+    <FormGrid >
+      <RowGrid formtitle={true}>
+        {handleTitle(state_form)}
+      </RowGrid>
+      {loading ? <Spinner /> :
+        <Form >
+          {/* NAME */}
+          <TextField
+            id="standard-basic"
+            label="Nombre"
+            type="text"
+            className="transparent"
+            value={name || ''}
+            onChange={handleCambioUsuarioName}
+            helperText={error_form.name}
+            error={!error_form.name ? false : true}
+            disabled={state_form === 'borrar' ? true : false}
+          />
 
-   const classes = useStyles();
+          {/* EMAIL */}
+          <TextField
+            label="Email"
+            type="email"
+            className="form-control transparent"
+            value={email || ''}
+            onChange={handleCambioUsuarioEmail}
+            helperText={error_form.email}
+            error={!error_form.email ? false : true}
+            disabled={state_form === 'borrar' ? true : false}
+          />
 
-   return (
+          {/* PASSWORD */}
+          <TextField
+            id="standard-basic"
+            label="Password"
+            type="text"
+            className="form-control transparent"
+            value={password || ''}
+            onChange={handleCambioUsuarioPassword}
+            helperText={error_form.password}
+            error={!error_form.password ? false : true}
+            disabled={state_form === 'borrar' ? true : false}
+          />
 
-      <div className="card transparent">
-         <div className="card-header">
-            <div className="row mt-2">
-               <div className="col col-md-6 card-agregar" >
-                  {state_form === 'crear' ? 'AGREGAR USUARIO' : ''}
-                  {state_form === 'editar' ? 'MODIFICAR USUARIO' : ''}
-                  {state_form === 'borrar' ? 'ELIMINAR USUARIO' : ''}
-               </div>
-            </div>
-         </div>
-         {loading ? <Spinner /> :
-            <div className="card-body">
-               <div className={classes.root}>
+          {/* TYPE */}
+          <FormControl >
+            <InputLabel id="demo-simple-select-helper-label" error={!error_form.type ? false : true}>Tipo de usuario</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={type || ''}
+              onChange={handleCambioUsuarioType}
+              error={!error_form.cliente_id ? false : true}
+              disabled={state_form === 'borrar' ? true : false}
+              className="transparent"
+            >
 
-                  <Grid container spacing={3}>
-                     {/* NAME */}
-                     <Grid item xs={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Nombre"
-                           type="text"
-                           className="form-control transparent"
-                           value={name || ''}
-                           onChange={handleCambioUsuarioName}
-                           helperText={error_form.name}
-                           error={!error_form.name ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
-                     </Grid>
+              <MenuItem value={'admin'}>{'Admin'}</MenuItem>
+              <MenuItem value={'cliente'}>{'Cliente'}</MenuItem>
+            </Select>
+            <FormHelperText error={!error_form.type ? false : true}>{error_form.type}</FormHelperText>
+          </FormControl>
 
-                     {/* EMAIL */}
-                     <Grid item xs={12} sm={12}>
-                        <TextField
-                           label="Email"
-                           type="email"
-                           className="form-control transparent"
-                           value={email || ''}
-                           onChange={handleCambioUsuarioEmail}
-                           helperText={error_form.email}
-                           error={!error_form.email ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
-                     </Grid>
+          {/* BUTTOMS */}
+          <DivButton >
+            {state_form === 'crear' || state_form === 'editar'
+              ?
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={guardar}
+              >
+                Guardar
+              </Button> : ''}
+            {state_form === 'borrar'
+              ?
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => borrar(id)}
+              >
+                Borrar
+              </Button>
+              : ''}
 
-                     {/* PASSWORD */}
-                     <Grid item xs={12} sm={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Password"
-                           type="text"
-                           className="form-control transparent"
-                           value={password || ''}
-                           onChange={handleCambioUsuarioPassword}
-                           helperText={error_form.password}
-                           error={!error_form.password ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
+            {state_form === 'editar' || state_form === 'borrar'
+              ?
+              <Button
+                variant="contained"
+                color="inherit"
+                onClick={cancelar}
+              >
+                Cancelar
+              </Button> : ''}
+          </DivButton>
+          {error_form && <small className="text-danger">Existe un registro vinculado.</small>}
 
-                     </Grid>
-
-                     {/* TYPE */}
-                     < Grid item xs={12} sm={12} >
-                        <FormControl className={classes.formControl}>
-                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.type ? false : true}>Tipo de usuario</InputLabel>
-                           <Select
-                              labelId="demo-simple-select-helper-label"
-                              id="demo-simple-select-helper"
-                              value={type || ''}
-                              onChange={handleCambioUsuarioType}
-                              error={!error_form.cliente_id ? false : true}
-                              disabled={state_form === 'borrar' ? true : false}
-                              className="transparent"
-                           >
-
-                              <MenuItem value={'admin'}>{'Admin'}</MenuItem>
-                              <MenuItem value={'cliente'}>{'Cliente'}</MenuItem>
-                           </Select>
-                           <FormHelperText error={!error_form.type ? false : true}>{error_form.type}</FormHelperText>
-                        </FormControl>
-                     </Grid >
-
-                     {/* BUTTOMS */}
-                     <Grid item xs={6} sm={6} >
-                        {state_form === 'crear' || state_form === 'editar'
-                           ?
-                           <Button
-                              variant="contained"
-                              color="primary"
-                              onClick={guardar}
-                              className={classes.formButton}
-                           >
-                              Guardar
-                                    </Button> : ''}
-                        {state_form === 'borrar'
-                           ?
-                           <div>
-                              <Button
-                                 variant="contained"
-                                 color="primary"
-                                 onClick={() => borrar(id)}
-                                 className={classes.formButton}
-                              >
-                                 Borrar
-                                       </Button>
-                           </div>
-                           : ''}
-                     </Grid>
-
-                     <Grid item xs={6} sm={6}>
-                        {state_form === 'editar' || state_form === 'borrar'
-                           ?
-                           <Button
-                              variant="contained"
-                              color="inherit"
-                              onClick={cancelar}
-                              className={classes.formButton}
-                           >
-                              Cancelar
-                                    </Button> : ''}
-                     </Grid>
-                     {error_form && <small className="text-danger">Existe un registro vinculado.</small>}
-                  </Grid>
-               </div>
-            </div>}
-      </div>
-   );
+        </Form>}
+    </FormGrid>
+  );
 }
 
-const mapStateToProps = (reducers) => {
-   return reducers.usersReducer
-}
+const mapStateToProps = (reducers) => reducers.usersReducer
 
 export default connect(mapStateToProps, usersActions)(Formulario);

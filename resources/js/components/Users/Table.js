@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { GridTable, RowGrid, TitleTable } from './styles';
+import { GridTable, RowGrid, Title } from './styles';
 import MenuRow from '../General/MenuRow';
 import { ReturnIcon } from '../General/ReturnIcon';
 
@@ -8,10 +8,6 @@ import * as usersActions from '../../actions/usersActions'
 
 const Table = (props) => {
   const { users, goBack } = props
-
-  const handleReturn = () => {
-    console.log('asdads')
-  }
 
   const addRow = () => users.map((user, key) => (
     <tr key={key}>
@@ -31,8 +27,8 @@ const Table = (props) => {
   return (
     <GridTable>
       <RowGrid>
-        <TitleTable className="title-table">Lista de usuarios</TitleTable>
-        <ReturnIcon goBack={goBack}/>
+        <Title>Lista de usuarios</Title>
+        <ReturnIcon goBack={goBack} />
       </RowGrid>
       <table className="table table-hover">
         <thead>
@@ -51,8 +47,6 @@ const Table = (props) => {
   );
 }
 
-const mapStateToProps = (reducers) => {
-  return reducers.usersReducer
-}
+const mapStateToProps = (reducers) => reducers.usersReducer
 
 export default connect(mapStateToProps, usersActions)(Table);

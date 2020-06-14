@@ -2,7 +2,6 @@ import * as React from "react"
 import { Svg } from './styles'
 
 export const ReturnIcon = ({goBack}) => {
-    console.log(goBack)
     return (
         <Svg viewBox="0 0 443.52 443.52" onClick={goBack}>
             <path
