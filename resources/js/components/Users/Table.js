@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import './index.css';
+import { GridTable, RowGrid, TitleTable } from './styles';
 import MenuRow from '../General/MenuRow';
-import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
+import { ReturnIcon } from '../General/ReturnIcon';
 
 import * as usersActions from '../../actions/usersActions'
 
 const Table = (props) => {
   const { users, goBack } = props
+
+  const handleReturn = () => {
+    console.log('asdads')
+  }
 
   const addRow = () => users.map((user, key) => (
     <tr key={key}>
@@ -25,11 +29,11 @@ const Table = (props) => {
   ))
 
   return (
-    <div className="contenido">
-      <div className="row-grid">
-        <h4 className="title-table">Lista de usuarios</h4>
-        <KeyboardReturnIcon fontSize="large" onClick={goBack} className="link" />
-      </div>
+    <GridTable>
+      <RowGrid>
+        <TitleTable className="title-table">Lista de usuarios</TitleTable>
+        <ReturnIcon goBack={goBack}/>
+      </RowGrid>
       <table className="table table-hover">
         <thead>
           <tr>
@@ -43,7 +47,7 @@ const Table = (props) => {
           {addRow()}
         </tbody>
       </table>
-    </div>
+    </GridTable>
   );
 }
 

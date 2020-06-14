@@ -5,20 +5,20 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 
 export default function MenuRow(props) {
-  
-    const {
-        props: {
-            traerUno,
-            traerUnoBorrar,
-            traerUnoAsociarClientes
-        },
-        data,
-        linkClientes
-    } = props
+
+  const {
+    props: {
+      traerUno,
+      traerUnoBorrar,
+      traerUnoAsociarClientes
+    },
+    data,
+    linkClientes
+  } = props
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -27,7 +27,7 @@ export default function MenuRow(props) {
     setAnchorEl(null);
   };
 
-  const handleTraerUno = () => {      
+  const handleTraerUno = () => {
     setAnchorEl(null);
     traerUno(data.id)
   };
@@ -37,15 +37,15 @@ export default function MenuRow(props) {
     traerUnoBorrar(data.id)
   };
 
-  const handleTraerUnoAsociarClientes = () => {      
+  const handleTraerUnoAsociarClientes = () => {
     setAnchorEl(null);
     traerUnoAsociarClientes(data.id)
   };
 
 
   return (
-    <div>
-      <Button aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
+    <>
+      <Button  onClick={handleClick}>
         {data.name || data.rs}
       </Button>
       <Menu
@@ -60,6 +60,6 @@ export default function MenuRow(props) {
         <MenuItem onClick={handleTraerUnoBorrar}>Eliminar</MenuItem>
         {linkClientes ? <MenuItem onClick={handleTraerUnoAsociarClientes}>Asociar Clientes</MenuItem> : ''}
       </Menu>
-    </div>
+    </>
   );
 }
