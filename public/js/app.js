@@ -26118,6 +26118,25 @@ function toVal(mix) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/Users/index.css":
+/*!*********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/Users/index.css ***!
+  \*********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".container {\r\n    display: grid;\r\n    grid-template-columns: 2fr 1fr;\r\n    grid-gap: 10px 10px;\r\n    padding: 15px;\r\n}\r\n.contenido {\r\n    padding: 10px;\r\n    display: grid;\r\n    grid-template-rows: 50px 1fr;    \r\n}\r\n\r\n.row-grid {\r\n    display: grid;\r\n    grid-template-columns: 2fr 1fr;\r\n}\r\n.title-table, .link {\r\n    align-self: center;\r\n    margin-left: 10px;\r\n}\r\n.link {\r\n    justify-self: right;\r\n}\r\n\r\n\r\n@media screen and (max-width: 768px) {\r\n    .container {\r\n        grid-template-columns: 1fr;\r\n    }\r\n    .display-none{\r\n        display: none;\r\n    }\r\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/css/Navbar.css":
 /*!*********************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/css/Navbar.css ***!
@@ -26130,7 +26149,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".navbar {\r\n    width: 100%;\r\n    padding: 0.5rem 0;\r\n    background-color: rgb(9, 49, 70);\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 200px;\r\n}\r\n\r\n.item {\r\n    text-decoration: none;\r\n    color: #ffffff;\r\n    justify-self: center;\r\n}\r\n\r\n.item:hover {\r\n    text-decoration: none;\r\n    color: #ffffff;\r\n}\r\n\r\n.logo {\r\n    padding: 5px;\r\n    text-decoration: none;\r\n    margin-right: 15px;\r\n    margin-left: 10px;\r\n    width: 100%;\r\n    justify-self: left;\r\n}\r\n\r\n.Navbar__brand-logo {\r\n    margin-right: 0.5rem;\r\n}\r\n\r\n@media screen and (max-width: 768px){\r\n  .navbar {    \r\n    grid-template: repeat(4, 1fr) / repeat(2, 1fr);\r\n    grid-template-areas: \"logo logo\";\r\n  }\r\n  .logo {    \r\n    grid-area: logo;\r\n    justify-self: center;\r\n    text-justify: center;\r\n    background: black;\r\n    width: 100%;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".navbar {\r\n    width: 100%;\r\n    padding: 0.5rem 0;\r\n    background-color: rgb(9, 49, 70);\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 200px;\r\n}\r\n\r\n.item {\r\n    text-decoration: none;\r\n    color: #ffffff;\r\n    justify-self: center;\r\n    align-self: center;\r\n}\r\n\r\n.item:hover {\r\n    text-decoration: none;\r\n    color: #ffffff;\r\n}\r\n\r\n.logo {\r\n    padding: 5px;\r\n    text-decoration: none;\r\n    margin-right: 15px;\r\n    margin-left: 10px;\r\n    width: 100%;\r\n    justify-self: left;\r\n}\r\n\r\n.Navbar__brand-logo {\r\n    margin-right: 0.5rem;\r\n}\r\n\r\n@media screen and (max-width: 768px){\r\n  .navbar {    \r\n    grid-template: repeat(4, 1fr) / repeat(2, 1fr);\r\n    grid-template-areas: \"logo logo\";\r\n  }\r\n  .logo {    \r\n    grid-area: logo;\r\n    justify-self: center;\r\n    text-justify: center;\r\n    background: black;\r\n    width: 100%;\r\n  }\r\n}\r\n", ""]);
 
 // exports
 
@@ -26146,11 +26165,10 @@ exports.push([module.i, ".navbar {\r\n    width: 100%;\r\n    padding: 0.5rem 0;
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);", ""]);
-exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap);", ""]);
+
 
 // module
-exports.push([module.i, ".center {\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\ntable {\r\n    font-size: 0.785rem;\r\n}\r\n\r\n.table td {\r\n    padding: 0.30rem;\r\n    justify-content: center;\r\n    vertical-align: inherit;\r\n}\r\n\r\n.material-icons {\r\n    width: 0.30rem;\r\n    height: 0.30rem;\r\n}\r\n\r\n.alert {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-right: 15px;\r\n}\r\n\r\n.btn-cancelar {\r\n    background-color: #5e2129;\r\n    border-color: #5e2129;\r\n}\r\n\r\n.material-icons {\r\n    font-family: 'Material Icons';\r\n    font-weight: normal;\r\n    font-style: normal;\r\n    font-size: 20px;\r\n    /* Preferred icon size */\r\n    display: inline-block;\r\n    line-height: 1;\r\n    text-transform: none;\r\n    letter-spacing: normal;\r\n    word-wrap: normal;\r\n    white-space: nowrap;\r\n    direction: ltr;\r\n\r\n    /* Agregador por gon.pineiro */\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    /* Support for all WebKit browsers. */\r\n    -webkit-font-smoothing: antialiased;\r\n    /* Support for Safari and Chrome. */\r\n    text-rendering: optimizeLegibility;\r\n\r\n    /* Support for Firefox. */\r\n    -moz-osx-font-smoothing: grayscale;\r\n\r\n    /* Support for IE. */\r\n    font-feature-settings: 'liga';\r\n}\r\n\r\n.link {\r\n    cursor: pointer;\r\n}\r\n\r\n.link-string {\r\n    color: #3e5f8a;\r\n    font-weight: bold;\r\n}\r\n\r\n.card-agregar {\r\n    color: black;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.card-eliminar {\r\n    color: #5e2129;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n\r\n.margin-button {\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n}\r\n\r\n.container {\r\n    margin-top: 0;\r\n}\r\n\r\n.text-derecha {\r\n    text-align: right;\r\n}\r\n\r\n.text-izquierda {\r\n    text-align: left;\r\n}\r\n\r\n.color-alert {\r\n    color: #5e2129;\r\n}\r\n\r\n\r\n.avatar {\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.transparent {\r\n    background-color:transparent;\r\n}\r\n\r\n.card-margin{\r\n    margin: 10px;\r\n}\r\n\r\n.input-stepper{\r\n    width: 50%;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n}\r\n\r\n.chart-title {    \r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n}\r\n\r\n.checkbox {\r\n    font-size: 100px;\r\n}\r\n", ""]);
+exports.push([module.i, "\r\n.center {\r\n    text-align: center;\r\n    justify-content: center;\r\n}\r\n\r\ntable {\r\n    font-size: 0.785rem;\r\n}\r\n\r\n.table td {\r\n    padding: 0.30rem;\r\n    justify-content: center;\r\n    vertical-align: inherit;\r\n}\r\n\r\n.material-icons {\r\n    width: 0.30rem;\r\n    height: 0.30rem;\r\n}\r\n\r\n.alert {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-right: 15px;\r\n}\r\n\r\n.btn-cancelar {\r\n    background-color: #5e2129;\r\n    border-color: #5e2129;\r\n}\r\n\r\n.material-icons {\r\n    font-family: 'Material Icons';\r\n    font-weight: normal;\r\n    font-style: normal;\r\n    font-size: 20px;\r\n    /* Preferred icon size */\r\n    display: inline-block;\r\n    line-height: 1;\r\n    text-transform: none;\r\n    letter-spacing: normal;\r\n    word-wrap: normal;\r\n    white-space: nowrap;\r\n    direction: ltr;\r\n\r\n    /* Agregador por gon.pineiro */\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n\r\n    /* Support for all WebKit browsers. */\r\n    -webkit-font-smoothing: antialiased;\r\n    /* Support for Safari and Chrome. */\r\n    text-rendering: optimizeLegibility;\r\n\r\n    /* Support for Firefox. */\r\n    -moz-osx-font-smoothing: grayscale;\r\n\r\n    /* Support for IE. */\r\n    font-feature-settings: 'liga';\r\n}\r\n\r\n.link {\r\n    cursor: pointer;\r\n}\r\n\r\n.link-string {\r\n    color: #3e5f8a;\r\n    font-weight: bold;\r\n}\r\n\r\n.card-agregar {\r\n    color: black;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n.card-eliminar {\r\n    color: #5e2129;\r\n    font-weight: bold;\r\n    text-align: left;\r\n}\r\n\r\n\r\n.margin-button {\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    margin-right: 15px;\r\n}\r\n\r\n.container {\r\n    margin-top: 0;\r\n}\r\n\r\n.text-derecha {\r\n    text-align: right;\r\n}\r\n\r\n.text-izquierda {\r\n    text-align: left;\r\n}\r\n\r\n.color-alert {\r\n    color: #5e2129;\r\n}\r\n\r\n\r\n.avatar {\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.transparent {\r\n    background-color:transparent;\r\n}\r\n\r\n/* .card-margin{\r\n    margin: 10px;\r\n} */\r\n\r\n.input-stepper{\r\n    width: 50%;\r\n}\r\n\r\n.box {\r\n    display: flex;\r\n}\r\n\r\n.chart-title {    \r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n}\r\n\r\n.checkbox {\r\n    font-size: 100px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -104007,10 +104025,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _General_MenuRow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../General/MenuRow */ "./resources/js/components/General/MenuRow.js");
-/* harmony import */ var _material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js");
-/* harmony import */ var _material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _actions_usersActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/usersActions */ "./resources/js/actions/usersActions.js");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ "./resources/js/components/Users/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _General_MenuRow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../General/MenuRow */ "./resources/js/components/General/MenuRow.js");
+/* harmony import */ var _material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js");
+/* harmony import */ var _material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _actions_usersActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/usersActions */ "./resources/js/actions/usersActions.js");
+
 
 
 
@@ -104025,39 +104046,67 @@ var Table = function Table(props) {
     return users.map(function (user, key) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         key: key
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_MenuRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General_MenuRow__WEBPACK_IMPORTED_MODULE_3__["default"], {
         props: props,
         data: user
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.type));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        className: "display-none"
+      }, user.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.type));
     });
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card transparent"
+    className: "contenido"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-margin"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row mt-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col col-md-6"
+    className: "row-grid"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "title-table"
-  }, "Lista de usuarios")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col col-md-6 text-derecha"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, "Lista de usuarios"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_KeyboardReturn__WEBPACK_IMPORTED_MODULE_4___default.a, {
     fontSize: "large",
     onClick: goBack,
     className: "link"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tipo"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, addRow()))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    className: "display-none"
+  }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tipo"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, addRow())));
 };
 
 var mapStateToProps = function mapStateToProps(reducers) {
   return reducers.usersReducer;
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_usersActions__WEBPACK_IMPORTED_MODULE_4__)(Table));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, _actions_usersActions__WEBPACK_IMPORTED_MODULE_5__)(Table));
+
+/***/ }),
+
+/***/ "./resources/js/components/Users/index.css":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Users/index.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./index.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/Users/index.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -104078,7 +104127,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Table */ "./resources/js/components/Users/Table.js");
 /* harmony import */ var _Formulario__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Formulario */ "./resources/js/components/Users/Formulario.js");
 /* harmony import */ var _General_Spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../General/Spinner */ "./resources/js/components/General/Spinner.js");
-/* harmony import */ var _actions_usersActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/usersActions */ "./resources/js/actions/usersActions.js");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./index.css */ "./resources/js/components/Users/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _actions_usersActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/usersActions */ "./resources/js/actions/usersActions.js");
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -104108,6 +104159,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -104186,14 +104238,8 @@ var Users = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "container col-md-9"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "row mt-2"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "col col-md-8"
-      }, this.ponerContenido()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "col col-md-4"
-      }, this.ponerFormulario())));
+        className: "container col-md-10"
+      }, this.ponerContenido(), this.ponerFormulario());
     }
   }]);
 
@@ -104204,7 +104250,7 @@ var mapStateToProps = function mapStateToProps(reducers) {
   return reducers.usersReducer;
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, _actions_usersActions__WEBPACK_IMPORTED_MODULE_6__)(Users));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, _actions_usersActions__WEBPACK_IMPORTED_MODULE_7__)(Users));
 
 /***/ }),
 
