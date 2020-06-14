@@ -26130,7 +26130,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".Navbar {\r\n  width: 100%;\r\n  padding: 0.5rem 0;\r\n  background-color: rgb(9, 49, 70);\r\n  \r\n}\r\n\r\n.Navbar__brand {\r\n  color: #ffffff;\r\n  margin-right: 2rem;\r\n\r\n}\r\n.Navbar__brand-margin {\r\n  color: #ffffff;\r\n  margin-right: 10rem;\r\n\r\n}\r\n\r\n.Navbar__brand:hover {\r\n  color: #ffffff;\r\n  text-decoration: none;\r\n}\r\n\r\n.Navbar__brand-logo {\r\n  margin-right: 0.5rem;\r\n}", ""]);
+exports.push([module.i, ".navbar {\r\n    width: 100%;\r\n    padding: 0.5rem 0;\r\n    background-color: rgb(9, 49, 70);\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 200px;\r\n}\r\n\r\n.item {\r\n    text-decoration: none;\r\n    color: #ffffff;\r\n    justify-self: center;\r\n}\r\n\r\n.item:hover {\r\n    text-decoration: none;\r\n    color: #ffffff;\r\n}\r\n\r\n.logo {\r\n    padding: 5px;\r\n    text-decoration: none;\r\n    margin-right: 15px;\r\n    margin-left: 10px;\r\n    width: 100%;\r\n    justify-self: left;\r\n}\r\n\r\n.Navbar__brand-logo {\r\n    margin-right: 0.5rem;\r\n}\r\n\r\n@media screen and (max-width: 768px){\r\n  .navbar {    \r\n    grid-template: repeat(4, 1fr) / repeat(2, 1fr);\r\n    grid-template-areas: \"logo logo\";\r\n  }\r\n  .logo {    \r\n    grid-area: logo;\r\n    justify-self: center;\r\n    text-justify: center;\r\n    background: black;\r\n    width: 100%;\r\n  }\r\n}\r\n", ""]);
 
 // exports
 
@@ -103711,69 +103711,65 @@ function Layout(props) {
 
   var adminNavbar = function adminNavbar() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "Navbar"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "container-fluid"
+      className: "navbar"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      className: "Navbar__brand-margin link",
+      className: "logo item",
       to: "/"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
-    }, "DOC SHARE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      className: "Navbar__brand",
+    }, "DOCSHARE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "item",
       to: "/users"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
     }, "USUARIOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      className: "Navbar__brand",
+      className: "item",
       to: "/empresas"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
     }, "EMPRESAS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      className: "Navbar__brand",
+      className: "item",
       to: "/clientes"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
     }, "CLIENTES")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      className: "Navbar__brand",
+      className: "item",
       to: "/doctypes"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
     }, "TIPO DE DOCUMENTOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      className: "Navbar__brand",
+      className: "item",
       to: "/documentos"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
     }, "DOCUMENTOS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      className: "Navbar__brand",
+      className: "item",
       href: "/login",
       onClick: function onClick() {
         return logout(csrf_token.content);
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
-    }, "LOG"))));
+    }, "LOG")));
   };
 
   var clienteNavbar = function clienteNavbar() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "Navbar"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "container-fluid"
+      className: "navbar"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      className: "Navbar__brand-margin link",
+      className: "logo item",
       to: "/"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
     }, "DOC SHARE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      className: "Navbar__brand",
+      className: "item",
       href: "/login",
       onClick: function onClick() {
         return logout(csrf_token.content);
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "font-weight-light"
-    }, "LOG"))));
+    }, "LOG")));
   };
 
   if (type === 'admin') return adminNavbar();
