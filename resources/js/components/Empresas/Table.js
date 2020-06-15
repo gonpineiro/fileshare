@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import MenuRow from '../General/MenuRow';
-import { GridTable, RowGrid, Title } from './styles'
+import { GridTable, RowGrid, Title } from '../styles/styles'
 import { ReturnIcon, Add } from '../General/SvgIcons';
 
 import * as empresasActions from '../../actions/empresasActions'

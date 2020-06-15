@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Table from './Table'
 import Formulario from './Formulario'
 import Spinner from '../General/Spinner';
-import { Container } from './styles'
+import { Container } from '../styles/styles'
 
 import * as empresasActions from '../../actions/empresasActions'
 

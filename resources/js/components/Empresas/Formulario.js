@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Spinner from '../General/Spinner';
 import { ListIconTable } from '../General/SvgIcons';
-import { FormGrid, RowGrid, Title, Form, DivButton } from './styles'
+import { FormGrid, RowGrid, Title, Form, DivButton } from '../styles/styles'
 
 import * as empresasActions from '../../actions/empresasActions'
 

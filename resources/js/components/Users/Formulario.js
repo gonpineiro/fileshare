@@ -8,7 +8,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Spinner from '../General/Spinner';
-import { Title, FormGrid, RowGrid, Form, DivButton } from './styles'
+import { Title, FormGrid, RowGrid, Form, DivButton } from '../styles/styles'
 
 import * as usersActions from '../../actions/usersActions'
 
