@@ -86,3 +86,35 @@ export const FormAsociar = styled.form`
     grid-column: span 2;    
   }
 `
+
+export const ListItemFile = styled.div`
+  display: grid;
+  grid-template: 20px 20px / 40px 1fr;
+  grid-gap: 0 10px;
+  grid-template-areas: 
+    "listItem titleItem"
+    "listItem descriptionItem";
+  >.listItem {
+    grid-area: listItem
+  }
+  >.titleItem {
+    grid-area: titleItem
+  }
+  >.descriptionItem {
+    grid-area: descriptionItem
+  }
+`
+export const ListTittle = styled.h3`
+  height: 100%;
+  margin: 0;
+  font-size: 1rem;
+  justify-self: left;
+`
+
+export const ListDescription = styled.h3`
+  height: 100%;
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.54);
+  justify-self: left;
+`
