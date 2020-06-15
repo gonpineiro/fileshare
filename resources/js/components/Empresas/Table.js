@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import MenuRow from '../General/MenuRow';
-import AddIcon from '@material-ui/icons/Add';
 import { GridTable, RowGrid, Title } from './styles'
-import { ReturnIcon } from '../General/SvgIcons';
+import { ReturnIcon, Add } from '../General/SvgIcons';
 
 import * as empresasActions from '../../actions/empresasActions'
 
@@ -21,8 +20,8 @@ const Table = (props) => {
       }
       </td>
       <td>{empresa.cuil}</td>
-      <td>{empresa.domicilio}</td>
-      <td>{empresa.telefono}</td>
+      <td className="display-none">{empresa.domicilio}</td>
+      <td className="display-none">{empresa.telefono}</td>
     </tr>
   ))
 
@@ -31,7 +30,7 @@ const Table = (props) => {
       <RowGrid >
         <Title>
           Lista de empresas
-              {state_form === 'tabla' ? <AddIcon fontSize="large" className="link" onClick={traerFormulario} /> : ''}
+          <Add traerFormulario={traerFormulario} display={state_form !== 'tabla' ? 'none' : ''} />
         </Title>
         <ReturnIcon goBack={goBack} />
       </RowGrid>
@@ -41,8 +40,8 @@ const Table = (props) => {
             <th>ID</th>
             <th>Razón Social</th>
             <th>CUIL</th>
-            <th>Domicilio</th>
-            <th>Teléfono</th>
+            <th className="display-none">Domicilio</th>
+            <th className="display-none">Teléfono</th>
           </tr>
         </thead>
         <tbody>
