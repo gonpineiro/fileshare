@@ -12,273 +12,247 @@ import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
 import Spinner from '../General/Spinner';
 import TocIcon from '@material-ui/icons/Toc';
+import { ListIconTable } from '../General/SvgIcons';
+import { FormGrid, RowGrid, Title, Form, DivButton } from '../styles/styles'
 
 import * as clientesActions from '../../actions/clientesActions'
 
 const Formulario = (props) => {
 
-   const {
-      empresasReducer: { empresas },
-      usersReducer: { users },
-      clientesReducer: {
-         cliente: { id, rs, cuil, domicilio, telefono, user_id, empresa_id },
-         state_form,
-         error_form,
-         loading,
-      },
-      editar,
-      cancelar,
-      agregar,
-      borrar,
-      traerTabla,
-      cambioClienteRs,
-      cambioClienteCuil,
-      cambioClienteDomicilio,
-      cambioClienteTelefono,
-      cambioClienteEmpresaId,
-      cambioClienteUserId,
-   } = props
+  const {
+    empresasReducer: { empresas },
+    usersReducer: { users },
+    clientesReducer: {
+      cliente: { id, rs, cuil, domicilio, telefono, user_id, empresa_id },
+      state_form,
+      error_form,
+      loading,
+    },
+    editar,
+    cancelar,
+    agregar,
+    borrar,
+    traerTabla,
+    cambioClienteRs,
+    cambioClienteCuil,
+    cambioClienteDomicilio,
+    cambioClienteTelefono,
+    cambioClienteEmpresaId,
+    cambioClienteUserId,
+  } = props
 
-   const usersFilter = users.filter(user => user.type === 'cliente');
+  const usersFilter = users.filter(user => user.type === 'cliente');
 
-   const handleCambioClienteRs = (event) => cambioClienteRs(event.target.value);
+  const handleCambioClienteRs = (event) => cambioClienteRs(event.target.value);
 
-   const handleCambioClienteCuil = (event) => cambioClienteCuil(event.target.value);
+  const handleCambioClienteCuil = (event) => cambioClienteCuil(event.target.value);
 
-   const handleCambioClienteDomicilio = (event) => cambioClienteDomicilio(event.target.value);
+  const handleCambioClienteDomicilio = (event) => cambioClienteDomicilio(event.target.value);
 
-   const handleCambioClienteTelefono = (event) => cambioClienteTelefono(event.target.value);
+  const handleCambioClienteTelefono = (event) => cambioClienteTelefono(event.target.value);
 
-   const handleCambioClienteEmpresaId = (event) => cambioClienteEmpresaId(event.target.value);
+  const handleCambioClienteEmpresaId = (event) => cambioClienteEmpresaId(event.target.value);
 
-   const handleCambioClienteUserId = (event) => cambioClienteUserId(event.target.value);   
+  const handleCambioClienteUserId = (event) => cambioClienteUserId(event.target.value);
 
-   const guardar = () => {
+  const handleTitle = (state_form) => {
+    if (state_form === 'crear') return <Title>Agrega</Title>
+    if (state_form === 'editar') return <Title>Modificar</Title>
+    if (state_form === 'borrar') return <Title>Borrar</Title>
+  }
 
-      const data = {
-         id: id,
-         rs: rs,
-         cuil: cuil,
-         domicilio: domicilio,
-         telefono: telefono,
-         user_id: user_id,
-         empresa_id: empresa_id
-      };
+  const guardar = () => {
 
-      if (state_form === 'crear') agregar(data);
+    const data = {
+      id: id,
+      rs: rs,
+      cuil: cuil,
+      domicilio: domicilio,
+      telefono: telefono,
+      user_id: user_id,
+      empresa_id: empresa_id
+    };
 
-      if (state_form === 'editar') editar(data, id)
-   };
+    if (state_form === 'crear') agregar(data);
 
-   const useStyles = makeStyles((theme) => ({
-      root: {
-         flexGrow: 1,
-         width: "100%",
-      },
+    if (state_form === 'editar') editar(data, id)
+  };
 
-      formControl: {
-         width: "100%",
-      },
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      width: "100%",
+    },
 
-      formButton: {
-         marginTop: 20,
-      },
-   }));
+    formControl: {
+      width: "100%",
+    },
 
-   const classes = useStyles();
+    formButton: {
+      marginTop: 20,
+    },
+  }));
 
-   return (
+  const classes = useStyles();
 
-      <div className="card transparent">
-         <div className="card-header">
-            <div className="row mt-2">
-               <div className="col col-md-6 card-agregar" >
-                  {state_form === 'crear' ? 'AGREGAR EMPRESA' : ''}
-                  {state_form === 'editar' ? 'MODIFICAR EMPRESA' : ''}
-                  {state_form === 'borrar' ? 'ELIMINAR EMPRESA' : ''}
-               </div>
-               <div className="col col-md-6 text-derecha" >
-                  <TocIcon fontSize="large" className="link" onClick={traerTabla} />
-               </div>
-            </div>
-         </div>
-         {loading ? <Spinner /> :
-            <div className="card-body">
-               <div className={classes.root}>
+  return (
 
-                  <Grid container spacing={3}>
-                     {/* RAZÓN SOCIAL */}
-                     <Grid item xs={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Razón Social"
-                           type="text"
-                           className="form-control transparent"
-                           value={rs || ''}
-                           onChange={handleCambioClienteRs}
-                           helperText={error_form.rs}
-                           error={!error_form.rs ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
-                     </Grid>
+    <FormGrid type={state_form}>
+      <RowGrid formtitle={true}>
+        {handleTitle(state_form)}
+        <ListIconTable traerTabla={traerTabla} />
+      </RowGrid>
+      {loading ? <Spinner /> :
+        <Form grid={7}>
+          {/* RAZÓN SOCIAL */}
+          <TextField
+            id="standard-basic"
+            label="Razón Social"
+            type="text"
+            className="form-control transparent"
+            value={rs || ''}
+            onChange={handleCambioClienteRs}
+            helperText={error_form.rs}
+            error={!error_form.rs ? false : true}
+            disabled={state_form === 'borrar' ? true : false}
+          />
 
-                     {/* CUIL */}
-                     <Grid item xs={12} sm={12}>
-                        <TextField
-                           label="CUIL/CUIT"
-                           type="number"
-                           className="form-control transparent"
-                           value={cuil || ''}
-                           onChange={handleCambioClienteCuil}
-                           helperText={error_form.cuil}
-                           error={!error_form.cuil ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
-                     </Grid>
+          {/* CUIL */}
+          <TextField
+            label="CUIL/CUIT"
+            type="number"
+            className="form-control transparent"
+            value={cuil || ''}
+            onChange={handleCambioClienteCuil}
+            helperText={error_form.cuil}
+            error={!error_form.cuil ? false : true}
+            disabled={state_form === 'borrar' ? true : false}
+          />
 
-                     {/* DOMICILIO */}
-                     <Grid item xs={12} sm={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Domicilio"
-                           type="text"
-                           className="form-control transparent"
-                           value={domicilio || ''}
-                           onChange={handleCambioClienteDomicilio}
-                           helperText={error_form.domicilio}
-                           error={!error_form.domicilio ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
+          {/* DOMICILIO */}
+          <TextField
+            id="standard-basic"
+            label="Domicilio"
+            type="text"
+            className="form-control transparent"
+            value={domicilio || ''}
+            onChange={handleCambioClienteDomicilio}
+            helperText={error_form.domicilio}
+            error={!error_form.domicilio ? false : true}
+            disabled={state_form === 'borrar' ? true : false}
+          />
 
-                     </Grid>
+          {/* TELÉFONO */}
+          <TextField
+            id="standard-basic"
+            label="Teléfono"
+            type="text"
+            className="form-control transparent"
+            value={telefono || ''}
+            onChange={handleCambioClienteTelefono}
+            helperText={error_form.telefono}
+            error={!error_form.telefono ? false : true}
+            disabled={state_form === 'borrar' ? true : false}
+          />
 
-                     {/* TELÉFONO */}
-                     <Grid item xs={12} sm={12}>
-                        <TextField
-                           id="standard-basic"
-                           label="Teléfono"
-                           type="text"
-                           className="form-control transparent"
-                           value={telefono || ''}
-                           onChange={handleCambioClienteTelefono}
-                           helperText={error_form.telefono}
-                           error={!error_form.telefono ? false : true}
-                           disabled={state_form === 'borrar' ? true : false}
-                        />
-
-                     </Grid>
-
-                     {/* EMPRESA */}
-                     <Grid item xs={12} sm={12}>
-                        <FormControl className={classes.formControl}>
-                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.empresa_id ? false : true}>Empresa</InputLabel>
-                           <Select
-                              labelId="demo-simple-select-helper-label"
-                              id="demo-simple-select-helper"
-                              value={empresa_id || ''}
-                              onChange={handleCambioClienteEmpresaId}
-                              error={!error_form.empresa_id ? false : true}
-                              disabled={state_form === 'borrar' ? true : false}
-                              className="transparent"
-                           >
-                              <Link to="/empresas">
-                                 <MenuItem value="">
-                                    <em
-                                       className="link link-string"
-                                    >
-                                       Agregar
+          {/* EMPRESA */}
+          <FormControl>
+            <InputLabel id="demo-simple-select-helper-label" error={!error_form.empresa_id ? false : true}>Empresa</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={empresa_id || ''}
+              onChange={handleCambioClienteEmpresaId}
+              error={!error_form.empresa_id ? false : true}
+              disabled={state_form === 'borrar' ? true : false}
+              className="transparent"
+            >
+              <Link to="/empresas">
+                <MenuItem value="">
+                  <em
+                    className="link link-string"
+                  >
+                    Agregar
                                        </em>
-                                 </MenuItem>
-                              </Link>
+                </MenuItem>
+              </Link>
 
-                              {empresas.map((empresa) => (
-                                 <MenuItem key={empresa.id} value={empresa.id}>{empresa.rs}</MenuItem>
-                              ))}
-                           </Select>
-                           <FormHelperText error={!error_form.empresa_id ? false : true}>{error_form.empresa_id}</FormHelperText>
-                        </FormControl>
-                     </Grid>
+              {empresas.map((empresa) => (
+                <MenuItem key={empresa.id} value={empresa.id}>{empresa.rs}</MenuItem>
+              ))}
+            </Select>
+            <FormHelperText error={!error_form.empresa_id ? false : true}>{error_form.empresa_id}</FormHelperText>
+          </FormControl>
 
-                     {/* USUARIO */}
-                     <Grid item xs={12} sm={12}>
-                        <FormControl className={classes.formControl}>
-                           <InputLabel id="demo-simple-select-helper-label" error={!error_form.user_id ? false : true}>Usuario</InputLabel>
-                           <Select
-                              labelId="demo-simple-select-helper-label"
-                              id="demo-simple-select-helper"
-                              value={user_id || ''}
-                              onChange={handleCambioClienteUserId}
-                              error={!error_form.user_id ? false : true}
-                              disabled={state_form === 'borrar' ? true : false}
-                              className="transparent"
-                           >
-                              <Link to="/users">
-                                 <MenuItem value="">
-                                    <em
-                                       className="link link-string"
-                                    >
-                                       Agregar
-                                       </em>
-                                 </MenuItem>
-                              </Link>
+          {/* USUARIO */}
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-helper-label" error={!error_form.user_id ? false : true}>Usuario</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={user_id || ''}
+              onChange={handleCambioClienteUserId}
+              error={!error_form.user_id ? false : true}
+              disabled={state_form === 'borrar' ? true : false}
+              className="transparent"
+            >
+              <Link to="/users">
+                <MenuItem value="">
+                  <em
+                    className="link link-string"
+                  >
+                    Agregar
+                  </em>
+                </MenuItem>
+              </Link>
 
-                              {usersFilter.map((user) => (
-                                 <MenuItem key={user.id} value={user.id}>{user.name}</MenuItem>
-                              ))}
-                           </Select>
-                           <FormHelperText error={!error_form.user_id ? false : true}>{error_form.user_id}</FormHelperText>
-                        </FormControl>
-                     </Grid>
+              {usersFilter.map((user) => (
+                <MenuItem key={user.id} value={user.id}>{user.name}</MenuItem>
+              ))}
+            </Select>
+            <FormHelperText error={!error_form.user_id ? false : true}>{error_form.user_id}</FormHelperText>
+          </FormControl>
 
-                     {/* BUTTOMS */}
-                     <Grid item xs={6} sm={6} >
-                        {state_form === 'crear' || state_form === 'editar'
-                           ?
-                           <Button
-                              variant="contained"
-                              color="primary"
-                              onClick={guardar}
-                              className={classes.formButton}
-                           >
-                              Guardar
-                                    </Button> : ''}
-                        {state_form === 'borrar'
-                           ?
-                           <div>
-                              <Button
-                                 variant="contained"
-                                 color="primary"
-                                 onClick={() => borrar(id)}
-                                 className={classes.formButton}
-                              >
-                                 Borrar
-                                       </Button>
-                           </div>
-                           : ''}
-                     </Grid>
+          {/* BUTTOMS */}
+          <DivButton >
+            {state_form === 'crear' || state_form === 'editar'
+              ?
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={guardar}
+              >
+                Guardar
+                     </Button> : ''}
+            {state_form === 'borrar'
+              ?
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => borrar(id)}
+              >
+                Borrar
+              </Button>
+              : ''}
+            {state_form === 'editar' || state_form === 'borrar'
+              ?
+              <Button
+                variant="contained"
+                color="inherit"
+                onClick={cancelar}
+              >
+                Cancelar
+              </Button> : ''}
+          </DivButton>
+          {error_form && <small className="text-danger">Existe un registro vinculado.</small>}
 
-                     <Grid item xs={6} sm={6}>
-                        {state_form === 'editar' || state_form === 'borrar'
-                           ?
-                           <Button
-                              variant="contained"
-                              color="inherit"
-                              onClick={cancelar}
-                              className={classes.formButton}
-                           >
-                              Cancelar
-                                    </Button> : ''}
-                     </Grid>
-                     {error_form && <small className="text-danger">Existe un registro vinculado.</small>}
-                  </Grid>
-               </div>
-            </div>}
-      </div>
-   );
+        </Form >}
+    </FormGrid >
+  );
 }
 
 const mapStateToProps = ({ clientesReducer, empresasReducer, usersReducer }) => {
-   return { clientesReducer, empresasReducer, usersReducer };
+  return { clientesReducer, empresasReducer, usersReducer };
 };
 
 export default connect(mapStateToProps, clientesActions)(Formulario);

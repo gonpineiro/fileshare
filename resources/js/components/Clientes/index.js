@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Table from './Table'
 import Formulario from './Formulario'
 import Spinner from '../General/Spinner';
+import { Container } from '../styles/styles'
 
 import * as clientesActions from '../../actions/clientesActions'
 
@@ -16,13 +17,13 @@ const { traerTodos: usersTraerTodos } = usersActions;
 class Clientes extends Component {
 
 	async componentDidMount() {
-		const { 
+		const {
 			clientesReducer: { clientes },
 			empresasReducer: { empresas },
 			usersReducer: { users },
 			clientesTraerTodos,
-			empresasTraerTodos, 	
-			usersTraerTodos,		 
+			empresasTraerTodos,
+			usersTraerTodos,
 		} = this.props
 
 		if (!clientes.length) clientesTraerTodos()
@@ -34,13 +35,13 @@ class Clientes extends Component {
 
 	ponerContenido = () => {
 		const {
-			clientesReducer: { 
-				clientes, 
-				loading, 
-				recargar_table, 
+			clientesReducer: {
+				clientes,
+				loading,
+				recargar_table,
 				error,
 			},
-			clientesTraerTodos, 
+			clientesTraerTodos,
 			history: { goBack }
 		} = this.props
 
@@ -57,30 +58,10 @@ class Clientes extends Component {
 	render() {
 		const { clientesReducer: { state_form } } = this.props
 		return (
-			<>
-				{state_form === 'tabla' ?
-					<div className="container col-md-9">
-						<div className="row mt-2 center">
-							<div className="col col-md-12">
-								{this.ponerContenido()}
-							</div>
-						</div>
-					</div>
-					: ''}
-
-				{state_form === 'crear' || state_form === 'editar' || state_form === 'borrar' ?
-
-					<div className="container col-md-9">
-						<div className="row mt-2">
-							<div className="col col-md-8">
-								{this.ponerContenido()}
-							</div>
-							<div className="col col-md-4">
-								{this.ponerFormulario()}
-							</div>
-						</div>
-					</div> : ''}
-			</>
+			<Container type={state_form} className="container col-md-10">
+				{this.ponerContenido()}
+				{this.ponerFormulario()}
+			</Container>
 		);
 	}
 }

@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components'
 
 export const gridDistribution = (type) => {
   if (type === 'tabla') return css `grid-template-columns: 1fr;`
-  if (type === 'editar' || type === 'editar' || 'crear') return css `grid-template-columns: 2fr 1fr;`
+
+  if (type === 'editar' || type === 'editar' || 'crear') {
+    return css `grid-template-columns: 2fr 1fr;`
+  }
 }
 
 export const Container = styled.div`
@@ -46,7 +49,7 @@ export const Form = styled.form`
   padding: 20px;
   display: grid;
   grid-gap: 30px 0px;
-  grid-template-rows: repeat(5, 40px);
+  grid-template-rows: repeat(${({grid}) => grid}, 40px);
 `
 
 export const DivButton = styled.div`

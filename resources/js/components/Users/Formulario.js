@@ -65,7 +65,7 @@ const Formulario = (props) => {
         {handleTitle(state_form)}
       </RowGrid>
       {loading ? <Spinner /> :
-        <Form >
+        <Form grid={5}>
           {/* NAME */}
           <TextField
             id="standard-basic"
