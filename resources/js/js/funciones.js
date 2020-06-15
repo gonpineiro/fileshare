@@ -24,3 +24,10 @@ export const deleteObjectInArray = (obj, array) => {
 }
 
 export const bytesToMegabytes = (value) => (value / (1024 * 1024)).toFixed(2)
+
+//Si el numero el impar devuelve el numero + a
+export const sumImparNumber = (value) => {
+    console.log((value + 1) / 2)
+    if (value % 2 === 0) return value
+    if (value % 2 !== 0) return (value + 1 ) / 2
+}

@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components'
+import { sumImparNumber } from '../../js/funciones'
 
 export const gridDistribution = (type) => {
   if (type === 'tabla') return css `grid-template-columns: 1fr;`
 
-  if (type === 'editar' || type === 'editar' || 'crear') {
+  if (type === 'editar' || type === 'editar' || 'crear' || 'asociar') {
     return css `grid-template-columns: 2fr 1fr;`
   }
 }
@@ -49,7 +50,7 @@ export const Form = styled.form`
   padding: 20px;
   display: grid;
   grid-gap: 30px 0px;
-  grid-template-rows: repeat(${({grid}) => grid}, 40px);
+  grid-template-rows: repeat(${({ grid }) => grid}, 40px);
 `
 
 export const DivButton = styled.div`
@@ -58,4 +59,30 @@ export const DivButton = styled.div`
   grid-gap: 0px 15px;
   grid-template-columns: repeat(2, 1fr);
   align-content: center;
+`
+
+export const DivOptions = styled.div`
+  display: grid;
+  grid-gap: 0px 15px;
+  grid-template: 35px / repeat(2, 1fr);
+  align-content: center;
+  > .options{
+    width: 100%;
+    margin: 0;
+  }
+`
+export const FormAsociar = styled.form`
+  padding: 20px;
+  display: grid;
+  grid-gap: 10px 0px;
+  align-content: center;  
+  grid-template: repeat(${ ({ grid }) => sumImparNumber(grid) + 1}, 20px) / repeat(2, 1fr);
+  > .options{
+    width: 100%;
+    margin: 0;
+  }
+  >.divbutton {    
+    grid-row-start: 7;
+    grid-column: span 2;    
+  }
 `

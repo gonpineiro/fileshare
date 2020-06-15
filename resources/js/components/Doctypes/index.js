@@ -4,6 +4,7 @@ import Table from './Table'
 import Formulario from './Formulario'
 import Asociacion from './Asociacion'
 import Spinner from '../General/Spinner';
+import { Container } from '../styles/styles'
 
 import * as doctypesActions from '../../actions/doctypesActions'
 
@@ -14,90 +15,50 @@ const { traerTodos: clientesTraerTodos } = clientesActions;
 
 class Doctypes extends Component {
 
-	async componentDidMount() {
-		const { 
-			doctypesReducer: { doctypes },
-			clientesReducer: { clientes },
-			doctypesTraerTodos,
-			clientesTraerTodos,			 
-		} = this.props
+  async componentDidMount() {
+    const {
+      doctypesReducer: { doctypes },
+      clientesReducer: { clientes },
+      doctypesTraerTodos,
+      clientesTraerTodos,
+    } = this.props
 
-		if (!doctypes.length) doctypesTraerTodos()
+    if (!doctypes.length) doctypesTraerTodos()
 
-		if (!clientes.length) clientesTraerTodos()
-	}
+    if (!clientes.length) clientesTraerTodos()
+  }
 
-	ponerContenido = () => {
-		const {
-			doctypesReducer: { doctypes, recargar_table, loading, error, },
-			doctypesTraerTodos,
-			history: { goBack }
-		} = this.props
+  ponerContenido = () => {
+    const {
+      doctypesReducer: { doctypes, recargar_table, loading, error, },
+      doctypesTraerTodos,
+      history: { goBack }
+    } = this.props
 
-		if (recargar_table) doctypesTraerTodos()
+    if (recargar_table) doctypesTraerTodos()
 
-		if (loading && !doctypes.length) return <Spinner />
+    if (loading && !doctypes.length) return <Spinner />
 
-		if (error) return 'Error'
+    if (error) return 'Error'
 
-		return <Table goBack={goBack} />
-	}
+    return <Table goBack={goBack} />
+  }
 
-	ponerFormulario = () => <Formulario />
-
-	ponerAsociacion = () => <Asociacion />
-
-	render() {
-		const { doctypesReducer: { state_form } } = this.props
-		return (
-			<>
-				{state_form === 'tabla' ?
-					<div className="container col-md-9">
-						<div className="row mt-2 center">
-							<div className="col col-md-12">
-								{this.ponerContenido()}
-							</div>
-						</div>
-					</div>
-					: ''}
-
-				{state_form === 'crear' || state_form === 'editar' || state_form === 'borrar' ?
-
-					<div className="container col-md-9">
-						<div className="row mt-2">
-							<div className="col col-md-8">
-								{this.ponerContenido()}
-							</div>
-							<div className="col col-md-4">
-								{this.ponerFormulario()}
-							</div>
-						</div>
-					</div> : ''}
-
-				{state_form === 'asociar' ?
-
-					<div className="container col-md-9">
-						<div className="row mt-2">
-							<div className="col col-md-8">
-								{this.ponerContenido()}
-							</div>
-							<div className="col col-md-4">
-								{this.ponerAsociacion()}
-							</div>
-						</div>
-					</div> : ''}
-			</>
-		);
-	}
+  render() {
+    const { doctypesReducer: { state_form } } = this.props
+    return (
+      <Container type={state_form} className="container col-md-10">
+        {this.ponerContenido()}
+        {state_form === 'asociar' ? <Asociacion /> : <Formulario />}
+      </Container>
+    );
+  }
 }
 
 const mapStateToProps = ({ doctypesReducer, clientesReducer }) => {
-	return { doctypesReducer, clientesReducer };
+  return { doctypesReducer, clientesReducer };
 };
 
-const mapDispatchToProps = {
-	doctypesTraerTodos,
-	clientesTraerTodos
-};
+const mapDispatchToProps = { doctypesTraerTodos, clientesTraerTodos };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Doctypes);

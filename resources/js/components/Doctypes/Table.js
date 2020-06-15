@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import MenuRow from '../General/MenuRow';
-import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
-import AddIcon from '@material-ui/icons/Add';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { GridTable, RowGrid, Title } from '../styles/styles'
+import { ReturnIcon, Add, Check } from '../General/SvgIcons';
 
 import * as doctypesActions from '../../actions/doctypesActions'
 
@@ -22,46 +21,38 @@ const Table = (props) => {
       }
       </td>
       <td>{doctype.tipo === 1 ? 'Mensual' : 'Anual'}</td>
-      <td>{doctype.obligatorio ? <CheckCircleIcon fontSize="small"  /> : ''}</td>
-      <td>{doctype.estado ? <CheckCircleIcon fontSize="small"  /> : ''}</td>
+      <td className="display-none"><Check display={!doctype.obligatorio ? 'none' : ''} /></td>
+      <td className="display-none"><Check display={!doctype.estado ? 'none' : ''} /></td>
     </tr>
   ))
 
   return (
-    <div className="card transparent">
-      <div className="card-margin">
-        <div className="row mt-2">
-          <div className="col col-md-6 text-izquierda">
-            <h4>
-              Tipos de documentos
-              {state_form === 'tabla' ? <AddIcon fontSize="large" className="link" onClick={traerFormulario} /> : ''}
-            </h4>
-          </div>
-          <div className="col col-md-6 text-derecha">
-            <KeyboardReturnIcon fontSize="large" onClick={goBack} className="link" />
-          </div>
-        </div>
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Requerido</th>
-              <th>Obligatorio</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            {addRow()}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <GridTable >
+      <RowGrid >
+        <Title>
+          Tipos de documentos
+          <Add traerFormulario={traerFormulario} display={state_form !== 'tabla' ? 'none' : ''} />
+        </Title>
+        <ReturnIcon goBack={goBack} />
+      </RowGrid>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Requerido</th>
+            <th className="display-none">Obligatorio</th>
+            <th className="display-none">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {addRow()}
+        </tbody>
+      </table>
+    </GridTable>
   );
 }
 
-const mapStateToProps = (reducers) => {
-  return reducers.doctypesReducer
-}
+const mapStateToProps = (reducers) => reducers.doctypesReducer
 
 export default connect(mapStateToProps, doctypesActions)(Table);

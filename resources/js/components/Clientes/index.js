@@ -70,10 +70,6 @@ const mapStateToProps = ({ clientesReducer, empresasReducer, usersReducer }) => 
 	return { clientesReducer, empresasReducer, usersReducer };
 };
 
-const mapDispatchToProps = {
-	usersTraerTodos,
-	clientesTraerTodos,
-	empresasTraerTodos
-};
+const mapDispatchToProps = { usersTraerTodos, clientesTraerTodos, empresasTraerTodos };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Clientes);

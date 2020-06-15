@@ -19,7 +19,7 @@ class ClienteSeeder extends Seeder
             'cuil' => rand(20100000000, 21000000000),
             'domicilio' => $faker->secondaryAddress(),
             'telefono' => $faker->tollFreePhoneNumber(),
-            'empresa_id' => rand(1, 3),
+            'empresa_id' => rand(1,1),
             'user_id' => rand(1, 5),
             'estado' => 1            
             ]);

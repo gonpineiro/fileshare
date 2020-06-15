@@ -35,7 +35,7 @@ const Formulario = (props) => {
   const handleCambioEmpresaTelefono = (event) => cambioEmpresaTelefono(event.target.value);
 
   const handleTitle = (state_form) => {
-    if (state_form === 'crear') return <Title>Agrega</Title>
+    if (state_form === 'crear') return <Title>Agregar</Title>
     if (state_form === 'editar') return <Title>Modificar</Title>
     if (state_form === 'borrar') return <Title>Borrar</Title>
   }
@@ -56,7 +56,6 @@ const Formulario = (props) => {
   };
 
   return (
-
     <FormGrid type={state_form}>
       <RowGrid formtitle={true}>
         {handleTitle(state_form)}
