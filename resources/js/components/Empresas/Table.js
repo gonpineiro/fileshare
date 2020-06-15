@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import MenuRow from '../General/MenuRow';
-import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 import AddIcon from '@material-ui/icons/Add';
+import { GridTable, RowGrid, Title } from './styles'
+import { ReturnIcon } from '../General/SvgIcons';
 
 import * as empresasActions from '../../actions/empresasActions'
 
@@ -26,40 +27,32 @@ const Table = (props) => {
   ))
 
   return (
-    <div className="card transparent">
-      <div className="card-margin">
-        <div className="row mt-2">
-          <div className="col col-md-6 text-izquierda">
-            <h4>
-              Lista de empresas
+    <GridTable >
+      <RowGrid >
+        <Title>
+          Lista de empresas
               {state_form === 'tabla' ? <AddIcon fontSize="large" className="link" onClick={traerFormulario} /> : ''}
-            </h4>
-          </div>
-          <div className="col col-md-6 text-derecha">
-            <KeyboardReturnIcon fontSize="large" onClick={goBack} className="link" />
-          </div>
-        </div>
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Razón Social</th>
-              <th>CUIL</th>
-              <th>Domicilio</th>
-              <th>Teléfono</th>
-            </tr>
-          </thead>
-          <tbody>
-            {addRow()}
-          </tbody>
-        </table>
-      </div>
-    </div>
+        </Title>
+        <ReturnIcon goBack={goBack} />
+      </RowGrid>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Razón Social</th>
+            <th>CUIL</th>
+            <th>Domicilio</th>
+            <th>Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          {addRow()}
+        </tbody>
+      </table>
+    </GridTable>
   );
 }
 
-const mapStateToProps = (reducers) => {
-  return reducers.empresasReducer
-}
+const mapStateToProps = (reducers) => reducers.empresasReducer
 
 export default connect(mapStateToProps, empresasActions)(Table);

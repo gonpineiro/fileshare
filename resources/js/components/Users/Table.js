@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { GridTable, RowGrid, Title } from './styles';
 import MenuRow from '../General/MenuRow';
-import { ReturnIcon } from '../General/ReturnIcon';
+import { GridTable, RowGrid, Title } from './styles';
+import { ReturnIcon } from '../General/SvgIcons';
 
 import * as usersActions from '../../actions/usersActions'
 

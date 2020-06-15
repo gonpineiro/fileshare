@@ -1,8 +1,13 @@
 import styled, { css } from 'styled-components'
 
+export const gridDistribution = (type) =>{
+  if (type === 'tabla') return css `grid-template-columns: 1fr;`
+  if (type === 'editar' || type === 'editar' || 'crear') return css `grid-template-columns: 2fr 1fr;` 
+}
+
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  ${props => gridDistribution(props.type)}
   grid-gap: 10px;
   padding: 15px;
   @media (max-width: 768px) {
@@ -23,16 +28,18 @@ export const RowGrid = styled.div`
   grid-template-columns: 2fr 1fr;
   align-self: center;
   background: rgba(197, 199, 196, .2);
+  >.link {
+    justify-self: right;
+  }
 `
 
 export const Title = styled.h4`
   height: 100%;
   margin: 0;
-  text-justify: center;
 `
 
 export const FormGrid = styled.div`
-  display: grid;    
+  display: ${({type}) => type === 'tabla' ? 'none' : 'grid'};    
   grid-template-rows: 50px 1fr;
   border: 0.5px solid rgba(197, 199, 196, .5);
   border-radius: 5px;

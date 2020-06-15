@@ -3,66 +3,46 @@ import { connect } from 'react-redux'
 import Table from './Table'
 import Formulario from './Formulario'
 import Spinner from '../General/Spinner';
+import { Container } from './styles'
 
 import * as empresasActions from '../../actions/empresasActions'
 
 class Empresas extends Component {
 
-	async componentDidMount() {
-		const { traerTodos, empresas } = this.props
+  async componentDidMount() {
+    const { traerTodos, empresas } = this.props
 
-		if (!empresas.length) traerTodos()
-	}
+    if (!empresas.length) traerTodos()
+  }
 
-	ponerContenido = () => {
-		const {
-			traerTodos, recargar_table, loading, empresas, error,
-			history: { goBack }
-		} = this.props
+  ponerContenido = () => {
+    const {
+      traerTodos, recargar_table, loading, empresas, error,
+      history: { goBack }
+    } = this.props
 
-		if (recargar_table) traerTodos()
+    if (recargar_table) traerTodos()
 
-		if (loading && !empresas.length) return <Spinner />
+    if (loading && !empresas.length) return <Spinner />
 
-		if (error) return 'Error'
+    if (error) return 'Error'
 
-		return <Table goBack={goBack} />
-	}
-	ponerFormulario = () => <Formulario />
+    return <Table goBack={goBack} />
+  }
 
-	render() {
-		const { state_form } = this.props
-		return (
-			<>
-				{state_form === 'tabla' ?
-					<div className="container col-md-9">
-						<div className="row mt-2 center">
-							<div className="col col-md-12">
-								{this.ponerContenido()}
-							</div>
-						</div>
-					</div>
-					: ''}
+  ponerFormulario = () => <Formulario />
 
-				{state_form === 'crear' || state_form === 'editar' || state_form === 'borrar' ?
-
-					<div className="container col-md-9">
-						<div className="row mt-2">
-							<div className="col col-md-8">
-								{this.ponerContenido()}
-							</div>
-							<div className="col col-md-4">
-								{this.ponerFormulario()}
-							</div>
-						</div>
-					</div> : ''}
-			</>
-		);
-	}
+  render() {
+    const { state_form } = this.props
+    return (
+      <Container type={state_form} className="container col-md-10">
+        {this.ponerContenido()}
+        {this.ponerFormulario()}
+      </Container>
+    );
+  }
 }
 
-const mapStateToProps = (reducers) => {
-	return reducers.empresasReducer
-}
+const mapStateToProps = (reducers) => reducers.empresasReducer
 
 export default connect(mapStateToProps, empresasActions)(Empresas);

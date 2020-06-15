@@ -38,9 +38,9 @@ const Formulario = (props) => {
   const handleCambioUsuarioPassword = (event) => cambioUsuarioPassword(event.target.value);
 
   const handleTitle = (state_form) => {
-    if (state_form === 'crear') return <Title>Agrega usuario</Title>
-    if (state_form === 'editar') return <Title>Modificando usuario</Title>
-    if (state_form === 'borrar') return <Title>Borrar usuario</Title>
+    if (state_form === 'crear') return <Title>Agrega</Title>
+    if (state_form === 'editar') return <Title>Modificando</Title>
+    if (state_form === 'borrar') return <Title>Borrar</Title>
   }
 
   const guardar = () => {
